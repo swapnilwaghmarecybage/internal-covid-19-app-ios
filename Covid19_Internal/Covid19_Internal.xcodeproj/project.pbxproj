@@ -8,23 +8,55 @@
 
 /* Begin PBXBuildFile section */
 		1C5DC1172496016600814CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC1162496016600814CDB /* AppDelegate.swift */; };
-		1C5DC11B2496016600814CDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC11A2496016600814CDB /* ViewController.swift */; };
 		1C5DC11E2496016600814CDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5DC11C2496016600814CDB /* Main.storyboard */; };
 		1C5DC1212496016600814CDB /* Covid19_Internal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC11F2496016600814CDB /* Covid19_Internal.xcdatamodeld */; };
 		1C5DC1232496017400814CDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C5DC1222496017400814CDB /* Assets.xcassets */; };
 		1C5DC1262496017400814CDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5DC1242496017400814CDB /* LaunchScreen.storyboard */; };
+		1C5DC13224975B2300814CDB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC13124975B2300814CDB /* HomeViewController.swift */; };
+		1C5DC13424975B3800814CDB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC13324975B3800814CDB /* AboutViewController.swift */; };
+		1C5DC13624975BAF00814CDB /* BaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC13524975BAF00814CDB /* BaseTabBarViewController.swift */; };
+		1C5DC13A249772B100814CDB /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC138249772B100814CDB /* Request.swift */; };
+		1C5DC13B249772B100814CDB /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC139249772B100814CDB /* ConnectionManager.swift */; };
+		1C5DC13F249776CE00814CDB /* AllIndiaDistrictCountWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC13E249776CE00814CDB /* AllIndiaDistrictCountWebService.swift */; };
+		1C5DC14224977BCC00814CDB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC14124977BCC00814CDB /* Constants.swift */; };
+		1C5DC1442497822F00814CDB /* AllIndiaHistoricalDataWebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC1432497822F00814CDB /* AllIndiaHistoricalDataWebServices.swift */; };
+		1C5DC1462497824B00814CDB /* AllCountriesCountWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC1452497824B00814CDB /* AllCountriesCountWebService.swift */; };
+		1C5DC1492497827100814CDB /* WorldCountWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC1482497827100814CDB /* WorldCountWebService.swift */; };
+		1C5DC14C2497871400814CDB /* HomeTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC14B2497871400814CDB /* HomeTabViewModel.swift */; };
+		1C5DC14E2497876800814CDB /* AboutTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC14D2497876800814CDB /* AboutTabViewModel.swift */; };
+		1C5DC150249787C300814CDB /* BaseTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC14F249787C300814CDB /* BaseTabBarViewModel.swift */; };
+		1C5DC1562497B0F600814CDB /* WorldCountParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC1552497B0F600814CDB /* WorldCountParser.swift */; };
+		1C5DC1582497B11500814CDB /* AllCountriesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC1572497B11500814CDB /* AllCountriesParser.swift */; };
+		1C5DC15A2497B18D00814CDB /* AllIndiaHistoricalDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC1592497B18D00814CDB /* AllIndiaHistoricalDataParser.swift */; };
+		1C5DC15C2497B26F00814CDB /* AllDistrictsCountParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC15B2497B26F00814CDB /* AllDistrictsCountParser.swift */; };
 		EA87EBD7D47D3B0471343ECE /* Pods_Covid19_Internal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD04A4278DDF4578C908ACE /* Pods_Covid19_Internal.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1C5DC1132496016600814CDB /* Covid19_Internal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Covid19_Internal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C5DC1162496016600814CDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1C5DC11A2496016600814CDB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1C5DC11D2496016600814CDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1C5DC1202496016600814CDB /* Covid19_Internal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Covid19_Internal.xcdatamodel; sourceTree = "<group>"; };
 		1C5DC1222496017400814CDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C5DC1252496017400814CDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C5DC1272496017400814CDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C5DC13124975B2300814CDB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1C5DC13324975B3800814CDB /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		1C5DC13524975BAF00814CDB /* BaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewController.swift; sourceTree = "<group>"; };
+		1C5DC138249772B100814CDB /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		1C5DC139249772B100814CDB /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
+		1C5DC13E249776CE00814CDB /* AllIndiaDistrictCountWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllIndiaDistrictCountWebService.swift; sourceTree = "<group>"; };
+		1C5DC14124977BCC00814CDB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1C5DC1432497822F00814CDB /* AllIndiaHistoricalDataWebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllIndiaHistoricalDataWebServices.swift; sourceTree = "<group>"; };
+		1C5DC1452497824B00814CDB /* AllCountriesCountWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCountriesCountWebService.swift; sourceTree = "<group>"; };
+		1C5DC1482497827100814CDB /* WorldCountWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldCountWebService.swift; sourceTree = "<group>"; };
+		1C5DC14B2497871400814CDB /* HomeTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewModel.swift; sourceTree = "<group>"; };
+		1C5DC14D2497876800814CDB /* AboutTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTabViewModel.swift; sourceTree = "<group>"; };
+		1C5DC14F249787C300814CDB /* BaseTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewModel.swift; sourceTree = "<group>"; };
+		1C5DC1552497B0F600814CDB /* WorldCountParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldCountParser.swift; sourceTree = "<group>"; };
+		1C5DC1572497B11500814CDB /* AllCountriesParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCountriesParser.swift; sourceTree = "<group>"; };
+		1C5DC1592497B18D00814CDB /* AllIndiaHistoricalDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllIndiaHistoricalDataParser.swift; sourceTree = "<group>"; };
+		1C5DC15B2497B26F00814CDB /* AllDistrictsCountParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDistrictsCountParser.swift; sourceTree = "<group>"; };
 		3675AF071F47D07C6E96DB90 /* Pods-Covid19_Internal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19_Internal.debug.xcconfig"; path = "Target Support Files/Pods-Covid19_Internal/Pods-Covid19_Internal.debug.xcconfig"; sourceTree = "<group>"; };
 		4AD04A4278DDF4578C908ACE /* Pods_Covid19_Internal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid19_Internal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3C9502C65A74DB64D51D0C /* Pods-Covid19_Internal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19_Internal.release.xcconfig"; path = "Target Support Files/Pods-Covid19_Internal/Pods-Covid19_Internal.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,8 +95,10 @@
 		1C5DC1152496016600814CDB /* Covid19_Internal */ = {
 			isa = PBXGroup;
 			children = (
+				1C5DC14024977BAC00814CDB /* Utilities */,
+				1C5DC13C249773EB00814CDB /* Managers */,
+				1C5DC12D2497562300814CDB /* Layers */,
 				1C5DC1162496016600814CDB /* AppDelegate.swift */,
-				1C5DC11A2496016600814CDB /* ViewController.swift */,
 				1C5DC11C2496016600814CDB /* Main.storyboard */,
 				1C5DC1222496017400814CDB /* Assets.xcassets */,
 				1C5DC1242496017400814CDB /* LaunchScreen.storyboard */,
@@ -72,6 +106,84 @@
 				1C5DC11F2496016600814CDB /* Covid19_Internal.xcdatamodeld */,
 			);
 			path = Covid19_Internal;
+			sourceTree = "<group>";
+		};
+		1C5DC12D2497562300814CDB /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				1C5DC15124978B5400814CDB /* Parser */,
+				1C5DC14A249786E200814CDB /* ViewModels */,
+				1C5DC13D2497741100814CDB /* WebService */,
+				1C5DC12E2497564E00814CDB /* View Controllers */,
+			);
+			path = Layers;
+			sourceTree = "<group>";
+		};
+		1C5DC12E2497564E00814CDB /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1C5DC13124975B2300814CDB /* HomeViewController.swift */,
+				1C5DC13324975B3800814CDB /* AboutViewController.swift */,
+				1C5DC13524975BAF00814CDB /* BaseTabBarViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1C5DC1372497725F00814CDB /* Network Manager */ = {
+			isa = PBXGroup;
+			children = (
+				1C5DC139249772B100814CDB /* ConnectionManager.swift */,
+				1C5DC138249772B100814CDB /* Request.swift */,
+			);
+			path = "Network Manager";
+			sourceTree = "<group>";
+		};
+		1C5DC13C249773EB00814CDB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1C5DC1372497725F00814CDB /* Network Manager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		1C5DC13D2497741100814CDB /* WebService */ = {
+			isa = PBXGroup;
+			children = (
+				1C5DC13E249776CE00814CDB /* AllIndiaDistrictCountWebService.swift */,
+				1C5DC1432497822F00814CDB /* AllIndiaHistoricalDataWebServices.swift */,
+				1C5DC1452497824B00814CDB /* AllCountriesCountWebService.swift */,
+				1C5DC1482497827100814CDB /* WorldCountWebService.swift */,
+			);
+			path = WebService;
+			sourceTree = "<group>";
+		};
+		1C5DC14024977BAC00814CDB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1C5DC14124977BCC00814CDB /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		1C5DC14A249786E200814CDB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1C5DC14B2497871400814CDB /* HomeTabViewModel.swift */,
+				1C5DC14D2497876800814CDB /* AboutTabViewModel.swift */,
+				1C5DC14F249787C300814CDB /* BaseTabBarViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1C5DC15124978B5400814CDB /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				1C5DC1552497B0F600814CDB /* WorldCountParser.swift */,
+				1C5DC1572497B11500814CDB /* AllCountriesParser.swift */,
+				1C5DC1592497B18D00814CDB /* AllIndiaHistoricalDataParser.swift */,
+				1C5DC15B2497B26F00814CDB /* AllDistrictsCountParser.swift */,
+			);
+			path = Parser;
 			sourceTree = "<group>";
 		};
 		23990943723B0ACFCAB95F69 /* Frameworks */ = {
@@ -206,9 +318,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C5DC13F249776CE00814CDB /* AllIndiaDistrictCountWebService.swift in Sources */,
+				1C5DC13424975B3800814CDB /* AboutViewController.swift in Sources */,
+				1C5DC1442497822F00814CDB /* AllIndiaHistoricalDataWebServices.swift in Sources */,
+				1C5DC1462497824B00814CDB /* AllCountriesCountWebService.swift in Sources */,
+				1C5DC15A2497B18D00814CDB /* AllIndiaHistoricalDataParser.swift in Sources */,
+				1C5DC14E2497876800814CDB /* AboutTabViewModel.swift in Sources */,
+				1C5DC13A249772B100814CDB /* Request.swift in Sources */,
+				1C5DC13224975B2300814CDB /* HomeViewController.swift in Sources */,
+				1C5DC13B249772B100814CDB /* ConnectionManager.swift in Sources */,
+				1C5DC1492497827100814CDB /* WorldCountWebService.swift in Sources */,
+				1C5DC1582497B11500814CDB /* AllCountriesParser.swift in Sources */,
 				1C5DC1212496016600814CDB /* Covid19_Internal.xcdatamodeld in Sources */,
-				1C5DC11B2496016600814CDB /* ViewController.swift in Sources */,
+				1C5DC15C2497B26F00814CDB /* AllDistrictsCountParser.swift in Sources */,
+				1C5DC13624975BAF00814CDB /* BaseTabBarViewController.swift in Sources */,
+				1C5DC150249787C300814CDB /* BaseTabBarViewModel.swift in Sources */,
+				1C5DC1562497B0F600814CDB /* WorldCountParser.swift in Sources */,
+				1C5DC14C2497871400814CDB /* HomeTabViewModel.swift in Sources */,
 				1C5DC1172496016600814CDB /* AppDelegate.swift in Sources */,
+				1C5DC14224977BCC00814CDB /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

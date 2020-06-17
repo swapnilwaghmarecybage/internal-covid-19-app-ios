@@ -10,14 +10,24 @@ import Foundation
 
 struct WorldCountWebService {
     
-   static func callWorldCountWebService(completion:@escaping (Bool, Any?)->()) {
+   static func callWorldCountWebService(completion:@escaping (Bool, [WorldCountModel]?)->()) {
         
         let request = Request(withURL: API.world_count)
         request.successHandler = {( _ responseData : Data?, _ httpResponse : HTTPURLResponse?) -> Void in
-            WorldCountParser.parse { (worldData) in
-                completion(worldData != nil ?true:false ,worldData)
+           
+            if let _responseData = responseData {
+                do{
+                    if let arrayofWorldDictionary = try JSONSerialization.jsonObject(with: _responseData, options: .mutableContainers) as? [Dictionary<String, Any>]{
+                        WorldCountParser.parse(arrayOfWorldDataDictionaries: arrayofWorldDictionary) { (worldDataModelObject) in
+                            completion(worldDataModelObject != nil ?true:false ,worldDataModelObject)
+                        }
+                    }
+
+                } catch {
+                    print("Exception : ")
+                    completion(false, nil)
+                }
             }
-            
         }
         
         request.failureHandler = { (_ responseData : Data?, _ httpResponse: HTTPURLResponse?) -> Void in

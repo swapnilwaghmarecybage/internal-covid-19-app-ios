@@ -20,7 +20,7 @@ enum HttpMethod {
   struct API {
     static let district = "https://api.covid19india.org/state_district_wise.json"
     static let all_india_historical_data = "ttps://api.rootnet.in/covid19-in/stats/history"
-    static let all_countries = " https://disease.sh/v2/countries?yesterday=true&sort=cases&allowNull=false"
+    static let all_countries = "https://disease.sh/v2/countries?yesterday=true&sort=cases&allowNull=false"
     static let world_count = "https://covid-19.dataflowkit.com/v1"
     }
     

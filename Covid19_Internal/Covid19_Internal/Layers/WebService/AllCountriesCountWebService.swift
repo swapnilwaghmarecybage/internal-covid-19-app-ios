@@ -10,15 +10,25 @@ import Foundation
 
 struct AllCountriesCountWebService {
     
-   static func callCountriesWebService(completion:@escaping (Bool, [Any]?)->()) {
+   static func callCountriesWebService(completion:@escaping (Bool, [CountryModel]?)->()) {
         
         let request = Request(withURL: API.all_countries)
         request.successHandler = {( _ responseData : Data?, _ httpResponse : HTTPURLResponse?) -> Void in
   
-            AllCountriesParser.parse { (arrayAllCountriesModels) in
-                completion(arrayAllCountriesModels != nil ? true:false , arrayAllCountriesModels)
+            if let _responseData = responseData {
+                do{
+                    if let arrayOfcountriesDictionary = try JSONSerialization.jsonObject(with: _responseData, options: .mutableContainers) as? [Dictionary<String, Any>]{
+                        AllCountriesParser.parse(arrayOfCountriesDataDictionaries: arrayOfcountriesDictionary) { (arrayAllCountriesModels) in
+                            completion(arrayAllCountriesModels != nil ? true:false , arrayAllCountriesModels)
+                        }
+                    }
+                    
+
+                } catch {
+                    print("Exception : ")
+                    completion(false, nil)
+                }
             }
-            
         }
         
         request.failureHandler = { (_ responseData : Data?, _ httpResponse: HTTPURLResponse?) -> Void in

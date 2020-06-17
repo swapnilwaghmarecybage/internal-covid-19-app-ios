@@ -10,10 +10,25 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    private var viewModelHomeTab:HomeTabViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        viewModelHomeTab = HomeTabViewModel();
+        
+        viewModelHomeTab?.getWorldData(completion: { (success) in
+            if(success){
+                // refresh tableview
+                
+            }
+        })
+        
+        viewModelHomeTab?.getCountriesData(completion: { (success) in
+            if(success){
+            // refresh tableview
+            }
+        })
     }
     
 

@@ -14,16 +14,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         viewModelHomeTab = HomeTabViewModel();
-        
-        viewModelHomeTab?.getWorldData(completion: { (success) in
-            if(success){
-                // refresh tableview
-                
-            }
-        })
-        
         viewModelHomeTab?.getCountriesData(completion: { (success) in
             if(success){
             // refresh tableview

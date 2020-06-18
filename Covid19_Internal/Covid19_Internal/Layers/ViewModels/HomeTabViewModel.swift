@@ -8,10 +8,17 @@
 
 import Foundation
 
-struct HomeTabViewModel {
+class HomeTabViewModel {
     
-    init() {}
+    private var arrayCountries = [CountryModel]()
+    private var worldCount = CountryModel()
+    private var indiaCount = CountryModel()
     
+    
+    init() {
+        
+    }
+    /*
     func getWorldData(completion: @escaping (Bool)->()) {
     WorldCountWebService.callWorldCountWebService { (success, arrayWorldCountModel) in
            
@@ -36,20 +43,24 @@ struct HomeTabViewModel {
         completion(success)
         }
     }
-    
+    */
      func getCountriesData(completion: @escaping (Bool)->() ){
         AllCountriesCountWebService.callCountriesWebService { (success, arrayCountriesCountModel)  in
-            //arrayCountriesCountModel.map({$0.}).reduce(0, +)
-//            arrayCountriesCountModel?.map({ Int($0.totalCases)}).reduce(0, +)
-            let sumOfTotalCases =  arrayCountriesCountModel?.compactMap({$0.totalCases}).reduce(0, +)
-            let sumOfTotalDeaths =  arrayCountriesCountModel?.compactMap({$0.totalDeaths}).reduce(0, +)
-            let sumOfTotalActives =  arrayCountriesCountModel?.compactMap({$0.totalActive}).reduce(0, +)
-            let sumOfTotalRecovered =  arrayCountriesCountModel?.compactMap({$0.totalRecovered}).reduce(0, +)
-
-            print("Country API Total Cases: \(String(describing: sumOfTotalCases))")
-            print("Country API Total Deaths: \(String(describing: sumOfTotalDeaths))")
-            print("Country API Total Active: \(String(describing: sumOfTotalActives))")
-            print("Country API Total Recovered: \(String(describing: sumOfTotalRecovered))")
+          
+            self.worldCount.totalCases =  arrayCountriesCountModel?.compactMap({$0.totalCases}).reduce(0, +)
+            self.worldCount.totalDeaths =  arrayCountriesCountModel?.compactMap({$0.totalDeaths}).reduce(0, +)
+            self.worldCount.totalActive =  arrayCountriesCountModel?.compactMap({$0.totalActive}).reduce(0, +)
+            self.worldCount.totalRecovered =  arrayCountriesCountModel?.compactMap({$0.totalRecovered}).reduce(0, +)
+            self.worldCount.totalCritical =  arrayCountriesCountModel?.compactMap({$0.totalCritical}).reduce(0, +)
+            self.worldCount.countryName = "World"
+            self.worldCount.totalTests = arrayCountriesCountModel?.compactMap({$0.totalTests}).reduce(0, +)
+            self.worldCount.newCases = arrayCountriesCountModel?.compactMap({$0.newCases}).reduce(0, +)
+            self.worldCount.newDeaths = arrayCountriesCountModel?.compactMap({$0.newDeaths}).reduce(0, +)
+            self.worldCount.newRecovered = arrayCountriesCountModel?.compactMap({$0.newRecovered}).reduce(0, +)
+            
+            print("World Count: \(self.worldCount)")
+            
+            
 
             completion(success)
         }

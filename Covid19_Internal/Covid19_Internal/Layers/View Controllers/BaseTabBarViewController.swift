@@ -16,7 +16,7 @@ class BaseTabBarViewController: UITabBarController {
         self.tabBar.addTopBorderLayer(borderWidth: 0.5, borderColor: outlineColor)
         self.tabBar.addSeparatorBetweenTabBarItems(separatorWidth: 0.5, separatorColor: outlineColor)
         self.tabBar.updateTabBarTitlesAttributes()
-
+        
     }
 }
     

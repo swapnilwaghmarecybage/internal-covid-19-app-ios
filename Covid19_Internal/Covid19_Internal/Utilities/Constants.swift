@@ -15,6 +15,10 @@ enum HttpMethod {
     case delete // type is Delete
 }
 
+enum SegmentSelectionIndex:Int {
+    case India //0
+    case World //1
+}
 
 
   struct API {

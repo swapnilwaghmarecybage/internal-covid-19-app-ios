@@ -43,6 +43,8 @@ class NavigationVC: UINavigationController , UINavigationControllerDelegate {
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         self.navigationBar.addGestureRecognizer(tapGesture)
         tapGesture.cancelsTouchesInView = false
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

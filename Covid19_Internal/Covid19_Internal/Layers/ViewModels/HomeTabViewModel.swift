@@ -44,9 +44,9 @@ class HomeTabViewModel {
         }
     }
     */
-     func getCountriesData(completion: @escaping (Bool)->() ){
-        AllCountriesCountWebService.callCountriesWebService { (success, arrayCountriesCountModel)  in
-          
+    func getCountriesData(completion: @escaping (Bool)->() ){
+        AllCountriesCountWebService.callCountriesWebService { [weak self](success, arrayCountriesCountModel) in
+            guard let self = self else {return}
             self.worldCount.totalCases =  arrayCountriesCountModel?.compactMap({$0.totalCases}).reduce(0, +)
             self.worldCount.totalDeaths =  arrayCountriesCountModel?.compactMap({$0.totalDeaths}).reduce(0, +)
             self.worldCount.totalActive =  arrayCountriesCountModel?.compactMap({$0.totalActive}).reduce(0, +)
@@ -58,10 +58,16 @@ class HomeTabViewModel {
             self.worldCount.newDeaths = arrayCountriesCountModel?.compactMap({$0.newDeaths}).reduce(0, +)
             self.worldCount.newRecovered = arrayCountriesCountModel?.compactMap({$0.newRecovered}).reduce(0, +)
             
-            print("World Count: \(self.worldCount)")
+            if let receivedArray = arrayCountriesCountModel{
+                self.arrayCountries = receivedArray
+                 let filteredArray = receivedArray.filter({$0.countryName == "India"})
+                if  !filteredArray.isEmpty   {
+                    self.indiaCount = filteredArray[0]
+                }
+            }
             
             
-
+            
             completion(success)
         }
     }
@@ -78,4 +84,29 @@ class HomeTabViewModel {
         }
     }
     
+    func getWorldObjcect() -> CountryModel {
+        return worldCount
+    }
+    func getIndiaObject() -> CountryModel {
+        return indiaCount
+    }
+    
+    func getCountryAtIndex(index: IndexPath) -> CountryModel? {
+        if(index.section > 1 && arrayCountries.count > index.row){
+            return arrayCountries[index.row]
+        }
+        return nil
+    }
+    
+    func getStateAtIndex(index: IndexPath) -> Any? {
+        return nil
+    }
+    
+    func getCountriesCount() -> Int{
+        return arrayCountries.count
+    }
+    
+    func getStatesCount() -> Int{
+        return 0
+    }
 }

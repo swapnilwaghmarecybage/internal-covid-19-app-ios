@@ -153,6 +153,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="labelConfirmedCasesValue" destination="1Nd-UX-e3q" id="QM1-ZI-Kdh"/>
+                                            <outlet property="labelDeathsValue" destination="cAP-0E-yv9" id="grY-gk-udp"/>
+                                            <outlet property="labelRecoveredValue" destination="HZF-1n-CjF" id="Jb5-6d-zn1"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GraphTableViewCell" rowHeight="130" id="ENJ-Tv-QcK" customClass="GraphTableViewCell" customModule="Covid19_Internal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="158" width="414" height="130"/>
@@ -271,6 +276,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="labelChildNameValue" destination="elK-gE-7KO" id="hdf-j3-TP3"/>
+                                            <outlet property="labelConfirmedValue" destination="UOI-qH-8bA" id="JCx-oE-rHN"/>
+                                            <outlet property="labelDeceasedValue" destination="BDG-mS-e4L" id="akw-IK-1F8"/>
+                                            <outlet property="labelRecoveredValue" destination="Mta-JI-tIp" id="q9n-BH-nSc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

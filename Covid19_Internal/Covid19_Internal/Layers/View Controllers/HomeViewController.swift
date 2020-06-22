@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
 
     private var viewModelHomeTab:HomeTabViewModel?
     
@@ -21,11 +21,15 @@ class HomeViewController: UIViewController {
 
         dataSelectionSegmentControl.addBorder(borderWidth: 1.0, borderColor: UIColor.white, cornerRadius: 0.5)
         dataSelectionSegmentControl.updateTextColor()
+        //self.title = "Covid"
         
         viewModelHomeTab = HomeTabViewModel();
         viewModelHomeTab?.getCountriesData(completion: { (success) in
             if(success){
             // refresh tableview
+                DispatchQueue.main.async {
+                    self.tableViewCovidData.reloadData()
+                }
             }
         })
     }
@@ -48,7 +52,11 @@ extension HomeViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             if let parentCountCell = tableView.dequeueReusableCell(withIdentifier: "TotalCountTableViewCell", for: indexPath) as? TotalCountTableViewCell{
-             return parentCountCell
+                if let viewModel = self.viewModelHomeTab {
+                    let countryModelObject =  self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? viewModel.getIndiaObject():viewModel.getWorldObjcect()
+                    parentCountCell.configureCell(object: countryModelObject)
+                }
+                return parentCountCell
             }
             return UITableViewCell()
         case 1:
@@ -58,7 +66,11 @@ extension HomeViewController: UITableViewDataSource {
             return UITableViewCell()
         default:
             if let childCountCell = tableView.dequeueReusableCell(withIdentifier: "ChildCountTableViewCell", for: indexPath) as? ChildCountTableViewCell{
-             return childCountCell
+                if let viewModel = self.viewModelHomeTab {
+                   if let countryModelObject =  self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? viewModel.getStateAtIndex(index: indexPath) : viewModel.getCountryAtIndex(index: indexPath){
+                    childCountCell.configureCell(objectReceived: countryModelObject)}
+                }
+                return childCountCell
             }
             return UITableViewCell()
         }
@@ -72,7 +84,10 @@ extension HomeViewController: UITableViewDataSource {
         case 1:
             return 1
         default:
-            return 10
+            if let viewModel = self.viewModelHomeTab {
+                return  self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? viewModel.getStatesCount() : viewModel.getCountriesCount()
+            }
+            return 0
         }
     }
     

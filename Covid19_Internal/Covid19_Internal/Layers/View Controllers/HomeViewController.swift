@@ -67,8 +67,11 @@ extension HomeViewController: UITableViewDataSource {
         default:
             if let childCountCell = tableView.dequeueReusableCell(withIdentifier: "ChildCountTableViewCell", for: indexPath) as? ChildCountTableViewCell{
                 if let viewModel = self.viewModelHomeTab {
+                    
                    if let countryModelObject =  self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? viewModel.getStateAtIndex(index: indexPath) : viewModel.getCountryAtIndex(index: indexPath){
-                    childCountCell.configureCell(objectReceived: countryModelObject)}
+                    childCountCell.tag = indexPath.row
+                    childCountCell.configureCell(objectReceived: countryModelObject, indexPath: indexPath)
+                    }
                 }
                 return childCountCell
             }

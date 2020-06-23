@@ -13,8 +13,8 @@ class HomeTabViewModel {
     private var arrayCountries = [CountryModel]()
     private var worldCount = CountryModel()
     private var indiaCount = CountryModel()
-    
-    
+    private var indiaHistoryModel = IndiaHistoryModel()
+    private var todaysDataIndia = IndiaHistoryModel.DayWiseData()
     init() {
         
     }
@@ -65,24 +65,25 @@ class HomeTabViewModel {
                     self.indiaCount = filteredArray[0]
                 }
             }
-            
-            
-            
             completion(success)
         }
     }
         
      func getIndiaHistoricalData(completion: @escaping (Bool)->()) {
-        AllIndiaHistoricalDataWebServices.callAllIndiaHitoricalDataWebService { (success, arrayHistoricalDataModels) in
+        AllIndiaHistoricalDataWebServices.callAllIndiaHitoricalDataWebService {[weak self] (success, _indiaHistoryModel) in
+            guard let self = self else {return}
+            if let modelObject = _indiaHistoryModel{
+                self.indiaHistoryModel = modelObject
+                if let data = modelObject.data {
+                    if let _todaysData = data.filter({$0.day == Utilities.sharedInstance.getDateInStringFormat(requiredDateFormat: "YYYY-MM-dd")}).first {
+                        self.todaysDataIndia = _todaysData
+                    }
+                }
+            }
             completion(success)
         }
     }
     
-     func getAllDIctrictsData(completion: @escaping (Bool)->()){
-        AllIndiaDistrictCountWebService.callDistrictWebService { (success, arrayDistrictModels) in
-            completion(success)
-        }
-    }
     
     func getWorldObjcect() -> CountryModel {
         return worldCount
@@ -91,14 +92,10 @@ class HomeTabViewModel {
         return indiaCount
     }
     
-    func getCountryAtIndex(index: IndexPath) -> CountryModel? {
+    func getCountryAtIndex(index: IndexPath) -> Any? {
         if(index.section > 1 && arrayCountries.count > index.row){
             return arrayCountries[index.row]
         }
-        return nil
-    }
-    
-    func getStateAtIndex(index: IndexPath) -> Any? {
         return nil
     }
     
@@ -107,6 +104,13 @@ class HomeTabViewModel {
     }
     
     func getStatesCount() -> Int{
-        return 0
+        return self.todaysDataIndia.allRegions?.count ?? 0
+    }
+    
+    func getStateAtIndex(index:IndexPath) -> Any? {
+        if let allRegions = self.todaysDataIndia.allRegions , allRegions.count > index.row{
+            return allRegions[index.row]
+        }
+        return  nil
     }
 }

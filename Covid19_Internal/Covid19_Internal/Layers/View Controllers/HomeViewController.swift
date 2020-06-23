@@ -32,16 +32,19 @@ class HomeViewController: BaseViewController {
                 }
             }
         })
+        viewModelHomeTab?.getIndiaHistoricalData(completion: { (success) in
+            DispatchQueue.main.async {
+                self.tableViewCovidData.reloadData()
+            }
+        })
     }
     
     
     @IBAction func onClickSegmentControlOption(_ sender: UISegmentedControl) {
-        if (sender.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue){
-            print("India Selected")
-        } else {
-            print("World Selected")
-        }
         tableViewCovidData.reloadData()
+        let indexPath = NSIndexPath(row: 0, section: 0)
+        tableViewCovidData.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
+
     }
 
 }
@@ -54,7 +57,7 @@ extension HomeViewController: UITableViewDataSource {
             if let parentCountCell = tableView.dequeueReusableCell(withIdentifier: "TotalCountTableViewCell", for: indexPath) as? TotalCountTableViewCell{
                 if let viewModel = self.viewModelHomeTab {
                     let countryModelObject =  self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? viewModel.getIndiaObject():viewModel.getWorldObjcect()
-                    parentCountCell.configureCell(object: countryModelObject)
+                    parentCountCell.configureCell(objectReceived: countryModelObject)
                 }
                 return parentCountCell
             }
@@ -67,7 +70,6 @@ extension HomeViewController: UITableViewDataSource {
         default:
             if let childCountCell = tableView.dequeueReusableCell(withIdentifier: "ChildCountTableViewCell", for: indexPath) as? ChildCountTableViewCell{
                 if let viewModel = self.viewModelHomeTab {
-                    
                    if let countryModelObject =  self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? viewModel.getStateAtIndex(index: indexPath) : viewModel.getCountryAtIndex(index: indexPath){
                     childCountCell.tag = indexPath.row
                     childCountCell.configureCell(objectReceived: countryModelObject, indexPath: indexPath)
@@ -152,10 +154,8 @@ extension HomeViewController: UITableViewDataSource {
         default:
             let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 0))
             headerView.backgroundColor = self.view.backgroundColor
-
             return headerView
         }
-        
     }
  }
 
@@ -163,8 +163,11 @@ extension HomeViewController: UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        if(self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue){
-            
+        if(self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue && indexPath.section == 2){
+            if let districtVC =  self.storyboard?.instantiateViewController(withIdentifier: "DistrictInfoViewController") as? DistrictInfoViewController {
+                districtVC.stateData = self.viewModelHomeTab?.getStateAtIndex(index: indexPath) as? IndiaHistoryModel.DayWiseData.Region
+                self.navigationController?.pushViewController(districtVC, animated: true)
+            }
         }
     }
     

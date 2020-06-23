@@ -22,8 +22,6 @@ struct AllCountriesCountWebService {
                             completion(arrayAllCountriesModels != nil ? true:false , arrayAllCountriesModels)
                         }
                     }
-                    
-
                 } catch {
                     print("Exception : ")
                     completion(false, nil)

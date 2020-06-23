@@ -38,7 +38,7 @@ struct AllCountriesParser {
                 modelObject.recoveredPerOneMillion = object["recoveredPerOneMillion"] as? Int
                 modelObject.criticalPerOneMillion = object["criticalPerOneMillion"] as? Int
                 if let countryInfoDictionary = object["countryInfo"] as? [String: Any] {
-                modelObject.countryDetails = CountryDetails()
+                modelObject.countryDetails = CountryModel.CountryDetails()
                 modelObject.countryDetails?.id = countryInfoDictionary["_id"] as? Int
                 modelObject.countryDetails?.iso2 = countryInfoDictionary["iso2"] as? String
                 modelObject.countryDetails?.iso3 = countryInfoDictionary["iso3"] as? String

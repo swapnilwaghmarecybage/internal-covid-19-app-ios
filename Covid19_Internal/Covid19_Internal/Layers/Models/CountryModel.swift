@@ -34,15 +34,17 @@ struct CountryModel {
     var countryDetails:CountryDetails?
     init() {}
     
+    
+    struct CountryDetails {
+        
+        var id: Int?
+        var iso2: String?
+        var iso3: String?
+        var latitude: Int?
+        var longitude: Int?
+        var flag: String?
+        
+    }
 }
 
-struct CountryDetails {
-    
-    var id: Int?
-    var iso2: String?
-    var iso3: String?
-    var latitude: Int?
-    var longitude: Int?
-    var flag: String?
-    
-}
+

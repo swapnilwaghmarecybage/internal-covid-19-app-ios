@@ -658,6 +658,7 @@
                     <navigationItem key="navigationItem" id="rtC-Vu-cJe"/>
                     <connections>
                         <outlet property="labelStateName" destination="Bx7-bi-2SK" id="cig-RU-x89"/>
+                        <outlet property="tableViewDistrictData" destination="kma-QL-CZW" id="Rm4-SG-l8O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A8l-s8-eGI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

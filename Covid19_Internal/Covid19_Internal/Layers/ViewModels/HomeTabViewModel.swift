@@ -10,11 +10,11 @@ import Foundation
 
 class HomeTabViewModel {
     
-    private var arrayCountries = [CountryModel]()
-    private var worldCount = CountryModel()
-    private var indiaCount = CountryModel()
-    private var indiaHistoryModel = IndiaHistoryModel()
-    private var todaysDataIndia = IndiaHistoryModel.DayWiseData()
+    private var arrayCountries: [CountryModel]?
+    private var worldCount: CountryModel?
+    private var indiaCount: CountryModel?
+    private var indiaHistoryModel: IndiaHistoryModel?
+    private var todaysDataIndia: IndiaHistoryModel.DayWiseData?
     init() {
         
     }
@@ -46,17 +46,22 @@ class HomeTabViewModel {
     */
     func getCountriesData(completion: @escaping (Bool)->() ){
         AllCountriesCountWebService.callCountriesWebService { [weak self](success, arrayCountriesCountModel) in
-            guard let self = self else {return}
-            self.worldCount.totalCases =  arrayCountriesCountModel?.compactMap({$0.totalCases}).reduce(0, +)
-            self.worldCount.totalDeaths =  arrayCountriesCountModel?.compactMap({$0.totalDeaths}).reduce(0, +)
-            self.worldCount.totalActive =  arrayCountriesCountModel?.compactMap({$0.totalActive}).reduce(0, +)
-            self.worldCount.totalRecovered =  arrayCountriesCountModel?.compactMap({$0.totalRecovered}).reduce(0, +)
-            self.worldCount.totalCritical =  arrayCountriesCountModel?.compactMap({$0.totalCritical}).reduce(0, +)
-            self.worldCount.countryName = "World"
-            self.worldCount.totalTests = arrayCountriesCountModel?.compactMap({$0.totalTests}).reduce(0, +)
-            self.worldCount.newCases = arrayCountriesCountModel?.compactMap({$0.newCases}).reduce(0, +)
-            self.worldCount.newDeaths = arrayCountriesCountModel?.compactMap({$0.newDeaths}).reduce(0, +)
-            self.worldCount.newRecovered = arrayCountriesCountModel?.compactMap({$0.newRecovered}).reduce(0, +)
+           
+            guard let self = self, success == true else {
+                completion(false)
+                return
+            }
+            self.worldCount = CountryModel()
+            self.worldCount?.totalCases =  arrayCountriesCountModel?.compactMap({$0.totalCases}).reduce(0, +)
+            self.worldCount?.totalDeaths =  arrayCountriesCountModel?.compactMap({$0.totalDeaths}).reduce(0, +)
+            self.worldCount?.totalActive =  arrayCountriesCountModel?.compactMap({$0.totalActive}).reduce(0, +)
+            self.worldCount?.totalRecovered =  arrayCountriesCountModel?.compactMap({$0.totalRecovered}).reduce(0, +)
+            self.worldCount?.totalCritical =  arrayCountriesCountModel?.compactMap({$0.totalCritical}).reduce(0, +)
+            self.worldCount?.countryName = "World"
+            self.worldCount?.totalTests = arrayCountriesCountModel?.compactMap({$0.totalTests}).reduce(0, +)
+            self.worldCount?.newCases = arrayCountriesCountModel?.compactMap({$0.newCases}).reduce(0, +)
+            self.worldCount?.newDeaths = arrayCountriesCountModel?.compactMap({$0.newDeaths}).reduce(0, +)
+            self.worldCount?.newRecovered = arrayCountriesCountModel?.compactMap({$0.newRecovered}).reduce(0, +)
             
             if let receivedArray = arrayCountriesCountModel{
                 self.arrayCountries = receivedArray
@@ -65,13 +70,16 @@ class HomeTabViewModel {
                     self.indiaCount = filteredArray[0]
                 }
             }
-            completion(success)
+            completion(true)
         }
     }
         
      func getIndiaHistoricalData(completion: @escaping (Bool)->()) {
         AllIndiaHistoricalDataWebServices.callAllIndiaHitoricalDataWebService {[weak self] (success, _indiaHistoryModel) in
-            guard let self = self else {return}
+            guard let self = self , success == true else {
+                completion(false)
+                return
+            }
             if let modelObject = _indiaHistoryModel{
                 self.indiaHistoryModel = modelObject
                 if let data = modelObject.data {
@@ -80,35 +88,37 @@ class HomeTabViewModel {
                     }
                 }
             }
-            completion(success)
+            completion(true)
         }
     }
     
     
-    func getWorldObjcect() -> CountryModel {
-        return worldCount
+    func getWorldObjcect() -> CountryModel? {
+        return worldCount ?? nil
     }
-    func getIndiaObject() -> CountryModel {
-        return indiaCount
+    func getIndiaObject() -> CountryModel? {
+        return indiaCount ?? nil
     }
     
     func getCountryAtIndex(index: IndexPath) -> Any? {
-        if(index.section > 1 && arrayCountries.count > index.row){
-            return arrayCountries[index.row]
+        if let array = arrayCountries, array.count > index.row , index.section > 1 {
+            return array[index.row]
+
         }
+        
         return nil
     }
     
     func getCountriesCount() -> Int{
-        return arrayCountries.count
+        return arrayCountries?.count ?? 0
     }
     
     func getStatesCount() -> Int{
-        return self.todaysDataIndia.allRegions?.count ?? 0
+        return self.todaysDataIndia?.allRegions?.count ?? 0
     }
     
     func getStateAtIndex(index:IndexPath) -> Any? {
-        if let allRegions = self.todaysDataIndia.allRegions , allRegions.count > index.row{
+        if let allRegions = self.todaysDataIndia?.allRegions , allRegions.count > index.row{
             return allRegions[index.row]
         }
         return  nil

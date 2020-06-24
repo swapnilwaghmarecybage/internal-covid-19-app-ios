@@ -11,13 +11,26 @@ import UIKit
 class DistrictInfoViewController: BaseViewController {
     
     @IBOutlet weak var labelStateName: UILabel!
+    @IBOutlet weak var tableViewDistrictData: UITableView!
+
     
     var stateData: IndiaHistoryModel.DayWiseData.Region?
     var viewModelDistrict: DistrictViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateNavigationBar()
         viewModelDistrict = DistrictViewModel()
+        viewModelDistrict?.getAllDIctrictsData(completion: { (success) in
+            if(success){
+                DispatchQueue.main.async {
+                    self.tableViewDistrictData.reloadData()
+                }
+            }
+        })
         self.labelStateName.text = self.stateData?.loc ?? "--"
+    }
+    
+    func updateNavigationBar(){
         self.navigationItem.title = "State Details"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain , target: self, action: #selector(goBack))
         self.navigationItem.rightBarButtonItem = nil
@@ -50,8 +63,10 @@ extension DistrictInfoViewController: UITableViewDataSource {
            return UITableViewCell()
        default:
            if let childCountCell = tableView.dequeueReusableCell(withIdentifier: "ChildCountTableViewCell", for: indexPath) as? ChildCountTableViewCell{
-               if let viewModel = self.viewModelDistrict {
-                   childCountCell.configureCell(objectReceived: viewModel.getDistrictAtIndex(index: indexPath), indexPath: indexPath)
+            if let viewModel = self.viewModelDistrict,
+                let stateName = self.stateData?.loc,
+                let objectReceived = viewModel.getDistrictAtIndex(index: indexPath, forStateName: stateName){
+                childCountCell.configureCell(objectReceived: objectReceived, indexPath: indexPath)
                }
                return childCountCell
            }
@@ -67,8 +82,8 @@ extension DistrictInfoViewController: UITableViewDataSource {
        case 1:
            return 1
        default:
-           if let viewModel = self.viewModelDistrict {
-               return   viewModel.getDistrictCount()
+        if let viewModel = self.viewModelDistrict, let stateName = self.stateData?.loc {
+            return   viewModel.getDistrictCount(forState: stateName)
            }
            return 0
        }

@@ -56,8 +56,9 @@ extension HomeViewController: UITableViewDataSource {
         case 0:
             if let parentCountCell = tableView.dequeueReusableCell(withIdentifier: "TotalCountTableViewCell", for: indexPath) as? TotalCountTableViewCell{
                 if let viewModel = self.viewModelHomeTab {
-                    let countryModelObject =  self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? viewModel.getIndiaObject():viewModel.getWorldObjcect()
-                    parentCountCell.configureCell(objectReceived: countryModelObject)
+                    if let countryModelObject =  self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? viewModel.getIndiaObject():viewModel.getWorldObjcect(){
+                        parentCountCell.configureCell(objectReceived: countryModelObject)
+                    }
                 }
                 return parentCountCell
             }
@@ -69,11 +70,10 @@ extension HomeViewController: UITableViewDataSource {
             return UITableViewCell()
         default:
             if let childCountCell = tableView.dequeueReusableCell(withIdentifier: "ChildCountTableViewCell", for: indexPath) as? ChildCountTableViewCell{
-                if let viewModel = self.viewModelHomeTab {
-                   if let countryModelObject =  self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? viewModel.getStateAtIndex(index: indexPath) : viewModel.getCountryAtIndex(index: indexPath){
+                if let viewModel = self.viewModelHomeTab,
+                    let countryModelObject =  self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? viewModel.getStateAtIndex(index: indexPath) : viewModel.getCountryAtIndex(index: indexPath){
                     childCountCell.tag = indexPath.row
                     childCountCell.configureCell(objectReceived: countryModelObject, indexPath: indexPath)
-                    }
                 }
                 return childCountCell
             }

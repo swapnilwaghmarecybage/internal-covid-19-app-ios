@@ -50,13 +50,19 @@ class ChildCountTableViewCell: UITableViewCell {
             self.labelDeceasedValue.text = "\((object.deaths != nil) ? "\(object.deaths!)" : "--")"
             self.imageViewFlag.image = nil
             self.imageViewWidthConstrain.constant = 0
-        } else {
+        } else if (objectReceived is DistrictModel.District){
+            let object = objectReceived as! DistrictModel.District
+            self.labelChildNameValue.text = "\((object.districtName != nil) ? "\(object.districtName!)" : "--")"
+            self.labelConfirmedValue.text = "\((object.confirmed != nil) ? "\(object.confirmed!)" : "--")"
+            self.labelRecoveredValue.text = "\((object.recovered != nil) ? "\(object.recovered!)" : "--")"
+            self.labelDeceasedValue.text = "\((object.deceased != nil) ? "\(object.deceased!)" : "--")"
+        }
+        else {
             self.labelChildNameValue.text = ""
             self.labelConfirmedValue.text = ""
             self.labelRecoveredValue.text = ""
             self.labelDeceasedValue.text = ""
-            self.imageViewFlag.image = nil
-            self.imageViewWidthConstrain.constant = 0
+           
         }
     }
     

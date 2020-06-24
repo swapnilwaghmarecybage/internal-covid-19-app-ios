@@ -10,14 +10,27 @@ import Foundation
 
 struct AllIndiaDistrictCountWebService {
     
-   static func callDistrictWebService(completion:@escaping (Bool, [Any]?)->()) {
+   static func callDistrictWebService(completion:@escaping (Bool, [DistrictModel]?)->()) {
         
         let request = Request(withURL: API.district)
         request.successHandler = {( _ responseData : Data?, _ httpResponse : HTTPURLResponse?) -> Void in
-            AllDistrictsCountParser.parse { (arrayDictrictsModels) in
-                completion(arrayDictrictsModels != nil ? true : false, arrayDictrictsModels)
-            }
-        }
+            
+            if let _responseData = responseData {
+                         do{
+                            if let dictionaryOfDistrictData = try JSONSerialization.jsonObject(with: _responseData, options: .mutableContainers) as? [String: Any]{
+                                 
+                                AllDistrictsCountParser.parse(dictionaryOfAllStatesOfIndia: dictionaryOfDistrictData) { (arrayDictrictsModels) in
+                                     completion(arrayDictrictsModels != nil ? true : false, arrayDictrictsModels)
+                                 }
+                             }
+
+                         } catch {
+                             print("Exception : ")
+                             completion(false, nil)
+                         }
+                     }
+            
+                   }
         
         request.failureHandler = { (_ responseData : Data?, _ httpResponse: HTTPURLResponse?) -> Void in
             completion(false, nil)

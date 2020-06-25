@@ -58,6 +58,10 @@ extension DistrictInfoViewController: UITableViewDataSource {
            return UITableViewCell()
        case 1:
            if let graphCell = tableView.dequeueReusableCell(withIdentifier: "GraphTableViewCell", for: indexPath) as? GraphTableViewCell{
+            if let _stateData = self.stateData{
+                graphCell.configureCell(objectReceived: _stateData)
+
+            }
             return graphCell
            }
            return UITableViewCell()
@@ -94,7 +98,7 @@ extension DistrictInfoViewController: UITableViewDataSource {
        case 0 :
            return 130
        case 1:
-          return 130
+          return 250
        default:
           return 120
        }

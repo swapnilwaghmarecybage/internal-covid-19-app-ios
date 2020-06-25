@@ -515,19 +515,19 @@
                                             <outlet property="labelRecoveredValue" destination="fsM-4O-YDU" id="lsN-cC-Vdo"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GraphTableViewCell" rowHeight="130" id="L6g-uE-Oh3" customClass="GraphTableViewCell" customModule="Covid19_Internal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="158" width="414" height="130"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GraphTableViewCell" rowHeight="250" id="L6g-uE-Oh3" customClass="GraphTableViewCell" customModule="Covid19_Internal" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="158" width="414" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L6g-uE-Oh3" id="z7l-sS-btd">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HJC-Ly-zh9" userLabel="ViewInnerGraph">
-                                                    <rect key="frame" x="40" y="0.0" width="334" height="130"/>
-                                                    <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <rect key="frame" x="40" y="0.0" width="334" height="250"/>
+                                                    <color key="backgroundColor" red="0.098039215690000001" green="0.22352941179999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" red="0.098039215686274508" green="0.22352941176470587" blue="0.30980392156862746" alpha="0.0" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="HJC-Ly-zh9" firstAttribute="leading" secondItem="z7l-sS-btd" secondAttribute="leading" constant="40" id="31C-Yf-cmX"/>
                                                 <constraint firstItem="HJC-Ly-zh9" firstAttribute="top" secondItem="z7l-sS-btd" secondAttribute="top" id="ABG-Ya-zU9"/>
@@ -536,9 +536,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="graphView" destination="HJC-Ly-zh9" id="LJg-Hi-f0v"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChildCountTableViewCell" rowHeight="120" id="HU2-GH-O5w" customClass="ChildCountTableViewCell" customModule="Covid19_Internal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="288" width="414" height="120"/>
+                                        <rect key="frame" x="0.0" y="408" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HU2-GH-O5w" id="xH4-3p-9hs">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>

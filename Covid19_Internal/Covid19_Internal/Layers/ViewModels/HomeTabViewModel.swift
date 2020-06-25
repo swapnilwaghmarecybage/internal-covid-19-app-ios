@@ -83,8 +83,12 @@ class HomeTabViewModel {
             if let modelObject = _indiaHistoryModel{
                 self.indiaHistoryModel = modelObject
                 if let data = modelObject.data {
-                    if let _todaysData = data.filter({$0.day == Utilities.sharedInstance.getDateInStringFormat(requiredDateFormat: "YYYY-MM-dd")}).first {
+                   // if let _todaysData = data.filter({$0.day == Utilities.sharedInstance.getDateInStringFormat(requiredDateFormat: "YYYY-MM-dd")}).first {
+                    if let date = modelObject.lastRefreshed?.components(separatedBy: "T").first {
+                        if let _todaysData = data.filter({$0.day == date}).first {
                         self.todaysDataIndia = _todaysData
+                        }
+
                     }
                 }
             }

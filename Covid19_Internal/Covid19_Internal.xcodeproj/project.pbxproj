@@ -557,9 +557,9 @@
 			baseConfigurationReference = 3675AF071F47D07C6E96DB90 /* Pods-Covid19_Internal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Vungle, Inc.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mahesh Sammatashetti (LN6AQUJTEA)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = GTA9LK7P23;
+				DEVELOPMENT_TEAM = GZ7XBB3Z9B;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid19_Internal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -567,9 +567,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vungle.showcase;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cybage.Covid19-Internal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Showcase Application Provisioning Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "Cybage Wild Card";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -580,9 +580,9 @@
 			baseConfigurationReference = CD3C9502C65A74DB64D51D0C /* Pods-Covid19_Internal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Vungle, Inc.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mahesh Sammatashetti (LN6AQUJTEA)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = GTA9LK7P23;
+				DEVELOPMENT_TEAM = GZ7XBB3Z9B;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid19_Internal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -590,9 +590,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vungle.showcase;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cybage.Covid19-Internal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Showcase Application Provisioning Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "Cybage Wild Card";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

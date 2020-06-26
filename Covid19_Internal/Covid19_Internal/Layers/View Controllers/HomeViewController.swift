@@ -65,7 +65,14 @@ extension HomeViewController: UITableViewDataSource {
             return UITableViewCell()
         case 1:
             if let graphCell = tableView.dequeueReusableCell(withIdentifier: "GraphTableViewCell", for: indexPath) as? GraphTableViewCell{
-             return graphCell
+                
+                if let viewModel = self.viewModelHomeTab,
+                    let countryModelObject:Any =  self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? viewModel.getDataForIndiaBarChart() : viewModel.getWorldObjcect(){
+                    let chartType:CharType = self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? CharType.Bar: CharType.Pie
+                    graphCell.configureCell(objectReceived: countryModelObject, chartType: chartType)
+                
+                }
+                return graphCell
             }
             return UITableViewCell()
         default:
@@ -101,7 +108,7 @@ extension HomeViewController: UITableViewDataSource {
         case 0 :
             return 130
         case 1:
-           return 130
+           return 250
         default:
            return 120
         }

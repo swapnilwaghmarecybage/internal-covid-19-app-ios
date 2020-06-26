@@ -28,6 +28,7 @@ struct IndiaHistoryModel {
                var discharged: Int?
                var deaths: Int?
                var confirmedButLocationUnidentified: Int?
+            var totalActive:Int?
            }
 
            struct Region {
@@ -37,6 +38,7 @@ struct IndiaHistoryModel {
                var discharged: Int?
                var deaths: Int?
                var totalConfirmed: Int?
+                var totalActive: Int?
            }
     }
    

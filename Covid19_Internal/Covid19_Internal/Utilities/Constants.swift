@@ -19,7 +19,10 @@ enum SegmentSelectionIndex:Int {
     case India //0
     case World //1
 }
-
+enum CharType {
+    case Pie //0
+    case Bar //1
+}
 
   struct API {
     static let district = "https://api.covid19india.org/state_district_wise.json"
@@ -34,7 +37,7 @@ class Utilities {
     static let sharedInstance = Utilities()
     private init(){}
     
-    func getDateInStringFormat(requiredDateFormat:String ) -> String{
+    func getDateInStringFormat(requiredDateFormat:String ) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let myString = formatter.string(from: Date())
@@ -42,5 +45,12 @@ class Utilities {
         formatter.dateFormat = requiredDateFormat
         return formatter.string(from: yourDate!)
         
+    }
+    func convertDateToString(inputDate: Int) -> String {
+        let milisecond = inputDate
+        let dateVar = Date.init(timeIntervalSinceNow: TimeInterval(milisecond)/1000)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MMM"
+        return  dateFormatter.string(from: dateVar)
     }
 }

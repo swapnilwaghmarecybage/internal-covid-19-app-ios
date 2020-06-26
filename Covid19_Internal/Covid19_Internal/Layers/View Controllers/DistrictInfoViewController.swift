@@ -59,7 +59,7 @@ extension DistrictInfoViewController: UITableViewDataSource {
        case 1:
            if let graphCell = tableView.dequeueReusableCell(withIdentifier: "GraphTableViewCell", for: indexPath) as? GraphTableViewCell{
             if let _stateData = self.stateData{
-                graphCell.configureCell(objectReceived: _stateData)
+                graphCell.configureCell(objectReceived: _stateData, chartType: .Pie)
 
             }
             return graphCell

@@ -33,6 +33,7 @@ struct AllIndiaHistoricalDataParser {
                         summaryOfIndia.confirmedButLocationUnidentified = summaryObject["confirmedButLocationUnidentified"] as? Int
                         summaryOfIndia.deaths = summaryObject["deaths"] as? Int
                         summaryOfIndia.discharged = summaryObject["discharged"] as? Int
+                        summaryOfIndia.totalActive = (summaryOfIndia.total ?? 0) - (summaryOfIndia.discharged ?? 0)
                         modelObject.summaryAllIndia = summaryOfIndia
                     }
                 if let regionArray = object["regional"] as? [Dictionary<String, Any>], regionArray.count > 0 {
@@ -44,6 +45,8 @@ struct AllIndiaHistoricalDataParser {
                         regionObject.discharged = object["discharged"] as? Int
                         regionObject.deaths = object["deaths"] as? Int
                         regionObject.totalConfirmed = object["totalConfirmed"] as? Int
+                        regionObject.totalActive = (regionObject.totalConfirmed ?? 0) - (regionObject.discharged ?? 0)
+
                         return regionObject
                     }
                     modelObject.allRegions = regions.sorted(by: {$0.totalConfirmed ?? 0 > $1.totalConfirmed ?? 0})

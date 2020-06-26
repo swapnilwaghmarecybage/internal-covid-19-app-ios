@@ -78,4 +78,34 @@ struct ChartsLayer {
         
     }
     
+    
+    static func setLineChart(labels: [String], values: [Double], inputView: UIView){
+           var dataEntries: [ChartDataEntry] = []
+           
+           for i in 0..<values.count {
+               let dataEntry =  ChartDataEntry(x: Double(i), y: values[i])
+               dataEntries.append(dataEntry)
+           }
+           
+           let chartDataSet = LineChartDataSet(entries: dataEntries)
+           let chartData = LineChartData(dataSet: chartDataSet)
+           let lineChartView = LineChartView(frame: inputView.frame)
+           lineChartView.data = chartData
+           lineChartView.legend.enabled = false
+           lineChartView.chartDescription?.enabled = false
+           lineChartView.frame.origin = CGPoint.zero
+           lineChartView.frame.size = inputView.frame.size
+           chartDataSet.colors = [UIColor(red: 205/255, green: 92/255, blue: 92/255, alpha: 1.0)]
+           lineChartView.xAxis.labelPosition = .bottom
+           lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+           inputView.addSubview(lineChartView)
+           
+           lineChartView.translatesAutoresizingMaskIntoConstraints = false
+
+           inputView.addConstraint(NSLayoutConstraint(item: lineChartView, attribute: .trailing, relatedBy: .equal, toItem: inputView, attribute: .trailing, multiplier: 1, constant: 0))
+           inputView.addConstraint(NSLayoutConstraint(item: lineChartView, attribute: .leading, relatedBy: .equal, toItem: inputView, attribute: .leading, multiplier: 1, constant: 0))
+           inputView.addConstraint(NSLayoutConstraint(item: lineChartView, attribute: .top, relatedBy: .equal, toItem: inputView, attribute: .top, multiplier: 1, constant: 0))
+           inputView.addConstraint(NSLayoutConstraint(item: lineChartView, attribute: .bottom, relatedBy: .equal, toItem: inputView, attribute: .bottom, multiplier: 1, constant: 0))
+           
+       }
 }

@@ -45,6 +45,7 @@ class GraphTableViewCell: UITableViewCell {
                 self.graphView.subviews.forEach({ $0.removeFromSuperview() })
                  let object = objectReceived as! ([String], [Double], [Double], [Double], [Double])
                 ChartsLayer.setBarChart(labels: object.0, values: object.1, inputView: self.graphView)
+            
             }
             
         }

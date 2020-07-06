@@ -46,7 +46,7 @@ struct AllIndiaHistoricalDataParser {
                         regionObject.deaths = object["deaths"] as? Int
                         regionObject.totalConfirmed = object["totalConfirmed"] as? Int
                         regionObject.totalActive = (regionObject.totalConfirmed ?? 0) - (regionObject.discharged ?? 0)
-
+                        regionObject.day = modelObject.day
                         return regionObject
                     }
                     modelObject.allRegions = regions.sorted(by: {$0.totalConfirmed ?? 0 > $1.totalConfirmed ?? 0})

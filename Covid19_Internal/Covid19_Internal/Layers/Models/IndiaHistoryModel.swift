@@ -38,7 +38,8 @@ struct IndiaHistoryModel {
                var discharged: Int?
                var deaths: Int?
                var totalConfirmed: Int?
-                var totalActive: Int?
+               var totalActive: Int?
+                var day: String?
            }
     }
    

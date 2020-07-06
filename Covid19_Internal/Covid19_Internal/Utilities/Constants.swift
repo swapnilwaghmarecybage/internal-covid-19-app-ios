@@ -8,6 +8,14 @@
 
 import Foundation
 
+typealias BarGraphDataType = (labels: [String], valuesOfTotalConfirmed:[Double],
+                        valueOfTotalActive:[Double], valueOfTotalDeaths:[Double],
+                        valueOfTotalRecovered:[Double])
+
+typealias PieChartDataType = (labes: [String], values:[Double])
+
+
+
 enum HttpMethod {
     
     case get // type is Get
@@ -18,10 +26,6 @@ enum HttpMethod {
 enum SegmentSelectionIndex:Int {
     case India //0
     case World //1
-}
-enum CharType {
-    case Pie //0
-    case Bar //1
 }
 
   struct API {

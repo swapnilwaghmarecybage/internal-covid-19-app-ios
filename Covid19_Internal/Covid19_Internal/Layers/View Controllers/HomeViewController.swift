@@ -67,9 +67,8 @@ extension HomeViewController: UITableViewDataSource {
             if let graphCell = tableView.dequeueReusableCell(withIdentifier: "GraphTableViewCell", for: indexPath) as? GraphTableViewCell{
                 
                 if let viewModel = self.viewModelHomeTab,
-                    let countryModelObject:Any =  self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? viewModel.getDataForIndiaBarChart() : viewModel.getWorldObjcect(){
-                    let chartType:CharType = self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? CharType.Bar: CharType.Pie
-                    graphCell.configureCell(objectReceived: countryModelObject, chartType: chartType)
+                    let countryModelObject:Any =  self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? viewModel.getDataForIndiaBarChart() : viewModel.getDataForWorldPieChart(){
+                    graphCell.configureCell(objectReceived: countryModelObject)
                 
                 }
                 return graphCell
@@ -172,7 +171,9 @@ extension HomeViewController: UITableViewDelegate{
         tableView.deselectRow(at: indexPath, animated: false)
         if(self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue && indexPath.section == 2){
             if let districtVC =  self.storyboard?.instantiateViewController(withIdentifier: "DistrictInfoViewController") as? DistrictInfoViewController {
+                
                 districtVC.stateData = self.viewModelHomeTab?.getStateAtIndex(index: indexPath) as? IndiaHistoryModel.DayWiseData.Region
+                districtVC.stateHistoryData =  self.viewModelHomeTab?.getDataForStateHistoryBarChart(_stateName: districtVC.stateData?.loc)
                 self.navigationController?.pushViewController(districtVC, animated: true)
             }
         }

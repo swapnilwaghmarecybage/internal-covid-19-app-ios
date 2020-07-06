@@ -60,6 +60,7 @@ struct ChartsLayer {
         let chartData = BarChartData(dataSet: chartDataSet)
         let barChartView = BarChartView(frame: inputView.frame)
         barChartView.data = chartData
+        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values:labels)
         barChartView.legend.enabled = false
         barChartView.chartDescription?.enabled = false
         barChartView.frame.origin = CGPoint.zero

@@ -15,12 +15,22 @@ class DistrictInfoViewController: BaseViewController {
 
     
     var stateData: IndiaHistoryModel.DayWiseData.Region?
+    var stateHistoryData: [IndiaHistoryModel.DayWiseData.Region]?
     var viewModelDistrict: DistrictViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateNavigationBar()
-        viewModelDistrict = DistrictViewModel()
-        viewModelDistrict?.getAllDIctrictsData(completion: { (success) in
+        viewModelDistrict = DistrictViewModel(_statedata: self.stateData, _stateHistoryData: self.stateHistoryData,
+                                              completion:{ (success) in
+            if(success){
+                DispatchQueue.main.async {
+                    self.tableViewDistrictData.reloadData()
+                }
+            }
+        })
+        
+        viewModelDistrict?.getAllDistrictsData(completion: { (success) in
             if(success){
                 DispatchQueue.main.async {
                     self.tableViewDistrictData.reloadData()
@@ -46,57 +56,47 @@ class DistrictInfoViewController: BaseViewController {
 extension DistrictInfoViewController: UITableViewDataSource {
    
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
-       switch indexPath.section {
-       case 0:
-           if let parentCountCell = tableView.dequeueReusableCell(withIdentifier: "TotalCountTableViewCell", for: indexPath) as? TotalCountTableViewCell{
-               if let object = self.stateData {
-                parentCountCell.configureCell(objectReceived: object)
-               }
-               return parentCountCell
-           }
-           return UITableViewCell()
-       case 1:
-           if let graphCell = tableView.dequeueReusableCell(withIdentifier: "GraphTableViewCell", for: indexPath) as? GraphTableViewCell{
-            if let _stateData = self.stateData{
-                graphCell.configureCell(objectReceived: _stateData, chartType: .Pie)
-
-            }
-            return graphCell
-           }
-           return UITableViewCell()
-       default:
-           if let childCountCell = tableView.dequeueReusableCell(withIdentifier: "ChildCountTableViewCell", for: indexPath) as? ChildCountTableViewCell{
-            if let viewModel = self.viewModelDistrict,
-                let stateName = self.stateData?.loc,
-                let objectReceived = viewModel.getDistrictAtIndex(index: indexPath, forStateName: stateName){
-                childCountCell.configureCell(objectReceived: objectReceived, indexPath: indexPath)
-               }
-               return childCountCell
-           }
-           return UITableViewCell()
-       }
+    if let _viewModel = self.viewModelDistrict {
+        switch indexPath.section {
+              case 0:
+               
+               if let graphCell = tableView.dequeueReusableCell(withIdentifier: "GraphTableViewCell", for: indexPath) as? GraphTableViewCell{
+                       graphCell.configureCell(objectReceived: _viewModel.getPieChartDataForState())
+                          return graphCell
+                         }
+                         return UITableViewCell()
+               
+               case 1:
+                  if let graphCell = tableView.dequeueReusableCell(withIdentifier: "GraphTableViewCell", for: indexPath) as? GraphTableViewCell{
+                       graphCell.configureCell(objectReceived: _viewModel.getBarChartDataForState())
+                       return graphCell
+                  }
+                  return UITableViewCell()
+              default:
+                  if let childCountCell = tableView.dequeueReusableCell(withIdentifier: "ChildCountTableViewCell", for: indexPath) as? ChildCountTableViewCell,
+                    let objectReceived = _viewModel.getDistrictAtIndex(index: indexPath){
+                       childCountCell.configureCell(objectReceived: objectReceived, indexPath: indexPath)
+                        return childCountCell
+                  }
+                  return UITableViewCell()
+              }
+    }
+    return UITableViewCell()
+      
    }
    
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       
-       switch section {
-       case 0:
-           return 1
-       case 1:
-           return 1
-       default:
-        if let viewModel = self.viewModelDistrict, let stateName = self.stateData?.loc {
-            return   viewModel.getDistrictCount(forState: stateName)
-           }
-           return 0
-       }
+       if let viewModel = self.viewModelDistrict{
+        return viewModel.numberOfRowsAtIndexPath(section: section)
+        }
+    return 0
    }
    
    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
        switch indexPath.section {
        case 0 :
-           return 130
+           return 250
        case 1:
           return 250
        default:

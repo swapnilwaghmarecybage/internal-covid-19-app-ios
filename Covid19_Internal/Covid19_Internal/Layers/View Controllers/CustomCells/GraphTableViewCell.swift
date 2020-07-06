@@ -10,45 +10,32 @@ import UIKit
 
 class GraphTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var graphView: UIView!
+    @IBOutlet weak var pieChartView: UIView!
+    @IBOutlet weak var barChartView: UIView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    func configureCell(objectReceived:Any, chartType:CharType) {
-        if(objectReceived is IndiaHistoryModel.DayWiseData.Region){
-           let object = objectReceived as! IndiaHistoryModel.DayWiseData.Region
-            if(chartType == .Pie){
-                if let deaths = object.deaths, let recovered = object.discharged, let confirmed = object.totalConfirmed{
-                    let labels = ["Deaths","Recovered", "Acive"]
-                    let values = [Double(deaths),Double(recovered),Double(confirmed - recovered)]
-                    ChartsLayer.setPieChart(labels: labels, values: values, inputView: self.graphView)
-                }
-            }
-        } else if(objectReceived is CountryModel) {
-           let object = objectReceived as! CountryModel
-            if(chartType == .Pie){
-                self.graphView.subviews.forEach({ $0.removeFromSuperview() })
-
-                if let deaths = object.totalDeaths, let recovered = object.totalRecovered, let active = object.totalActive{
-                    let labels = ["Deaths","Recovered", "Acive"]
-                    let values = [Double(deaths),Double(recovered),Double(active)]
-                    ChartsLayer.setPieChart(labels: labels, values: values, inputView: self.graphView)
-                }
-            } else {
-                self.graphView.subviews.forEach({ $0.removeFromSuperview() })
-                
-            }
-        } else if (objectReceived is ([String], [Double], [Double], [Double], [Double])){
-            if(chartType == .Bar){
-                self.graphView.subviews.forEach({ $0.removeFromSuperview() })
-                 let object = objectReceived as! ([String], [Double], [Double], [Double], [Double])
-                ChartsLayer.setBarChart(labels: object.0, values: object.1, inputView: self.graphView)
-            
-            }
+    func configureCell(objectReceived:Any) {
+        
+        if(objectReceived is PieChartDataType) {
+            let object = objectReceived as! PieChartDataType
+            self.barChartView.isHidden = true
+            self.pieChartView.isHidden = false
+            ChartsLayer.setPieChart(labels: object.0, values: object.1, inputView: self.pieChartView)
             
         }
+        if (objectReceived is BarGraphDataType){
+            let object = objectReceived as! BarGraphDataType
+            self.barChartView.isHidden = false
+            self.pieChartView.isHidden = true
+
+            ChartsLayer.setBarChart(labels: object.0, values: object.1, inputView: self.barChartView)
+        }
+        
+        
     }
     
     

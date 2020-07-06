@@ -83,11 +83,11 @@ class HomeTabViewModel {
             if let modelObject = _indiaHistoryModel{
                 self.indiaHistoryModel = modelObject
                 if let data = modelObject.data {
+                    
                     if let date = modelObject.lastRefreshed?.components(separatedBy: "T").first {
                         if let _todaysData = data.filter({$0.day == date}).first {
                         self.todaysDataIndia = _todaysData
                         }
-
                     }
                 }
             }
@@ -99,6 +99,18 @@ class HomeTabViewModel {
     func getWorldObjcect() -> CountryModel? {
         return worldCount ?? nil
     }
+    
+    func getDataForWorldPieChart() -> PieChartDataType {
+        if let object = self.worldCount, let deaths = object.totalDeaths, let recovered = object.totalRecovered, let active = object.totalActive{
+            let labels = ["Deaths","Recovered", "Acive"]
+            let values = [Double(deaths),Double(recovered),Double(active)]
+            return (labels, values)
+        }
+        return ([],[])
+    }
+    
+
+    
     func getIndiaObject() -> CountryModel? {
         return indiaCount ?? nil
     }
@@ -127,15 +139,33 @@ class HomeTabViewModel {
         return  nil
     }
     
-    func getDataForIndiaBarChart() -> (labels: [String], valuesOfTotalConfirmed:[Double],
-        valueOfTotalActive:[Double], valueOfTotalDeaths:[Double], valueOfTotalRecovered:[Double]) {
-      let allDates = self.indiaHistoryModel?.data?.compactMap({$0.day ?? "" }) ?? []
+    func getDataForIndiaBarChart() -> BarGraphDataType{
+            
+        let allDates = self.indiaHistoryModel?.data?.compactMap({$0.day ?? ""  }) ?? []
        let allConfirmed = self.indiaHistoryModel?.data?.compactMap({Double($0.summaryAllIndia?.total ?? 0)}) ?? []
         let allActive = self.indiaHistoryModel?.data?.compactMap({Double($0.summaryAllIndia?.totalActive ?? 0)}) ?? []
         let allDeaths = self.indiaHistoryModel?.data?.compactMap({Double($0.summaryAllIndia?.total ?? 0)}) ?? []
         let allRecovered = self.indiaHistoryModel?.data?.compactMap({Double($0.summaryAllIndia?.discharged ?? 0)}) ?? []
             return (allDates, allConfirmed, allActive, allDeaths, allRecovered)
            
+    }
+    
+    
+    func getDataForStateHistoryBarChart(_stateName: String?) -> [IndiaHistoryModel.DayWiseData.Region]?{
+       
+        guard let stateName = _stateName  else {
+            return nil
+        }
+        
+        let  all_regions = self.indiaHistoryModel?.data?.compactMap({$0.allRegions?.compactMap({ (region:IndiaHistoryModel.DayWiseData.Region) -> IndiaHistoryModel.DayWiseData.Region? in
+            
+            if let location = region.loc, location.elementsEqual(stateName){
+                return region
+            }
+            return nil
+            })}).flatMap({$0})
+        
+        return all_regions
     }
     
 }

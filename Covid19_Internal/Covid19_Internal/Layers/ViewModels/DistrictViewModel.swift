@@ -12,7 +12,7 @@ class DistrictViewModel {
     private var alldistricts: [DistrictModel]?
     private var stateData: IndiaHistoryModel.DayWiseData.Region?
     private var stateHistoryData: BarGraphDataType = ([],[],[],[],[])
-    private var stateCountData: PieChartDataType = ([],[])
+    private var stateCountData: PieChartDataType = ([],[],false)
     
     init(_statedata:IndiaHistoryModel.DayWiseData.Region?,
          _stateHistoryData:[IndiaHistoryModel.DayWiseData.Region]?,
@@ -60,16 +60,14 @@ class DistrictViewModel {
     
      private func getDataForStatePieChart(stateData: IndiaHistoryModel.DayWiseData.Region?) -> PieChartDataType {
         guard let object = stateData else {
-           return ([],[])
+           return ([],[], false)
         }
         let deaths = object.deaths ?? 0
         let recovered = object.discharged ?? 0
         let active = object.totalActive ?? 0
-        let labels = ["Deaths","Recovered", "Acive"]
-        let values = [Double(deaths),Double(recovered),Double(active)]
-            return (labels, values)
-        
-        
+        let labels = [BarName.active.rawValue,BarName.receovered.rawValue,BarName.deceased.rawValue]
+        let values = [Double(active),Double(recovered),Double(deaths)]
+            return (labels, values, false)
     }
     
     private func getDataForStateBarChart(_stateHistoryData:[IndiaHistoryModel.DayWiseData.Region]?) -> BarGraphDataType {

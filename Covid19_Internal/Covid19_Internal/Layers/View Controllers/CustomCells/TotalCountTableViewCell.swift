@@ -14,7 +14,7 @@ class TotalCountTableViewCell: UITableViewCell {
     @IBOutlet weak var labelConfirmedCasesValue: UILabel!
     @IBOutlet weak var labelRecoveredValue: UILabel!
     @IBOutlet weak var labelDeathsValue: UILabel!
-    
+    @IBOutlet weak var viewInnerTotalCount: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,6 +27,8 @@ class TotalCountTableViewCell: UITableViewCell {
     }
     
     func configureCell(objectReceived: Any) {
+        self.viewInnerTotalCount.layer.cornerRadius = 10
+        self.viewInnerTotalCount.backgroundColor = Theme.highlightedColor
         if(objectReceived is CountryModel){
             let object = objectReceived as! CountryModel
             self.labelConfirmedCasesValue.text =  "\((object.totalCases != nil) ? "\(object.totalCases!)" : "--")   (+\((object.newCases != nil) ? "\(object.newCases!)" : "--"))"
@@ -37,8 +39,10 @@ class TotalCountTableViewCell: UITableViewCell {
             self.labelConfirmedCasesValue.text =  "\((object.totalConfirmed != nil) ? "\(object.totalConfirmed!)" : "--")"
             self.labelRecoveredValue.text = "\((object.discharged != nil) ? "\(object.discharged!)" : "--")"
             self.labelDeathsValue.text = "\((object.deaths != nil) ? "\(object.deaths!)" : "--")"
-
         }
+        self.labelDeathsValue.textColor = BarColors.deceasedColor
+        self.labelRecoveredValue.textColor = BarColors.recoveredColor
+        self.labelConfirmedCasesValue.textColor = BarColors.confirmedColor
     }
 
 }

@@ -16,8 +16,8 @@ class ChildCountTableViewCell: UITableViewCell {
     @IBOutlet weak var labelRecoveredValue: UILabel!
     @IBOutlet weak var labelConfirmedValue: UILabel!
     @IBOutlet weak var imageViewFlag: UIImageView!
-    
     @IBOutlet weak var imageViewWidthConstrain: NSLayoutConstraint!
+    @IBOutlet weak var viewInnerChild: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,12 +26,12 @@ class ChildCountTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     
     func configureCell(objectReceived:Any, indexPath: IndexPath){
+        self.viewInnerChild.layer.cornerRadius = 10
+        self.viewInnerChild.backgroundColor = Theme.highlightedColor
         if (objectReceived is CountryModel) {
         let object = objectReceived as! CountryModel
             self.labelChildNameValue.text = "\((object.countryName != nil) ? "\(object.countryName!)" : "--")"
@@ -64,6 +64,10 @@ class ChildCountTableViewCell: UITableViewCell {
             self.labelDeceasedValue.text = ""
            
         }
+        
+        self.labelConfirmedValue.textColor = BarColors.confirmedColor
+        self.labelRecoveredValue.textColor = BarColors.recoveredColor
+        self.labelDeceasedValue.textColor = BarColors.deceasedColor
     }
     
 }

@@ -12,6 +12,8 @@ class GraphTableViewCell: UITableViewCell {
 
     @IBOutlet weak var pieChartView: UIView!
     @IBOutlet weak var barChartView: UIView!
+    @IBOutlet weak var barChartViewContainer: UIView!
+    @IBOutlet weak var radioButtonsContainer: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,20 +21,64 @@ class GraphTableViewCell: UITableViewCell {
     }
 
     func configureCell(objectReceived:Any) {
-        
+        self.pieChartView.layer.cornerRadius = 10
+        self.barChartViewContainer.layer.cornerRadius = 10
+        self.pieChartView.backgroundColor = Theme.highlightedColor
+        self.barChartViewContainer.backgroundColor = Theme.highlightedColor
+
         if(objectReceived is PieChartDataType) {
             let object = objectReceived as! PieChartDataType
-            self.barChartView.isHidden = true
+            self.barChartViewContainer.isHidden = true
             self.pieChartView.isHidden = false
-            ChartsLayer.setPieChart(labels: object.0, values: object.1, inputView: self.pieChartView)
+            ChartsLayer.setPieChart(labels: object.0, values: object.1, inputView: self.pieChartView, shouldShowPercentage: object.shouldShowPercentage)
             
         }
         if (objectReceived is BarGraphDataType){
             let object = objectReceived as! BarGraphDataType
-            self.barChartView.isHidden = false
+            if (object.labels.count == 0){
+                return
+            }
+            self.barChartViewContainer.isHidden = false
             self.pieChartView.isHidden = true
+            
+            if self.radioButtonsContainer.subviews.filter({ (subview) -> Bool in
+                if subview.tag == 999{
+                    return true
+                }
+                return false
+                }).count > 0 {
+                return
+            }
+            let views = Bundle.main.loadNibNamed("RadioControlView", owner: nil, options: nil)
+                   
+            if let radioButtonView = views?[1] as? RadioButtonView {
+                radioButtonView.configure(_barGraphDetails: object)
+                
+                radioButtonView.showDeceased = {
+                    (_ labels: [String], _ deceased: [Double], barColor: UIColor, barName: String, barTag: Int) in
+                    ChartsLayer.setBarChart(labels: labels, values: deceased, inputView: self.barChartView, barColor: barColor,barName: barName, barTag: barTag)
+                }
+                
+                radioButtonView.showActive = {
+                    (_ labels: [String], _ active: [Double], barColor: UIColor, barName: String, barTag: Int) in
+                    ChartsLayer.setBarChart(labels: labels, values: active, inputView: self.barChartView, barColor: barColor,barName: barName, barTag:barTag)
 
-            ChartsLayer.setBarChart(labels: object.0, values: object.1, inputView: self.barChartView)
+                }
+                
+                radioButtonView.showConfirmed = {
+                    (_ labels: [String], _ confirmed: [Double], barColor: UIColor, barName: String, barTag: Int) in
+                    ChartsLayer.setBarChart(labels: labels, values: confirmed, inputView: self.barChartView, barColor: barColor,barName: barName,barTag:barTag)
+                }
+                
+                radioButtonView.showRecovered = {
+                    (_ labels: [String], _ recovered: [Double], barColor: UIColor, barName: String, barTag: Int) in
+                    ChartsLayer.setBarChart(labels: labels, values: recovered, inputView: self.barChartView, barColor: barColor,barName: barName, barTag:barTag)
+                }
+                radioButtonView.showDefaultGraphofConfirmed()
+                self.radioButtonsContainer.addSubview(radioButtonView)
+                
+            }
+                 
         }
         
         

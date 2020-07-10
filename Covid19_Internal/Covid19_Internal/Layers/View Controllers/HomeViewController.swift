@@ -18,10 +18,17 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        dataSelectionSegmentControl.addBorder(borderWidth: 1.0, borderColor: UIColor.white, cornerRadius: 0.5)
+        
+        self.view.backgroundColor = Theme.backgroundColor
+        dataSelectionSegmentControl.addBorder(borderWidth: 1.0, borderColor: Theme.labelColor, cornerRadius: 0.5)
+        if #available(iOS 13.0, *) {
+            dataSelectionSegmentControl.selectedSegmentTintColor = Theme.highlightedColor
+        } else {
+            // Fallback on earlier versions
+            dataSelectionSegmentControl.tintColor = Theme.highlightedColor
+        }
+        dataSelectionSegmentControl.backgroundColor = Theme.backgroundColor
         dataSelectionSegmentControl.updateTextColor()
-        //self.title = "Covid"
         
         viewModelHomeTab = HomeTabViewModel();
         viewModelHomeTab?.getCountriesData(completion: { (success) in
@@ -107,7 +114,7 @@ extension HomeViewController: UITableViewDataSource {
         case 0 :
             return 130
         case 1:
-           return 250
+            return  250 //self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? 250 : 250
         default:
            return 120
         }
@@ -153,7 +160,7 @@ extension HomeViewController: UITableViewDataSource {
         }
         
         label.font = UIFont.systemFont(ofSize: 20, weight: .semibold) // my custom font
-        label.textColor = UIColor.white // my custom colour
+        label.textColor = Theme.labelColor // my custom colour
         headerView.addSubview(label)
         return headerView
 

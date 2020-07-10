@@ -19,9 +19,9 @@ extension UISegmentedControl {
     
     func updateTextColor() {
         let selectedTextAttribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight:.semibold),
-                                        NSAttributedString.Key.foregroundColor: UIColor.white]
+                                     NSAttributedString.Key.foregroundColor: Theme.labelColor]
         let normalTextAttribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20.0),
-                                           NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+                                   NSAttributedString.Key.foregroundColor: Theme.unselectedColor]
 
         self.setTitleTextAttributes(selectedTextAttribute, for: .selected)
         self.setTitleTextAttributes(normalTextAttribute, for: .normal)

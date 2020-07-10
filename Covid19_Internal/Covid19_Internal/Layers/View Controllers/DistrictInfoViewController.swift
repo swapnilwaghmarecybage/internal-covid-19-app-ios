@@ -20,6 +20,9 @@ class DistrictInfoViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = Theme.backgroundColor
+        
         updateNavigationBar()
         viewModelDistrict = DistrictViewModel(_statedata: self.stateData, _stateHistoryData: self.stateHistoryData,
                                               completion:{ (success) in
@@ -43,6 +46,7 @@ class DistrictInfoViewController: BaseViewController {
     func updateNavigationBar(){
         self.navigationItem.title = "State Details"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain , target: self, action: #selector(goBack))
+        self.navigationItem.leftBarButtonItem?.tintColor = Theme.labelColor
         self.navigationItem.rightBarButtonItem = nil
     }
     
@@ -111,7 +115,7 @@ extension DistrictInfoViewController: UITableViewDataSource {
    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
        switch section {
        case 0:
-           return 20
+           return 0
        case 1:
            return 30
        case 2:
@@ -139,7 +143,7 @@ extension DistrictInfoViewController: UITableViewDataSource {
        label.frame = CGRect.init(x: 40, y: 10, width: headerView.frame.width-40, height: headerView.frame.height - 20 )
        label.text = "All Districts"
        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold) // my custom font
-       label.textColor = UIColor.white // my custom colour
+       label.textColor = Theme.labelColor // my custom colour
        headerView.addSubview(label)
        return headerView
 

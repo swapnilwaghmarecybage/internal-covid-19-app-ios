@@ -15,7 +15,7 @@
                     <view key="view" contentMode="scaleToFill" id="0iD-T5-kfM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.1450980392" green="0.29411764709999999" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.23529411764705882" green="0.39215686274509803" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="XMd-Go-a5c"/>
                     </view>
                     <navigationItem key="navigationItem" id="eMf-ol-abw"/>
@@ -34,7 +34,7 @@
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UhD-tu-ZSN">
                                 <rect key="frame" x="60" y="113" width="294" height="46"/>
-                                <color key="backgroundColor" red="0.14509803921568626" green="0.29411764705882354" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.23529411764705882" green="0.39215686274509803" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="plG-VR-KPR"/>
                                 </constraints>
@@ -43,7 +43,7 @@
                                     <segment title="World"/>
                                 </segments>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="selectedSegmentTintColor" red="0.21176470588235294" green="0.43137254901960786" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="selectedSegmentTintColor" red="0.098039215686274508" green="0.22352941176470587" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="onClickSegmentControlOption:" destination="3MN-Fa-ojC" eventType="valueChanged" id="0Jr-cZ-TkK"/>
                                 </connections>
@@ -159,6 +159,7 @@
                                             <outlet property="labelConfirmedCasesValue" destination="1Nd-UX-e3q" id="QM1-ZI-Kdh"/>
                                             <outlet property="labelDeathsValue" destination="cAP-0E-yv9" id="grY-gk-udp"/>
                                             <outlet property="labelRecoveredValue" destination="HZF-1n-CjF" id="Jb5-6d-zn1"/>
+                                            <outlet property="viewInnerTotalCount" destination="StA-ZK-Yld" id="Boy-FP-HSP"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GraphTableViewCell" rowHeight="250" id="ENJ-Tv-QcK" customClass="GraphTableViewCell" customModule="Covid19_Internal" customModuleProvider="target">
@@ -168,28 +169,55 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2S-Rs-jc9" userLabel="ViewPieChart">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2S-Rs-jc9" userLabel="ViewPieChart">
                                                     <rect key="frame" x="40" y="0.0" width="334" height="250"/>
                                                     <color key="backgroundColor" red="0.098039215690000001" green="0.22352941179999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZEN-Xm-lFF" userLabel="ViewBarChart">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEN-Xm-lFF" userLabel="ViewBarChartContainer">
                                                     <rect key="frame" x="40" y="0.0" width="334" height="250"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igH-2R-3gu" userLabel="ViewbarControllers">
+                                                            <rect key="frame" x="0.0" y="215" width="334" height="35"/>
+                                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="35" id="OqO-Gz-dCT"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzp-J5-GrQ" userLabel="ViewBarChart">
+                                                            <rect key="frame" x="0.0" y="0.0" width="334" height="215"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
+                                                    </subviews>
                                                     <color key="backgroundColor" red="0.098039215690000001" green="0.22352941179999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="igH-2R-3gu" firstAttribute="top" secondItem="hzp-J5-GrQ" secondAttribute="bottom" id="4EK-gh-cun"/>
+                                                        <constraint firstAttribute="trailing" secondItem="igH-2R-3gu" secondAttribute="trailing" id="MFx-XC-JWT"/>
+                                                        <constraint firstItem="hzp-J5-GrQ" firstAttribute="top" secondItem="ZEN-Xm-lFF" secondAttribute="top" id="Ttr-Xu-w6x"/>
+                                                        <constraint firstItem="hzp-J5-GrQ" firstAttribute="leading" secondItem="ZEN-Xm-lFF" secondAttribute="leading" id="VOB-Qs-ZI4"/>
+                                                        <constraint firstItem="igH-2R-3gu" firstAttribute="leading" secondItem="ZEN-Xm-lFF" secondAttribute="leading" id="b7x-LE-rXJ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="hzp-J5-GrQ" secondAttribute="trailing" id="mth-jH-SyX"/>
+                                                        <constraint firstAttribute="bottom" secondItem="igH-2R-3gu" secondAttribute="bottom" id="y0m-YN-27R"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="M2S-Rs-jc9" firstAttribute="top" secondItem="dzF-aa-Tvw" secondAttribute="top" id="96w-sG-A5p"/>
                                                 <constraint firstAttribute="bottom" secondItem="M2S-Rs-jc9" secondAttribute="bottom" id="9Zj-vQ-CpY"/>
+                                                <constraint firstItem="ZEN-Xm-lFF" firstAttribute="top" secondItem="dzF-aa-Tvw" secondAttribute="top" id="Eex-Ce-zS7"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZEN-Xm-lFF" secondAttribute="trailing" constant="40" id="J9Q-Kz-3Z9"/>
+                                                <constraint firstItem="ZEN-Xm-lFF" firstAttribute="leading" secondItem="dzF-aa-Tvw" secondAttribute="leading" constant="40" id="pwp-ed-ODF"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZEN-Xm-lFF" secondAttribute="bottom" id="sDo-e3-Lvh"/>
                                                 <constraint firstAttribute="trailing" secondItem="M2S-Rs-jc9" secondAttribute="trailing" constant="40" id="y94-CO-Rie"/>
                                                 <constraint firstItem="M2S-Rs-jc9" firstAttribute="leading" secondItem="dzF-aa-Tvw" secondAttribute="leading" constant="40" id="ykf-CO-Uft"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="barChartView" destination="ZEN-Xm-lFF" id="cKh-37-VnT"/>
+                                            <outlet property="barChartView" destination="hzp-J5-GrQ" id="mNb-wA-gKV"/>
+                                            <outlet property="barChartViewContainer" destination="ZEN-Xm-lFF" id="3aT-Jo-bwK"/>
                                             <outlet property="pieChartView" destination="M2S-Rs-jc9" id="YLt-th-wnO"/>
+                                            <outlet property="radioButtonsContainer" destination="igH-2R-3gu" id="LAu-1g-Od4"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChildCountTableViewCell" rowHeight="120" id="OB8-hR-Fqf" customClass="ChildCountTableViewCell" customModule="Covid19_Internal" customModuleProvider="target">
@@ -300,6 +328,7 @@
                                             <outlet property="labelConfirmedValue" destination="UOI-qH-8bA" id="JCx-oE-rHN"/>
                                             <outlet property="labelDeceasedValue" destination="BDG-mS-e4L" id="akw-IK-1F8"/>
                                             <outlet property="labelRecoveredValue" destination="Mta-JI-tIp" id="q9n-BH-nSc"/>
+                                            <outlet property="viewInnerChild" destination="cqd-TR-Fdl" id="NDx-Md-P28"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -309,7 +338,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.14509803921568626" green="0.29411764705882354" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.23529411764705882" green="0.39215686274509803" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="UhD-tu-ZSN" firstAttribute="width" secondItem="pGd-j3-rZd" secondAttribute="width" multiplier="294:414" id="Ixi-Bt-sQ3"/>
                             <constraint firstItem="9jX-cd-k7N" firstAttribute="top" secondItem="UhD-tu-ZSN" secondAttribute="bottom" constant="10" id="QxA-VM-ZDJ"/>
@@ -338,10 +367,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XHV-OE-pOv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.1450980392" green="0.29411764709999999" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.1450980392" green="0.29411764709999999" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.1450980392" green="0.29411764709999999" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="selectedImageTintColor" red="0.1450980392" green="0.29411764709999999" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.21176470589999999" green="0.43137254899999999" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="UJx-Pf-KO2" kind="relationship" relationship="viewControllers" id="Zj0-EE-aTo"/>
@@ -356,13 +384,15 @@
         <scene sceneID="iNX-eu-mxf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UJx-Pf-KO2" customClass="NavigationVC" customModule="Covid19_Internal" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="ctT-Di-R1k">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="ctT-Di-R1k"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Svg-6t-2oa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.21176470589999999" green="0.43137254899999999" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -377,13 +407,12 @@
         <scene sceneID="TFm-Df-LvH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XL3-eW-f5z" customClass="NavigationVC" customModule="Covid19_Internal" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Guide" id="ifz-VS-3pe">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Guide" image="guide" id="ifz-VS-3pe"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dST-AK-WMS">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.21176470589999999" green="0.43137254899999999" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -403,7 +432,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bx7-bi-2SK" userLabel="LabelStateName">
-                                <rect key="frame" x="0.0" y="69" width="414" height="45"/>
+                                <rect key="frame" x="0.0" y="49" width="414" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="z9E-YN-21T"/>
                                 </constraints>
@@ -412,7 +441,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="3" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kma-QL-CZW">
-                                <rect key="frame" x="0.0" y="124" width="414" height="738"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -535,24 +564,113 @@
                                                     <rect key="frame" x="40" y="0.0" width="334" height="250"/>
                                                     <color key="backgroundColor" red="0.098039215690000001" green="0.22352941179999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oo-em-W0c" userLabel="viewBarChart">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7oo-em-W0c" userLabel="viewBarChartContainer">
                                                     <rect key="frame" x="40" y="0.0" width="334" height="250"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6l3-H2-Zz5" userLabel="viewbarChartController">
+                                                            <rect key="frame" x="0.0" y="215" width="334" height="35"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7n-gc-fLd" customClass="CustomRadioButton" customModule="Covid19_Internal" customModuleProvider="target">
+                                                                    <rect key="frame" x="16" y="-4" width="30" height="30"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="outerCircleColor">
+                                                                            <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="innerCircleCircleColor">
+                                                                            <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="outerCircleLineWidth">
+                                                                            <real key="value" value="50"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zui-ec-AaL" customClass="CustomRadioButton" customModule="Covid19_Internal" customModuleProvider="target">
+                                                                    <rect key="frame" x="169" y="-4" width="30" height="30"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="outerCircleColor">
+                                                                            <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="innerCircleCircleColor">
+                                                                            <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="outerCircleLineWidth">
+                                                                            <real key="value" value="50"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUR-Lf-yhu" customClass="CustomRadioButton" customModule="Covid19_Internal" customModuleProvider="target">
+                                                                    <rect key="frame" x="16" y="40" width="30" height="30"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="outerCircleColor">
+                                                                            <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="innerCircleCircleColor">
+                                                                            <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="outerCircleLineWidth">
+                                                                            <real key="value" value="50"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rU9-Ka-gJd" customClass="CustomRadioButton" customModule="Covid19_Internal" customModuleProvider="target">
+                                                                    <rect key="frame" x="169" y="40" width="30" height="30"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="outerCircleColor">
+                                                                            <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="innerCircleCircleColor">
+                                                                            <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="outerCircleLineWidth">
+                                                                            <real key="value" value="50"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="35" id="kYf-4W-GjB"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y0E-Az-tIU" userLabel="viewBarChart">
+                                                            <rect key="frame" x="0.0" y="0.0" width="334" height="215"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
+                                                    </subviews>
                                                     <color key="backgroundColor" red="0.098039215690000001" green="0.22352941179999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="6l3-H2-Zz5" secondAttribute="trailing" id="0yS-Tf-bjj"/>
+                                                        <constraint firstItem="Y0E-Az-tIU" firstAttribute="top" secondItem="7oo-em-W0c" secondAttribute="top" id="Cge-YS-oVh"/>
+                                                        <constraint firstItem="Y0E-Az-tIU" firstAttribute="leading" secondItem="7oo-em-W0c" secondAttribute="leading" id="fVK-QC-0cK"/>
+                                                        <constraint firstItem="6l3-H2-Zz5" firstAttribute="leading" secondItem="7oo-em-W0c" secondAttribute="leading" id="gsq-hT-SY8"/>
+                                                        <constraint firstAttribute="bottom" secondItem="6l3-H2-Zz5" secondAttribute="bottom" id="hqC-C0-Cok"/>
+                                                        <constraint firstItem="6l3-H2-Zz5" firstAttribute="top" secondItem="Y0E-Az-tIU" secondAttribute="bottom" id="lC0-tf-Emm"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Y0E-Az-tIU" secondAttribute="trailing" id="sJN-Xz-gUF"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" red="0.098039215686274508" green="0.22352941176470587" blue="0.30980392156862746" alpha="0.0" colorSpace="calibratedRGB"/>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="7oo-em-W0c" secondAttribute="bottom" id="0Bp-kp-HTT"/>
                                                 <constraint firstItem="HJC-Ly-zh9" firstAttribute="leading" secondItem="z7l-sS-btd" secondAttribute="leading" constant="40" id="31C-Yf-cmX"/>
                                                 <constraint firstItem="HJC-Ly-zh9" firstAttribute="top" secondItem="z7l-sS-btd" secondAttribute="top" id="ABG-Ya-zU9"/>
+                                                <constraint firstItem="7oo-em-W0c" firstAttribute="top" secondItem="z7l-sS-btd" secondAttribute="top" id="Kxx-2S-aoK"/>
+                                                <constraint firstItem="7oo-em-W0c" firstAttribute="leading" secondItem="z7l-sS-btd" secondAttribute="leading" constant="40" id="ORc-MZ-0f5"/>
                                                 <constraint firstAttribute="bottom" secondItem="HJC-Ly-zh9" secondAttribute="bottom" id="egs-lc-0Yc"/>
+                                                <constraint firstAttribute="trailing" secondItem="7oo-em-W0c" secondAttribute="trailing" constant="40" id="mtl-pL-irq"/>
                                                 <constraint firstAttribute="trailing" secondItem="HJC-Ly-zh9" secondAttribute="trailing" constant="40" id="zNh-Hu-rtb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="barChartView" destination="7oo-em-W0c" id="Edo-Nu-Lvm"/>
+                                            <outlet property="barChartView" destination="Y0E-Az-tIU" id="UTE-Wc-eYT"/>
+                                            <outlet property="barChartViewContainer" destination="7oo-em-W0c" id="aiQ-QJ-ZSt"/>
                                             <outlet property="pieChartView" destination="HJC-Ly-zh9" id="Mkb-KX-TdB"/>
+                                            <outlet property="radioButtonsContainer" destination="6l3-H2-Zz5" id="Hef-eS-9rr"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChildCountTableViewCell" rowHeight="120" id="HU2-GH-O5w" customClass="ChildCountTableViewCell" customModule="Covid19_Internal" customModuleProvider="target">
@@ -652,6 +770,7 @@
                                             <outlet property="labelConfirmedValue" destination="w3e-0N-6Xz" id="4nA-gR-KzQ"/>
                                             <outlet property="labelDeceasedValue" destination="c9T-03-Xwq" id="B1p-D8-mpd"/>
                                             <outlet property="labelRecoveredValue" destination="x8y-sK-8UG" id="J2T-wK-8fQ"/>
+                                            <outlet property="viewInnerChild" destination="NfN-P1-NzR" id="JGD-51-Dgd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -661,9 +780,9 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1450980392" green="0.29411764709999999" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.23529411764705882" green="0.39215686274509803" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Bx7-bi-2SK" firstAttribute="top" secondItem="fyL-UA-zYj" secondAttribute="top" constant="25" id="AEt-Tg-YQu"/>
+                            <constraint firstItem="Bx7-bi-2SK" firstAttribute="top" secondItem="fyL-UA-zYj" secondAttribute="top" constant="5" id="AEt-Tg-YQu"/>
                             <constraint firstItem="fyL-UA-zYj" firstAttribute="trailing" secondItem="Bx7-bi-2SK" secondAttribute="trailing" id="QhV-xM-PhY"/>
                             <constraint firstItem="Bx7-bi-2SK" firstAttribute="leading" secondItem="fyL-UA-zYj" secondAttribute="leading" id="X5M-CA-meH"/>
                             <constraint firstItem="kma-QL-CZW" firstAttribute="trailing" secondItem="fyL-UA-zYj" secondAttribute="trailing" id="bNC-Vd-8Ff"/>
@@ -684,4 +803,8 @@
             <point key="canvasLocation" x="1449" y="-490"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="guide" width="30" height="30"/>
+        <image name="home" width="30" height="30"/>
+    </resources>
 </document>

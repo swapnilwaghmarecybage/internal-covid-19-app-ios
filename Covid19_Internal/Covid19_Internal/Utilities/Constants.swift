@@ -7,14 +7,43 @@
 //
 
 import Foundation
+import UIKit
 
 typealias BarGraphDataType = (labels: [String], valuesOfTotalConfirmed:[Double],
-                        valueOfTotalActive:[Double], valueOfTotalDeaths:[Double],
-                        valueOfTotalRecovered:[Double])
+                        valueOfTotalActive:[Double], valueOfTotalRecovered:[Double],
+                        valueOfTotalDeaths:[Double])
 
-typealias PieChartDataType = (labes: [String], values:[Double])
+typealias PieChartDataType = (labes: [String], values:[Double],shouldShowPercentage: Bool)
 
+struct BarColors {
+    static var confirmedColor: UIColor { return UIColor(red: 100/255, green: 149/255, blue: 237/255, alpha: 1.0) }
+    static var activeColor: UIColor  { return UIColor(red: 205/255, green: 92/255, blue: 92/255, alpha: 1.0) }
+    static var recoveredColor: UIColor { return UIColor(red: 60/255, green: 179/255, blue: 113/255, alpha: 1.0) }
+    static var deceasedColor: UIColor { return UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0) }
+}
 
+struct Theme {
+    static var backgroundColor: UIColor {return UIColor(red: 60/255, green: 100/255, blue: 123/255, alpha: 1.0)}
+    static var highlightedColor: UIColor {return UIColor(red: 25/255, green: 57/255, blue: 79/255, alpha: 1.0)}
+    static var labelColor: UIColor {return UIColor.white}
+    static var outlineColor: UIColor{return UIColor.white}
+    static var unselectedColor: UIColor{ return UIColor.lightGray}
+    static var tabselectedColor: UIColor{ return UIColor.yellow}
+}
+
+enum BarName: String {
+    case confirmed = "Confirmed"
+    case active = "Active"
+    case receovered = "Recovered"
+    case deceased = "Deceased"
+}
+
+enum BarTag: Int {
+    case confirmed = 101
+    case active = 201
+    case receovered = 301
+    case deceased = 401
+}
 
 enum HttpMethod {
     

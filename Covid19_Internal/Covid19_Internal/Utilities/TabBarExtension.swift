@@ -32,10 +32,10 @@ extension UITabBar {
         if let items = self.items{
             for item in items{
                 let selectedTabTitleAttribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight:.heavy),
-                                                NSAttributedString.Key.foregroundColor: UIColor.white]
+                                                 NSAttributedString.Key.foregroundColor: Theme.labelColor]
                     item.setTitleTextAttributes(selectedTabTitleAttribute, for: .selected)
                     let normalTabTitleAttribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20.0),
-                                                       NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+                                                   NSAttributedString.Key.foregroundColor: Theme.unselectedColor]
                     item.setTitleTextAttributes(normalTabTitleAttribute, for: .normal)
                 
             }

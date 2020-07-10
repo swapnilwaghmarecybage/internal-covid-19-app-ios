@@ -12,9 +12,12 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Covid"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Share"), style: .plain, target: self, action: #selector(shareApp))
         
+        self.view.backgroundColor = Theme.backgroundColor
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Theme.labelColor]
+        self.navigationItem.title = "Covid Care"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Share"), style: .plain, target: self, action: #selector(shareApp))
+        self.navigationItem.rightBarButtonItem?.tintColor = Theme.labelColor
     }
     
     

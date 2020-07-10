@@ -102,11 +102,11 @@ class HomeTabViewModel {
     
     func getDataForWorldPieChart() -> PieChartDataType {
         if let object = self.worldCount, let deaths = object.totalDeaths, let recovered = object.totalRecovered, let active = object.totalActive{
-            let labels = ["Deaths","Recovered", "Acive"]
-            let values = [Double(deaths),Double(recovered),Double(active)]
-            return (labels, values)
+            let labels = [BarName.active.rawValue,BarName.receovered.rawValue,BarName.deceased.rawValue]
+            let values = [Double(active),Double(recovered),Double(deaths)]
+            return (labels, values, true)
         }
-        return ([],[])
+        return ([],[], false)
     }
     
 
@@ -146,7 +146,7 @@ class HomeTabViewModel {
         let allActive = self.indiaHistoryModel?.data?.compactMap({Double($0.summaryAllIndia?.totalActive ?? 0)}) ?? []
         let allDeaths = self.indiaHistoryModel?.data?.compactMap({Double($0.summaryAllIndia?.total ?? 0)}) ?? []
         let allRecovered = self.indiaHistoryModel?.data?.compactMap({Double($0.summaryAllIndia?.discharged ?? 0)}) ?? []
-            return (allDates, allConfirmed, allActive, allDeaths, allRecovered)
+        return (allDates, allConfirmed, allActive, allRecovered ,allDeaths)
            
     }
     

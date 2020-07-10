@@ -12,10 +12,13 @@ class BaseTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let outlineColor = UIColor.lightGray
+        let outlineColor = Theme.outlineColor
         self.tabBar.addTopBorderLayer(borderWidth: 0.5, borderColor: outlineColor)
         self.tabBar.addSeparatorBetweenTabBarItems(separatorWidth: 0.5, separatorColor: outlineColor)
-        self.tabBar.updateTabBarTitlesAttributes()
+        self.tabBar.barTintColor = Theme.backgroundColor
+        self.tabBar.unselectedItemTintColor = Theme.unselectedColor
+        self.tabBar.tintColor = Theme.tabselectedColor
+        //self.tabBar.updateTabBarTitlesAttributes()
         
     }
 }

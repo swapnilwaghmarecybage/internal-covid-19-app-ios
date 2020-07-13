@@ -75,6 +75,7 @@ class GraphTableViewCell: UITableViewCell {
                     ChartsLayer.setBarChart(labels: labels, values: recovered, inputView: self.barChartView, barColor: barColor,barName: barName, barTag:barTag)
                 }
                 radioButtonView.showDefaultGraphofConfirmed()
+                radioButtonView.frame.size = self.radioButtonsContainer.frame.size
                 self.radioButtonsContainer.addSubview(radioButtonView)
                 
             }

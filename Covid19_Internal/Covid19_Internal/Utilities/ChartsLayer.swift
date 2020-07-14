@@ -115,7 +115,7 @@ struct ChartsLayer {
         barChartView.leftAxis.labelTextColor = Theme.labelColor
         barChartView.xAxis.labelRotationAngle = -90
         barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-        //inputView.subviews.forEach { $0.removeFromSuperview() }
+        barChartView.setVisibleXRangeMinimum(6)
         inputView.addSubview(barChartView)
         
         barChartView.translatesAutoresizingMaskIntoConstraints = false

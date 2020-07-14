@@ -16,7 +16,7 @@ typealias BarGraphDataType = (labels: [String], valuesOfTotalConfirmed:[Double],
 typealias PieChartDataType = (labes: [String], values:[Double],shouldShowPercentage: Bool)
 
 struct BarColors {
-    static var confirmedColor: UIColor { return UIColor(red: 100/255, green: 149/255, blue: 237/255, alpha: 1.0) }
+    static var confirmedColor: UIColor {return UIColor.yellow}//{ return UIColor(red: 100/255, green: 149/255, blue: 237/255, alpha: 1.0) }
     static var activeColor: UIColor  { return UIColor(red: 205/255, green: 92/255, blue: 92/255, alpha: 1.0) }
     static var recoveredColor: UIColor { return UIColor(red: 60/255, green: 179/255, blue: 113/255, alpha: 1.0) }
     static var deceasedColor: UIColor { return UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0) }
@@ -29,6 +29,8 @@ struct Theme {
     static var outlineColor: UIColor{return UIColor.white}
     static var unselectedColor: UIColor{ return UIColor.lightGray}
     static var tabselectedColor: UIColor{ return UIColor.yellow}
+    static var navogationBarbackgroundColor: UIColor {return UIColor(red: 25/255, green: 57/255, blue: 79/255, alpha: 1.0)}
+    static var tabBarBackgroundColor: UIColor {return UIColor(red: 25/255, green: 57/255, blue: 79/255, alpha: 1.0)}
 }
 
 enum BarName: String {

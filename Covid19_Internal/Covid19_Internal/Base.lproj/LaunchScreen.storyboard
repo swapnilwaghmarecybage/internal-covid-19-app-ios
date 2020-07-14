@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sF0-P8-A3E">
-                                <rect key="frame" x="132" y="355.5" width="150" height="185"/>
+                                <rect key="frame" x="122.5" y="355.5" width="169.5" height="185"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pwmask" translatesAutoresizingMaskIntoConstraints="NO" id="UbA-ly-FMf">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="UbA-ly-FMf">
+                                        <rect key="frame" x="0.0" y="0.0" width="169.5" height="150"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COVID 19" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DtS-Qw-4bh">
-                                        <rect key="frame" x="0.0" y="150" width="150" height="35"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COVID CARE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DtS-Qw-4bh">
+                                        <rect key="frame" x="0.0" y="150" width="169.5" height="35"/>
                                         <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="30"/>
                                         <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <nil key="highlightedColor"/>
@@ -45,6 +45,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pwmask" width="150" height="150"/>
+        <image name="SplashScreenLogo" width="150" height="150"/>
     </resources>
 </document>

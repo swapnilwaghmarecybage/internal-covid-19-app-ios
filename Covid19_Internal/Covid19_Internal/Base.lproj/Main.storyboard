@@ -514,24 +514,22 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.098039215690000001" green="0.22352941179999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
+                                                        <constraint firstItem="fsM-4O-YDU" firstAttribute="leading" secondItem="PXD-eK-dF7" secondAttribute="leading" id="5Kw-4u-jBd"/>
                                                         <constraint firstItem="Rju-0x-yfb" firstAttribute="width" secondItem="G4Z-OM-t5W" secondAttribute="width" multiplier="100:334" id="8fY-dy-uz9"/>
                                                         <constraint firstAttribute="trailing" secondItem="PXD-eK-dF7" secondAttribute="trailing" constant="10" id="9fO-Wq-TjL"/>
                                                         <constraint firstAttribute="trailing" secondItem="Gv5-gj-bYR" secondAttribute="trailing" constant="10" id="AD5-lk-m3V"/>
                                                         <constraint firstAttribute="trailing" secondItem="fsM-4O-YDU" secondAttribute="trailing" constant="10" id="E4Y-U5-dDj"/>
-                                                        <constraint firstItem="9Xf-lz-hBT" firstAttribute="leading" secondItem="G4Z-OM-t5W" secondAttribute="leading" constant="25" id="G1X-bI-2jS"/>
                                                         <constraint firstItem="Gv5-gj-bYR" firstAttribute="top" secondItem="fsM-4O-YDU" secondAttribute="bottom" constant="15" id="OWj-6r-T7W"/>
-                                                        <constraint firstItem="Gv5-gj-bYR" firstAttribute="leading" secondItem="WRN-Xh-5MU" secondAttribute="trailing" constant="25" id="Py0-bL-Cdw"/>
                                                         <constraint firstItem="WRN-Xh-5MU" firstAttribute="leading" secondItem="Rju-0x-yfb" secondAttribute="leading" id="Udk-hh-zS6"/>
                                                         <constraint firstItem="9Xf-lz-hBT" firstAttribute="trailing" secondItem="Rju-0x-yfb" secondAttribute="trailing" id="dYy-Sk-3oN"/>
-                                                        <constraint firstItem="fsM-4O-YDU" firstAttribute="leading" secondItem="9Xf-lz-hBT" secondAttribute="trailing" constant="25" id="e66-sK-SBZ"/>
                                                         <constraint firstItem="PXD-eK-dF7" firstAttribute="leading" secondItem="Rju-0x-yfb" secondAttribute="trailing" constant="25" id="fr4-Gs-Uie"/>
                                                         <constraint firstItem="Rju-0x-yfb" firstAttribute="leading" secondItem="G4Z-OM-t5W" secondAttribute="leading" constant="25" id="hTn-Nh-3de"/>
                                                         <constraint firstItem="fsM-4O-YDU" firstAttribute="top" secondItem="PXD-eK-dF7" secondAttribute="bottom" constant="15" id="iR7-UW-dPi"/>
                                                         <constraint firstItem="9Xf-lz-hBT" firstAttribute="leading" secondItem="Rju-0x-yfb" secondAttribute="leading" id="kU7-xE-D0L"/>
+                                                        <constraint firstItem="Gv5-gj-bYR" firstAttribute="leading" secondItem="fsM-4O-YDU" secondAttribute="leading" id="pHD-6L-Tnn"/>
                                                         <constraint firstItem="WRN-Xh-5MU" firstAttribute="trailing" secondItem="Rju-0x-yfb" secondAttribute="trailing" id="sAY-or-ydb"/>
                                                         <constraint firstItem="9Xf-lz-hBT" firstAttribute="top" secondItem="Rju-0x-yfb" secondAttribute="bottom" constant="15" id="sok-d9-s7b"/>
                                                         <constraint firstItem="PXD-eK-dF7" firstAttribute="top" secondItem="G4Z-OM-t5W" secondAttribute="top" constant="10" id="tSq-Uz-vsG"/>
-                                                        <constraint firstItem="WRN-Xh-5MU" firstAttribute="leading" secondItem="G4Z-OM-t5W" secondAttribute="leading" constant="25" id="u6b-Uv-WC8"/>
                                                         <constraint firstItem="Rju-0x-yfb" firstAttribute="top" secondItem="G4Z-OM-t5W" secondAttribute="top" constant="10" id="vFx-9Z-t38"/>
                                                         <constraint firstItem="WRN-Xh-5MU" firstAttribute="top" secondItem="9Xf-lz-hBT" secondAttribute="bottom" constant="15" id="zFF-EO-ohV"/>
                                                     </constraints>
@@ -569,68 +567,6 @@
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6l3-H2-Zz5" userLabel="viewbarChartController">
                                                             <rect key="frame" x="0.0" y="215" width="374" height="35"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7n-gc-fLd" customClass="CustomRadioButton" customModule="Covid19_Internal" customModuleProvider="target">
-                                                                    <rect key="frame" x="16" y="-4" width="30" height="30"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="outerCircleColor">
-                                                                            <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="innerCircleCircleColor">
-                                                                            <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="outerCircleLineWidth">
-                                                                            <real key="value" value="50"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zui-ec-AaL" customClass="CustomRadioButton" customModule="Covid19_Internal" customModuleProvider="target">
-                                                                    <rect key="frame" x="169" y="-4" width="30" height="30"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="outerCircleColor">
-                                                                            <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="innerCircleCircleColor">
-                                                                            <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="outerCircleLineWidth">
-                                                                            <real key="value" value="50"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUR-Lf-yhu" customClass="CustomRadioButton" customModule="Covid19_Internal" customModuleProvider="target">
-                                                                    <rect key="frame" x="16" y="40" width="30" height="30"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="outerCircleColor">
-                                                                            <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="innerCircleCircleColor">
-                                                                            <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="outerCircleLineWidth">
-                                                                            <real key="value" value="50"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rU9-Ka-gJd" customClass="CustomRadioButton" customModule="Covid19_Internal" customModuleProvider="target">
-                                                                    <rect key="frame" x="169" y="40" width="30" height="30"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="outerCircleColor">
-                                                                            <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="innerCircleCircleColor">
-                                                                            <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="outerCircleLineWidth">
-                                                                            <real key="value" value="50"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </button>
-                                                            </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="kYf-4W-GjB"/>

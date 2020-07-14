@@ -15,7 +15,7 @@ class BaseViewController: UIViewController {
         
         self.view.backgroundColor = Theme.backgroundColor
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Theme.labelColor]
-        self.navigationItem.title = "Covid Care"
+        self.navigationItem.title = App_Name
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Share"), style: .plain, target: self, action: #selector(shareApp))
         self.navigationItem.rightBarButtonItem?.tintColor = Theme.labelColor
     }

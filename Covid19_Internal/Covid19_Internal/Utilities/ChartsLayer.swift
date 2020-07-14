@@ -43,10 +43,10 @@ struct ChartsLayer {
             if(shouldShowPercentage) {
                 chart.usePercentValuesEnabled = true
                 let pFormatter = NumberFormatter()
-                pFormatter.numberStyle = .percent
+                pFormatter.numberStyle = .decimal //,percent
                 pFormatter.maximumFractionDigits = 1
                 pFormatter.multiplier = 1
-                pFormatter.percentSymbol = " %"
+                //pFormatter.percentSymbol = " %"
                 data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
                 chart.chartDescription?.enabled = true
                 chart.chartDescription?.text = "Values are in\nPercentage"
@@ -95,6 +95,7 @@ struct ChartsLayer {
         }
         
         let chartDataSet = BarChartDataSet(entries: dataEntries)
+        chartDataSet.valueColors = [Theme.labelColor]
         let chartData = BarChartData(dataSet: chartDataSet)
         let barChartView = BarChartView(frame: inputView.frame)
         barChartView.tag = barTag

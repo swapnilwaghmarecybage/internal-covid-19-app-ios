@@ -39,6 +39,7 @@ class ChildCountTableViewCell: UITableViewCell {
             self.labelRecoveredValue.text = "\((object.totalRecovered != nil) ? "\(object.totalRecovered!)" : "--")"
             self.labelDeceasedValue.text = "\((object.totalDeaths != nil) ? "\(object.totalDeaths!)" : "--")"
             self.imageViewWidthConstrain.constant = 30
+            self.imageViewFlag.layer.cornerRadius = 3.5
             if let flagString = object.countryDetails?.flag{
                 self.imageViewFlag.imageFromServerURL(flagString, placeHolder: nil)
             }

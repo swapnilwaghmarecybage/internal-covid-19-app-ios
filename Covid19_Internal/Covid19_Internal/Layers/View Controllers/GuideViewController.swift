@@ -15,7 +15,7 @@ class GuideViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = Theme.backgroundColor
-        self.tableViewGuide.backgroundColor = Theme.backgroundColor
+       // self.tableViewGuide.backgroundColor = Theme.backgroundColor
         tableViewGuide.separatorColor = Theme.labelColor
     }
 

@@ -43,13 +43,13 @@ struct ChartsLayer {
             if(shouldShowPercentage) {
                 chart.usePercentValuesEnabled = true
                 let pFormatter = NumberFormatter()
-                pFormatter.numberStyle = .decimal //,percent
+                pFormatter.numberStyle = .percent
                 pFormatter.maximumFractionDigits = 1
                 pFormatter.multiplier = 1
                 //pFormatter.percentSymbol = " %"
                 data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
                 chart.chartDescription?.enabled = true
-                chart.chartDescription?.text = "Values are in\nPercentage"
+               // chart.chartDescription?.text = "Values are in\nPercentage"
             } else {
                 chart.chartDescription?.enabled = false
             }

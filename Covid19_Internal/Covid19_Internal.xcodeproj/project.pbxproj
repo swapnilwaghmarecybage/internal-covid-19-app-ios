@@ -47,8 +47,8 @@
 		1CC9529424B5D7CC00DC557E /* RadioControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9529324B5D7CC00DC557E /* RadioControlView.xib */; };
 		1CC9529624B5E85300DC557E /* RadioButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9529524B5E85300DC557E /* RadioButtonView.swift */; };
 		1CDD481C24C03CAF00054986 /* GuideRightHandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD481B24C03CAF00054986 /* GuideRightHandCell.swift */; };
-		1CDD481E24C03CE900054986 /* GuideLeftHandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD481D24C03CE900054986 /* GuideLeftHandCell.swift */; };
 		1CDD482024C03D7000054986 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD481F24C03D7000054986 /* GuideViewController.swift */; };
+		1CDD482224C0B8FD00054986 /* GuideLeftHandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD482124C0B8FD00054986 /* GuideLeftHandCell.swift */; };
 		3D4EAE84DC7EBDE036F2E1B9 /* Pods_Covid19_Internal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C584D39AC12C58308A9DB70 /* Pods_Covid19_Internal.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,8 +96,8 @@
 		1CC9529324B5D7CC00DC557E /* RadioControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioControlView.xib; sourceTree = "<group>"; };
 		1CC9529524B5E85300DC557E /* RadioButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonView.swift; sourceTree = "<group>"; };
 		1CDD481B24C03CAF00054986 /* GuideRightHandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideRightHandCell.swift; sourceTree = "<group>"; };
-		1CDD481D24C03CE900054986 /* GuideLeftHandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GuideLeftHandCell.swift; path = "/Users/swapnilwaghmare/Documents/Vungle/Internal_Project_Covid-19_App/Covid19_Internal/Covid19_Internal/Layers/View Controllers/CustomCells/GuideLeftHandCell.swift"; sourceTree = "<absolute>"; };
 		1CDD481F24C03D7000054986 /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
+		1CDD482124C0B8FD00054986 /* GuideLeftHandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideLeftHandCell.swift; sourceTree = "<group>"; };
 		5C584D39AC12C58308A9DB70 /* Pods_Covid19_Internal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid19_Internal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E250C2F78B200E2762FC6DC0 /* Pods-Covid19_Internal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19_Internal.release.xcconfig"; path = "Target Support Files/Pods-Covid19_Internal/Pods-Covid19_Internal.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -251,13 +251,13 @@
 		1C7B1679249CC6A20069157B /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
-				1CDD481D24C03CE900054986 /* GuideLeftHandCell.swift */,
 				1C7B167A249CC7940069157B /* TotalCountTableViewCell.swift */,
 				1C7B167C249CC7B50069157B /* GraphTableViewCell.swift */,
 				1C7B167E249CC7E40069157B /* ChildCountTableViewCell.swift */,
 				1CC9529324B5D7CC00DC557E /* RadioControlView.xib */,
 				1CC9529524B5E85300DC557E /* RadioButtonView.swift */,
 				1CDD481B24C03CAF00054986 /* GuideRightHandCell.swift */,
+				1CDD482124C0B8FD00054986 /* GuideLeftHandCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -401,6 +401,7 @@
 				1C5DC1442497822F00814CDB /* AllIndiaHistoricalDataWebServices.swift in Sources */,
 				1C5DC1462497824B00814CDB /* AllCountriesCountWebService.swift in Sources */,
 				1C7B168924A247060069157B /* DistrictViewModel.swift in Sources */,
+				1CDD482224C0B8FD00054986 /* GuideLeftHandCell.swift in Sources */,
 				1C5DC15A2497B18D00814CDB /* AllIndiaHistoricalDataParser.swift in Sources */,
 				1C7B168124A093920069157B /* BaseViewController.swift in Sources */,
 				1C5DC14E2497876800814CDB /* AboutTabViewModel.swift in Sources */,
@@ -414,7 +415,6 @@
 				1C5DC1582497B11500814CDB /* AllCountriesParser.swift in Sources */,
 				1C7B167D249CC7B50069157B /* GraphTableViewCell.swift in Sources */,
 				1C5DC1212496016600814CDB /* Covid19_Internal.xcdatamodeld in Sources */,
-				1CDD481E24C03CE900054986 /* GuideLeftHandCell.swift in Sources */,
 				1C7B168324A106790069157B /* ImageExtension.swift in Sources */,
 				1C7B168D24A4782A0069157B /* ChartsLayer.swift in Sources */,
 				1C7B1674249B9B2C0069157B /* NavigationVC.swift in Sources */,

@@ -25,6 +25,7 @@ class GuideLeftHandCell: UITableViewCell {
     }
     
     func configureCell(title: String,imageName: String, description: String){
+       
         self.contentView.backgroundColor = Theme.backgroundColor
         self.labelTitle.textColor = Theme.labelColor
         self.labelDetails.textColor = Theme.labelColor

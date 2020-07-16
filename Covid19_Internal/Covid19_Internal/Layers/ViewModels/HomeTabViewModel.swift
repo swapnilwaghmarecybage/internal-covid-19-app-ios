@@ -144,7 +144,7 @@ class HomeTabViewModel {
         let allDates = self.indiaHistoryModel?.data?.compactMap({$0.day ?? ""  }) ?? []
        let allConfirmed = self.indiaHistoryModel?.data?.compactMap({Double($0.summaryAllIndia?.total ?? 0)}) ?? []
         let allActive = self.indiaHistoryModel?.data?.compactMap({Double($0.summaryAllIndia?.totalActive ?? 0)}) ?? []
-        let allDeaths = self.indiaHistoryModel?.data?.compactMap({Double($0.summaryAllIndia?.total ?? 0)}) ?? []
+        let allDeaths = self.indiaHistoryModel?.data?.compactMap({Double($0.summaryAllIndia?.deaths ?? 0)}) ?? []
         let allRecovered = self.indiaHistoryModel?.data?.compactMap({Double($0.summaryAllIndia?.discharged ?? 0)}) ?? []
         return (allDates, allConfirmed, allActive, allRecovered ,allDeaths)
            

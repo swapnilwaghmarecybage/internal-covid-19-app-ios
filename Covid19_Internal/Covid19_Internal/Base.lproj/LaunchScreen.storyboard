@@ -17,18 +17,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sF0-P8-A3E">
-                                <rect key="frame" x="132" y="373" width="150" height="150"/>
+                                <rect key="frame" x="157" y="398" width="100" height="100"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashScreenCentreLogo" translatesAutoresizingMaskIntoConstraints="NO" id="UbA-ly-FMf">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.23529411764705882" green="0.39215686274509803" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="sF0-P8-A3E" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="100:414" id="GNz-15-dJH"/>
                             <constraint firstItem="sF0-P8-A3E" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="JhN-3R-b1T"/>
                             <constraint firstItem="sF0-P8-A3E" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="hmz-Na-xfq"/>
+                            <constraint firstItem="sF0-P8-A3E" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="100:896" id="jXL-wH-vl9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -39,6 +41,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SplashScreenCentreLogo" width="150" height="150"/>
+        <image name="SplashScreenCentreLogo" width="100" height="100"/>
     </resources>
 </document>

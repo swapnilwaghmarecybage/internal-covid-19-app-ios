@@ -80,37 +80,37 @@ extension GuideViewController: UITableViewDataSource {
      func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
         case 0:
-            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 60))
+            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 40))
             headerView.backgroundColor = BarColors.recoveredColor
             let label = UILabel()
             label.backgroundColor = tableView.backgroundColor
             label.frame = headerView.frame
             label.text = "Do's"
-            label.font = UIFont.systemFont(ofSize: 20, weight: .semibold) // my custom font
+            label.font = UIFont.systemFont(ofSize: 17, weight: .semibold) // my custom font
             label.textColor = Theme.labelColor // my custom colour
             label.textAlignment = .center
             headerView.addSubview(label)
             return headerView
         case 1:
-            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 60))
+            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 40))
             headerView.backgroundColor = BarColors.activeColor
             let label = UILabel()
             label.backgroundColor = tableView.backgroundColor
             label.frame = headerView.frame
             label.text = "Don'ts"
-            label.font = UIFont.systemFont(ofSize: 20, weight: .semibold) // my custom font
+            label.font = UIFont.systemFont(ofSize: 17, weight: .semibold) // my custom font
             label.textColor = Theme.labelColor // my custom colour
             label.textAlignment = .center
             headerView.addSubview(label)
             return headerView
         case 2:
-            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 60))
+            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 40))
             headerView.backgroundColor = BarColors.confirmedColor
             let label = UILabel()
             label.backgroundColor = tableView.backgroundColor
             label.frame = headerView.frame
             label.text = "Guidelines"
-            label.font = UIFont.systemFont(ofSize: 20, weight: .semibold) // my custom font
+            label.font = UIFont.systemFont(ofSize: 17, weight: .semibold) // my custom font
             label.textColor = Theme.labelColor // my custom colour
             label.textAlignment = .center
             headerView.addSubview(label)
@@ -126,11 +126,11 @@ extension GuideViewController: UITableViewDataSource {
      func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
         case 0:
-            return 60
+            return 40
         case 1:
-            return 60
+            return 40
         case 2:
-            return 60
+            return 40
         default:
            return 0
         }
@@ -139,9 +139,36 @@ extension GuideViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0 :
-            return 175
+            var fontSizeTitle:CGFloat = 18.0
+            var fontSizeDescription:CGFloat = 16.0
+            let labelWidth = tableView.frame.width * (250/414)
+            if UIScreen.main.bounds.width < 350 {
+                fontSizeTitle = 16.0
+                fontSizeDescription = 14.0
+            }
+
+        let constraintRectTitle = CGSize(width: labelWidth, height: 40)
+        let boundingBoxTitle = Guide.Dos[indexPath.row].title.boundingRect(with: constraintRectTitle, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize:fontSizeTitle)], context: nil)
+        let constraintRectDescription = CGSize(width: labelWidth, height: 100)
+        let boundingBoxDescription = Guide.Dos[indexPath.row].description.boundingRect(with: constraintRectDescription, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSizeDescription)], context: nil)
+        return boundingBoxTitle.height + boundingBoxDescription.height + 50
+        //return 175
         case 1:
-            return  175 //self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? 250 : 250
+            let labelWidth = tableView.frame.width * (250/414)
+            var fontSizeTitle:CGFloat = 18.0
+            var fontSizeDescription:CGFloat = 16.0
+            
+            if UIScreen.main.bounds.width < 350 {
+                fontSizeTitle = 16.0
+                fontSizeDescription = 14.0
+            }
+            let constraintRectTitle = CGSize(width: labelWidth, height: 40)
+            let boundingBoxTitle = Guide.Donts[indexPath.row].title.boundingRect(with: constraintRectTitle, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSizeTitle)], context: nil)
+            let constraintRectDescription = CGSize(width: labelWidth, height:100)
+            let boundingBoxDescription = Guide.Donts[indexPath.row].description.boundingRect(with: constraintRectDescription, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize:fontSizeDescription)], context: nil)
+            return boundingBoxTitle.height + boundingBoxDescription.height + 50
+
+            //return  175 //self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? 250 : 250
         default:
            return 175
         }

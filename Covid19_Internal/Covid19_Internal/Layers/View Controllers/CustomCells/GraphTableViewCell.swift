@@ -14,10 +14,15 @@ class GraphTableViewCell: UITableViewCell {
     @IBOutlet weak var barChartView: UIView!
     @IBOutlet weak var barChartViewContainer: UIView!
     @IBOutlet weak var radioButtonsContainer: UIView!
+    private var radioButtonView:RadioButtonView?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        let views = Bundle.main.loadNibNamed("RadioControlView", owner: nil, options: nil)
+               
+        self.radioButtonView = views?[1] as? RadioButtonView
+
     }
 
     func configureCell(objectReceived:Any) {
@@ -49,9 +54,8 @@ class GraphTableViewCell: UITableViewCell {
                 }).count > 0 {
                 return
             }
-            let views = Bundle.main.loadNibNamed("RadioControlView", owner: nil, options: nil)
                    
-            if let radioButtonView = views?[1] as? RadioButtonView {
+            if let radioButtonView = self.radioButtonView {
                 radioButtonView.configure(_barGraphDetails: object)
                 
                 radioButtonView.showDeceased = {
@@ -77,7 +81,7 @@ class GraphTableViewCell: UITableViewCell {
                 radioButtonView.showDefaultGraphofConfirmed()
                 radioButtonView.frame.size = self.radioButtonsContainer.frame.size
                 self.radioButtonsContainer.addSubview(radioButtonView)
-                
+
             }
                  
         }
@@ -91,5 +95,12 @@ class GraphTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    
+    override func layoutIfNeeded() {
+        self.radioButtonView?.frame.size = self.radioButtonsContainer.frame.size
+    }
+    
+    
 }
+

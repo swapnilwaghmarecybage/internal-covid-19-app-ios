@@ -15,6 +15,11 @@ class TotalCountTableViewCell: UITableViewCell {
     @IBOutlet weak var labelRecoveredValue: UILabel!
     @IBOutlet weak var labelDeathsValue: UILabel!
     @IBOutlet weak var viewInnerTotalCount: UIView!
+    @IBOutlet weak var labelConfirmedTitle: UILabel!
+    @IBOutlet weak var labelRecoveredTitle: UILabel!
+    @IBOutlet weak var labelDeceasedTitle: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,6 +34,24 @@ class TotalCountTableViewCell: UITableViewCell {
     func configureCell(objectReceived: Any) {
         self.viewInnerTotalCount.layer.cornerRadius = 10
         self.viewInnerTotalCount.backgroundColor = Theme.highlightedColor
+        
+        
+        if UIScreen.main.bounds.width > 350 {
+            self.labelConfirmedTitle.font = .systemFont(ofSize: 16)
+            self.labelRecoveredTitle.font = .systemFont(ofSize: 16)
+            self.labelDeceasedTitle.font = .systemFont(ofSize: 16)
+            self.labelConfirmedCasesValue.font = .systemFont(ofSize: 16)
+            self.labelRecoveredValue.font = .systemFont(ofSize: 16)
+            self.labelDeathsValue.font = .systemFont(ofSize: 16)
+        } else {
+            self.labelConfirmedTitle.font = .systemFont(ofSize: 13)
+            self.labelRecoveredTitle.font = .systemFont(ofSize: 13)
+            self.labelDeceasedTitle.font = .systemFont(ofSize: 13)
+            self.labelConfirmedCasesValue.font = .systemFont(ofSize: 13)
+            self.labelRecoveredValue.font = .systemFont(ofSize: 13)
+            self.labelDeathsValue.font = .systemFont(ofSize: 13)
+        }
+        
         if(objectReceived is CountryModel){
             let object = objectReceived as! CountryModel
             self.labelConfirmedCasesValue.text =  "\((object.totalCases != nil) ? "\(object.totalCases!)" : "--")   (+\((object.newCases != nil) ? "\(object.newCases!)" : "--"))"

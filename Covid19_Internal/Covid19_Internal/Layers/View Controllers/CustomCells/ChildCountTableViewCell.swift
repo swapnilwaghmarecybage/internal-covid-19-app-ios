@@ -18,6 +18,11 @@ class ChildCountTableViewCell: UITableViewCell {
     @IBOutlet weak var imageViewFlag: UIImageView!
     @IBOutlet weak var imageViewWidthConstrain: NSLayoutConstraint!
     @IBOutlet weak var viewInnerChild: UIView!
+    @IBOutlet weak var labelConfirmedTitle: UILabel!
+    @IBOutlet weak var labelRecoveredTitle: UILabel!
+    @IBOutlet weak var labelDeceasedTitle: UILabel!
+
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +35,26 @@ class ChildCountTableViewCell: UITableViewCell {
 
     
     func configureCell(objectReceived:Any, indexPath: IndexPath){
+        
+        if UIScreen.main.bounds.width > 350 {
+            self.labelChildNameValue.font = .systemFont(ofSize: 17)
+            self.labelConfirmedTitle.font = .systemFont(ofSize: 15)
+            self.labelRecoveredTitle.font = .systemFont(ofSize: 15)
+            self.labelDeceasedTitle.font = .systemFont(ofSize: 15)
+            self.labelConfirmedValue.font = .systemFont(ofSize: 15)
+            self.labelRecoveredValue.font = .systemFont(ofSize: 15)
+            self.labelDeceasedValue.font = .systemFont(ofSize: 15)
+            
+        } else {
+            self.labelChildNameValue.font = .systemFont(ofSize: 15)
+            self.labelConfirmedTitle.font = .systemFont(ofSize: 13)
+            self.labelRecoveredTitle.font = .systemFont(ofSize: 13)
+            self.labelDeceasedTitle.font = .systemFont(ofSize: 13)
+            self.labelConfirmedValue.font = .systemFont(ofSize: 13)
+            self.labelRecoveredValue.font = .systemFont(ofSize: 13)
+            self.labelDeceasedValue.font = .systemFont(ofSize: 13)
+        }
+        
         self.viewInnerChild.layer.cornerRadius = 10
         self.viewInnerChild.backgroundColor = Theme.highlightedColor
         if (objectReceived is CountryModel) {

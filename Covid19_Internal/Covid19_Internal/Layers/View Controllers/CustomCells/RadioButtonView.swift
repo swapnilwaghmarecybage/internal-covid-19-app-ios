@@ -101,6 +101,20 @@ class RadioButtonView: UIView {
         self.btnActive.setImage(UIImage(named: "radiobuttonfilled"), for: .selected)
         self.btnRecovered.setImage(UIImage(named: "radiobuttonfilled"), for: .selected)
         self.btnDeceased.setImage(UIImage(named: "radiobuttonfilled"), for: .selected)
+        
+        if UIScreen.main.bounds.width > 350 {
+            self.btnConfirmed.titleLabel?.font = .systemFont(ofSize: 13)
+            self.btnActive.titleLabel?.font = .systemFont(ofSize: 13)
+            self.btnRecovered.titleLabel?.font = .systemFont(ofSize: 13)
+            self.btnDeceased.titleLabel?.font = .systemFont(ofSize: 13)
+        } else {
+            self.btnConfirmed.titleLabel?.font = .systemFont(ofSize: 10)
+            self.btnActive.titleLabel?.font = .systemFont(ofSize: 10)
+            self.btnRecovered.titleLabel?.font = .systemFont(ofSize: 10)
+            self.btnDeceased.titleLabel?.font = .systemFont(ofSize: 10)
+        }
+       
+
     }
     
     internal func showDefaultGraphofConfirmed(){

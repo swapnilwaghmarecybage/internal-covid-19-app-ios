@@ -26,6 +26,14 @@ class GuideLeftHandCell: UITableViewCell {
        
        func configureCell(title: String,imageName: String, description: String){
           
+        if UIScreen.main.bounds.width > 350 {
+            self.labelTitle.font = .systemFont(ofSize: 18)
+            self.labelDetails.font = .systemFont(ofSize: 16)
+        } else {
+            self.labelTitle.font = .systemFont(ofSize: 16)
+            self.labelDetails.font = .systemFont(ofSize: 14)
+        }
+
            self.contentView.backgroundColor = Theme.backgroundColor
            self.labelTitle.textColor = Theme.labelColor
            self.labelDetails.textColor = Theme.labelColor

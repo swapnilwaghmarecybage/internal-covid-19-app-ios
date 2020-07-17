@@ -83,11 +83,10 @@ class HomeTabViewModel {
             if let modelObject = _indiaHistoryModel{
                 self.indiaHistoryModel = modelObject
                 if let data = modelObject.data {
-                    
-                    if let date = modelObject.lastRefreshed?.components(separatedBy: "T").first {
-                        if let _todaysData = data.filter({$0.day == date}).first {
+                    if let date = modelObject.lastRefreshed?.components(separatedBy: "T").first,let _todaysData = data.filter({$0.day == date}).first {
                         self.todaysDataIndia = _todaysData
-                        }
+                    } else if let date = modelObject.lastOriginUpdate?.components(separatedBy: "T").first,let _todaysData = data.filter({$0.day == date}).first {
+                        self.todaysDataIndia = _todaysData
                     }
                 }
             }

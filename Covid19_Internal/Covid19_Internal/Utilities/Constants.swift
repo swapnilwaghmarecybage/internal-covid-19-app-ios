@@ -43,7 +43,7 @@ struct Guide {
     
     static var Donts: [(title:String,imageName:String,description: String)] {return[("Don’t Touch Your Face","placeholder","Do not touch your face, nose and mouth often. This avoids the risks of developing the virus."),
                                                                               ("Avoid Close Contact","placeholder","Do not get close to anyone, especially touching or laughing closely. Also, use anti-pollution masks when out with friends or family."),
-                                                                              ("Do Not Spit","placeholder","Spitting can increase the spread of the virus. Avoid spiting at in public and home. Also, avoid getting close to a sick person suffering from cold and cough. "),
+                                                                              ("Do Not Spit","placeholder","Spitting can increase the spread of the virus. Avoid spiting at in public and home. Also, avoid getting close to a sick person suffering from cold and cough."),
                                                                               ("Don’t Panic, Take It Easy","placeholder","Most often a state of fear can lead to taking wrong decisions and use of self-medication. All you need to keep in mind is hygiene.")]}
 }
 

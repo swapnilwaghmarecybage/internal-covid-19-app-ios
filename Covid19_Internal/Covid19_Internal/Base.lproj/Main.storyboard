@@ -840,8 +840,11 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="labelChildNameValue" destination="EgQ-cl-lG4" id="ytw-Zg-f8T"/>
+                                            <outlet property="labelConfirmedTitle" destination="kd2-VN-4JF" id="4SV-El-97U"/>
                                             <outlet property="labelConfirmedValue" destination="w3e-0N-6Xz" id="4nA-gR-KzQ"/>
+                                            <outlet property="labelDeceasedTitle" destination="eIZ-Nl-WEt" id="UkG-3J-onH"/>
                                             <outlet property="labelDeceasedValue" destination="c9T-03-Xwq" id="B1p-D8-mpd"/>
+                                            <outlet property="labelRecoveredTitle" destination="QzF-8G-SNd" id="thY-3a-7kd"/>
                                             <outlet property="labelRecoveredValue" destination="x8y-sK-8UG" id="J2T-wK-8fQ"/>
                                             <outlet property="viewInnerChild" destination="NfN-P1-NzR" id="JGD-51-Dgd"/>
                                         </connections>

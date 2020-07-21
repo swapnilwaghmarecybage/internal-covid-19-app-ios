@@ -29,10 +29,10 @@ class GuideRightHandCell: UITableViewCell {
     func configureCell(title: String,imageName: String, description: String){
          
         if UIScreen.main.bounds.width > 350 {
-            self.labelTitle.font = .systemFont(ofSize: 18)
+            self.labelTitle.font = .boldSystemFont(ofSize: 18)
             self.labelDetails.font = .systemFont(ofSize: 16)
         } else {
-            self.labelTitle.font = .systemFont(ofSize: 16)
+            self.labelTitle.font = .boldSystemFont(ofSize: 16)
             self.labelDetails.font = .systemFont(ofSize: 14)
         }
         

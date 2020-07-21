@@ -80,37 +80,37 @@ extension GuideViewController: UITableViewDataSource {
      func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
         case 0:
-            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 40))
+            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
             headerView.backgroundColor = BarColors.recoveredColor
             let label = UILabel()
             label.backgroundColor = tableView.backgroundColor
             label.frame = headerView.frame
             label.text = "Do's"
-            label.font = UIFont.systemFont(ofSize: 17, weight: .semibold) // my custom font
+            label.font = UIFont.systemFont(ofSize: 17, weight: .bold) // my custom font
             label.textColor = Theme.labelColor // my custom colour
             label.textAlignment = .center
             headerView.addSubview(label)
             return headerView
         case 1:
-            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 40))
+            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
             headerView.backgroundColor = BarColors.activeColor
             let label = UILabel()
             label.backgroundColor = tableView.backgroundColor
             label.frame = headerView.frame
             label.text = "Don'ts"
-            label.font = UIFont.systemFont(ofSize: 17, weight: .semibold) // my custom font
+            label.font = UIFont.systemFont(ofSize: 17, weight: .bold) // my custom font
             label.textColor = Theme.labelColor // my custom colour
             label.textAlignment = .center
             headerView.addSubview(label)
             return headerView
         case 2:
-            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 40))
+            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
             headerView.backgroundColor = BarColors.confirmedColor
             let label = UILabel()
             label.backgroundColor = tableView.backgroundColor
             label.frame = headerView.frame
             label.text = "Guidelines"
-            label.font = UIFont.systemFont(ofSize: 17, weight: .semibold) // my custom font
+            label.font = UIFont.systemFont(ofSize: 17, weight: .bold) // my custom font
             label.textColor = Theme.labelColor // my custom colour
             label.textAlignment = .center
             headerView.addSubview(label)
@@ -126,11 +126,11 @@ extension GuideViewController: UITableViewDataSource {
      func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
         case 0:
-            return 40
+            return 50
         case 1:
-            return 40
+            return 50
         case 2:
-            return 40
+            return 50
         default:
            return 0
         }

@@ -13,7 +13,7 @@ class GuideRightHandCell: UITableViewCell {
     @IBOutlet weak var imageInfo: UIImageView!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelDetails: UILabel!
-    
+    @IBOutlet weak var viewInner: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,7 +36,13 @@ class GuideRightHandCell: UITableViewCell {
             self.labelDetails.font = .systemFont(ofSize: 14)
         }
         
-            self.contentView.backgroundColor = Theme.backgroundColor
+            self.viewInner.layer.cornerRadius = 10
+            self.viewInner.backgroundColor = Theme.highlightedColor
+
+            self.imageInfo.layer.masksToBounds = true
+            self.imageInfo.layer.borderWidth = 1.0
+            self.imageInfo.layer.borderColor = UIColor.white.cgColor
+            self.imageInfo.layer.cornerRadius = 5
 
             self.labelTitle.textColor = Theme.labelColor
            self.labelDetails.textColor = Theme.labelColor
@@ -46,5 +52,6 @@ class GuideRightHandCell: UITableViewCell {
            self.labelTitle.text = title
            self.labelDetails.text = description
        }
+
 
 }

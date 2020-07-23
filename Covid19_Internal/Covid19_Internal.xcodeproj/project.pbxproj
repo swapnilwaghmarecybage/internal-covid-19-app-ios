@@ -46,6 +46,11 @@
 		1C7B168D24A4782A0069157B /* ChartsLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B168C24A478290069157B /* ChartsLayer.swift */; };
 		1CC9529424B5D7CC00DC557E /* RadioControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9529324B5D7CC00DC557E /* RadioControlView.xib */; };
 		1CC9529624B5E85300DC557E /* RadioButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9529524B5E85300DC557E /* RadioButtonView.swift */; };
+		1CD3000324C9672200C31AAB /* GuideSymptomsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD3000224C9672200C31AAB /* GuideSymptomsTableViewCell.swift */; };
+		1CD3000524C9790C00C31AAB /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD3000424C9790C00C31AAB /* iOSDevCenters+GIF.swift */; };
+		1CD3000F24C990C700C31AAB /* light_tiredness.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1CD3000C24C990C700C31AAB /* light_tiredness.gif */; };
+		1CD3001024C990C700C31AAB /* light_cough.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1CD3000D24C990C700C31AAB /* light_cough.gif */; };
+		1CD3001124C990C700C31AAB /* light_fever.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1CD3000E24C990C700C31AAB /* light_fever.gif */; };
 		1CDD481C24C03CAF00054986 /* GuideRightHandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD481B24C03CAF00054986 /* GuideRightHandCell.swift */; };
 		1CDD482024C03D7000054986 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD481F24C03D7000054986 /* GuideViewController.swift */; };
 		1CDD482224C0B8FD00054986 /* GuideLeftHandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD482124C0B8FD00054986 /* GuideLeftHandCell.swift */; };
@@ -95,6 +100,11 @@
 		1C7B168C24A478290069157B /* ChartsLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsLayer.swift; sourceTree = "<group>"; };
 		1CC9529324B5D7CC00DC557E /* RadioControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioControlView.xib; sourceTree = "<group>"; };
 		1CC9529524B5E85300DC557E /* RadioButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonView.swift; sourceTree = "<group>"; };
+		1CD3000224C9672200C31AAB /* GuideSymptomsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideSymptomsTableViewCell.swift; sourceTree = "<group>"; };
+		1CD3000424C9790C00C31AAB /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
+		1CD3000C24C990C700C31AAB /* light_tiredness.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = light_tiredness.gif; sourceTree = "<group>"; };
+		1CD3000D24C990C700C31AAB /* light_cough.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = light_cough.gif; sourceTree = "<group>"; };
+		1CD3000E24C990C700C31AAB /* light_fever.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = light_fever.gif; sourceTree = "<group>"; };
 		1CDD481B24C03CAF00054986 /* GuideRightHandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideRightHandCell.swift; sourceTree = "<group>"; };
 		1CDD481F24C03D7000054986 /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		1CDD482124C0B8FD00054986 /* GuideLeftHandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideLeftHandCell.swift; sourceTree = "<group>"; };
@@ -206,6 +216,10 @@
 		1C5DC14024977BAC00814CDB /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				1CD3000D24C990C700C31AAB /* light_cough.gif */,
+				1CD3000E24C990C700C31AAB /* light_fever.gif */,
+				1CD3000C24C990C700C31AAB /* light_tiredness.gif */,
+				1CD3000424C9790C00C31AAB /* iOSDevCenters+GIF.swift */,
 				1C5DC14124977BCC00814CDB /* Constants.swift */,
 				1C7B1675249BBC910069157B /* TabBarExtension.swift */,
 				1C7B1677249CA0AC0069157B /* UISegmentControlExtension.swift */,
@@ -258,6 +272,7 @@
 				1CC9529524B5E85300DC557E /* RadioButtonView.swift */,
 				1CDD481B24C03CAF00054986 /* GuideRightHandCell.swift */,
 				1CDD482124C0B8FD00054986 /* GuideLeftHandCell.swift */,
+				1CD3000224C9672200C31AAB /* GuideSymptomsTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -339,9 +354,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CD3001124C990C700C31AAB /* light_fever.gif in Resources */,
 				1CC9529424B5D7CC00DC557E /* RadioControlView.xib in Resources */,
+				1CD3000F24C990C700C31AAB /* light_tiredness.gif in Resources */,
 				1C5DC1262496017400814CDB /* LaunchScreen.storyboard in Resources */,
 				1C5DC1232496017400814CDB /* Assets.xcassets in Resources */,
+				1CD3001024C990C700C31AAB /* light_cough.gif in Resources */,
 				1C5DC11E2496016600814CDB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C5DC13F249776CE00814CDB /* AllIndiaDistrictCountWebService.swift in Sources */,
+				1CD3000524C9790C00C31AAB /* iOSDevCenters+GIF.swift in Sources */,
 				1CDD482024C03D7000054986 /* GuideViewController.swift in Sources */,
 				1C5DC13424975B3800814CDB /* AboutViewController.swift in Sources */,
 				1C5DC1442497822F00814CDB /* AllIndiaHistoricalDataWebServices.swift in Sources */,
@@ -422,6 +441,7 @@
 				1C7B168524A203290069157B /* IndiaHistoryModel.swift in Sources */,
 				1C5DC13624975BAF00814CDB /* BaseTabBarViewController.swift in Sources */,
 				1C7B1672249916A40069157B /* CountryModel.swift in Sources */,
+				1CD3000324C9672200C31AAB /* GuideSymptomsTableViewCell.swift in Sources */,
 				1C5DC150249787C300814CDB /* BaseTabBarViewModel.swift in Sources */,
 				1C5DC1562497B0F600814CDB /* WorldCountParser.swift in Sources */,
 				1C5DC14C2497871400814CDB /* HomeTabViewModel.swift in Sources */,
@@ -591,7 +611,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cybage.COvid19-Internal";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cybage.Covid19-Inernal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Cybage Wild Card";
 				SWIFT_VERSION = 5.0;
@@ -614,7 +634,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cybage.COvid19-Internal";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cybage.Covid19-Inernal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Cybage Wild Card";
 				SWIFT_VERSION = 5.0;

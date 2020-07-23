@@ -82,7 +82,7 @@ class DistrictViewModel {
          let allDeaths = all_regions.compactMap({Double($0.deaths ?? 0)})
          let allRecovered = all_regions.compactMap({Double($0.discharged ?? 0)})
          
-        return (allDates, allConfirmed, allActive, allDeaths, allRecovered)
+        return (allDates, allConfirmed, allActive, allRecovered, allDeaths)
                      
     }
     

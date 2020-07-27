@@ -6,4 +6,6 @@ target 'Covid19_Internal' do
 
   # Pods for Covid19_Internal
 	pod 'Charts'
+  pod ‘ReachabilitySwift’, ‘~> 3’
+
 end

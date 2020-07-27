@@ -33,6 +33,9 @@ class GraphTableViewCell: UITableViewCell {
 
         if(objectReceived is PieChartDataType) {
             let object = objectReceived as! PieChartDataType
+            if (object.0.count == 0){
+                return
+            }
             self.barChartViewContainer.isHidden = true
             self.pieChartView.isHidden = false
             ChartsLayer.setPieChart(labels: object.0, values: object.1, inputView: self.pieChartView, shouldShowPercentage: object.shouldShowPercentage)

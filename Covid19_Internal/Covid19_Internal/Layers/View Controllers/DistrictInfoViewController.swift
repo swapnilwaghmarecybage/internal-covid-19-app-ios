@@ -24,6 +24,7 @@ class DistrictInfoViewController: BaseViewController {
         self.view.backgroundColor = Theme.backgroundColor
         
         updateNavigationBar()
+
         viewModelDistrict = DistrictViewModel(_statedata: self.stateData, _stateHistoryData: self.stateHistoryData,
                                               completion:{ (success) in
             if(success){
@@ -33,6 +34,7 @@ class DistrictInfoViewController: BaseViewController {
             }
         })
         
+
         viewModelDistrict?.getAllDistrictsData(completion: { (success) in
             if(success){
                 DispatchQueue.main.async {
@@ -40,7 +42,33 @@ class DistrictInfoViewController: BaseViewController {
                 }
             }
         })
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.reachabilityChanged),
+                                               name: NetworkReceivedNotification,
+                                               object: nil)
+
         self.labelStateName.text = self.stateData?.loc ?? "--"
+    }
+    
+    @objc func reachabilityChanged(notification: Notification) {
+       
+        if(notification.name == NetworkReceivedNotification){
+            if(viewModelDistrict?.getDistrictCount() == 0){
+                viewModelDistrict?.getAllDistrictsData(completion: { (success) in
+                    if(success){
+                        DispatchQueue.main.async {
+                            self.tableViewDistrictData.reloadData()
+                        }
+                    }
+                })
+            }
+        }
+
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NetworkReceivedNotification, object: nil)
     }
     
     func updateNavigationBar(){

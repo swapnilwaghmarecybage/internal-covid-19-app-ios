@@ -23,19 +23,20 @@ class DistrictViewModel {
         completion(true)
     }
     
+
     func getAllDistrictsData(completion: @escaping (Bool)->()) {
-        AllIndiaDistrictCountWebService.callDistrictWebService { [weak self](success, arrayDistrictModels) in
-            guard let self = self, success == true else {
-                completion(false)
-                return
+            AllIndiaDistrictCountWebService.callDistrictWebService { [weak self](success, arrayDistrictModels) in
+                guard let self = self, success == true else {
+                    completion(false)
+                    return
+                }
+                self.alldistricts = arrayDistrictModels
+                
+                completion(true)
             }
-            self.alldistricts = arrayDistrictModels
-            
-            completion(true)
-        }
     }
     
-    private func getDistrictCount() -> Int {
+     func getDistrictCount() -> Int {
         
         if  let stateName = self.stateData?.loc, let _allDistricts = self.alldistricts {
             if let state = _allDistricts.filter({$0.stateName == stateName}).first,  let districtArrayForGivenState = state.districtData{

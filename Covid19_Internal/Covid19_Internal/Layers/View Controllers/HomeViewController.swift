@@ -44,6 +44,12 @@ class HomeViewController: BaseViewController {
                 self.tableViewCovidData.reloadData()
             }
         })
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.reachabilityChanged),
+                                               name: NetworkReceivedNotification,
+                                               object: nil)
+
     }
     
     
@@ -52,6 +58,37 @@ class HomeViewController: BaseViewController {
         let indexPath = NSIndexPath(row: 0, section: 0)
         tableViewCovidData.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
 
+    }
+    
+    
+    @objc func reachabilityChanged(notification: Notification) {
+        if (notification.name == NetworkReceivedNotification){
+            
+            if(viewModelHomeTab?.getCountriesCount() == 0){
+                viewModelHomeTab?.getCountriesData(completion: { (success) in
+                    if(success){
+                    // refresh tableview
+                        DispatchQueue.main.async {
+                            self.tableViewCovidData.reloadData()
+                        }
+                    }
+                })
+            }
+            
+            if(viewModelHomeTab?.getStatesCount() == 0){
+                viewModelHomeTab?.getIndiaHistoricalData(completion: { (success) in
+                    DispatchQueue.main.async {
+                        self.tableViewCovidData.reloadData()
+                    }
+                })
+
+            }
+        }
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NetworkReceivedNotification, object: nil)
     }
 
 }

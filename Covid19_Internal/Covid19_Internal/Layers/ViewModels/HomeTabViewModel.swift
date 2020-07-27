@@ -15,8 +15,17 @@ class HomeTabViewModel {
     private var indiaCount: CountryModel?
     private var indiaHistoryModel: IndiaHistoryModel?
     private var todaysDataIndia: IndiaHistoryModel.DayWiseData?
+   
     init() {
-        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.reachabilityChanged),
+                                               name: NetworkReceivedNotification,
+                                               object: nil)
+
+    }
+    
+    @objc func reachabilityChanged(notification: Notification) {
+
     }
     /*
     func getWorldData(completion: @escaping (Bool)->()) {
@@ -45,33 +54,35 @@ class HomeTabViewModel {
     }
     */
     func getCountriesData(completion: @escaping (Bool)->() ){
-        AllCountriesCountWebService.callCountriesWebService { [weak self](success, arrayCountriesCountModel) in
-           
-            guard let self = self, success == true else {
-                completion(false)
-                return
-            }
-            self.worldCount = CountryModel()
-            self.worldCount?.totalCases =  arrayCountriesCountModel?.compactMap({$0.totalCases}).reduce(0, +)
-            self.worldCount?.totalDeaths =  arrayCountriesCountModel?.compactMap({$0.totalDeaths}).reduce(0, +)
-            self.worldCount?.totalActive =  arrayCountriesCountModel?.compactMap({$0.totalActive}).reduce(0, +)
-            self.worldCount?.totalRecovered =  arrayCountriesCountModel?.compactMap({$0.totalRecovered}).reduce(0, +)
-            self.worldCount?.totalCritical =  arrayCountriesCountModel?.compactMap({$0.totalCritical}).reduce(0, +)
-            self.worldCount?.countryName = "World"
-            self.worldCount?.totalTests = arrayCountriesCountModel?.compactMap({$0.totalTests}).reduce(0, +)
-            self.worldCount?.newCases = arrayCountriesCountModel?.compactMap({$0.newCases}).reduce(0, +)
-            self.worldCount?.newDeaths = arrayCountriesCountModel?.compactMap({$0.newDeaths}).reduce(0, +)
-            self.worldCount?.newRecovered = arrayCountriesCountModel?.compactMap({$0.newRecovered}).reduce(0, +)
-            
-            if let receivedArray = arrayCountriesCountModel{
-                self.arrayCountries = receivedArray
-                 let filteredArray = receivedArray.filter({$0.countryName == "India"})
-                if  !filteredArray.isEmpty   {
-                    self.indiaCount = filteredArray[0]
+            AllCountriesCountWebService.callCountriesWebService { [weak self](success, arrayCountriesCountModel) in
+               
+                guard let self = self, success == true else {
+                    completion(false)
+                    return
                 }
+                self.worldCount = CountryModel()
+                self.worldCount?.totalCases =  arrayCountriesCountModel?.compactMap({$0.totalCases}).reduce(0, +)
+                self.worldCount?.totalDeaths =  arrayCountriesCountModel?.compactMap({$0.totalDeaths}).reduce(0, +)
+                self.worldCount?.totalActive =  arrayCountriesCountModel?.compactMap({$0.totalActive}).reduce(0, +)
+                self.worldCount?.totalRecovered =  arrayCountriesCountModel?.compactMap({$0.totalRecovered}).reduce(0, +)
+                self.worldCount?.totalCritical =  arrayCountriesCountModel?.compactMap({$0.totalCritical}).reduce(0, +)
+                self.worldCount?.countryName = "World"
+                self.worldCount?.totalTests = arrayCountriesCountModel?.compactMap({$0.totalTests}).reduce(0, +)
+                self.worldCount?.newCases = arrayCountriesCountModel?.compactMap({$0.newCases}).reduce(0, +)
+                self.worldCount?.newDeaths = arrayCountriesCountModel?.compactMap({$0.newDeaths}).reduce(0, +)
+                self.worldCount?.newRecovered = arrayCountriesCountModel?.compactMap({$0.newRecovered}).reduce(0, +)
+                
+                if let receivedArray = arrayCountriesCountModel{
+                    self.arrayCountries = receivedArray
+                     let filteredArray = receivedArray.filter({$0.countryName == "India"})
+                    if  !filteredArray.isEmpty   {
+                        self.indiaCount = filteredArray[0]
+                    }
+                }
+                completion(true)
             }
-            completion(true)
-        }
+
+        
     }
         
      func getIndiaHistoricalData(completion: @escaping (Bool)->()) {

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -52,10 +52,11 @@
 		1CD3001024C990C700C31AAB /* light_cough.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1CD3000D24C990C700C31AAB /* light_cough.gif */; };
 		1CD3001124C990C700C31AAB /* light_fever.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1CD3000E24C990C700C31AAB /* light_fever.gif */; };
 		1CD3001324CED6E900C31AAB /* GuideGuidelinesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD3001224CED6E900C31AAB /* GuideGuidelinesCell.swift */; };
+		1CD3001724CF23D800C31AAB /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD3001624CF23D800C31AAB /* ReachabilityManager.swift */; };
 		1CDD481C24C03CAF00054986 /* GuideRightHandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD481B24C03CAF00054986 /* GuideRightHandCell.swift */; };
 		1CDD482024C03D7000054986 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD481F24C03D7000054986 /* GuideViewController.swift */; };
 		1CDD482224C0B8FD00054986 /* GuideLeftHandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD482124C0B8FD00054986 /* GuideLeftHandCell.swift */; };
-		3D4EAE84DC7EBDE036F2E1B9 /* Pods_Covid19_Internal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C584D39AC12C58308A9DB70 /* Pods_Covid19_Internal.framework */; };
+		71063CAF9C1A8BF1D47300F2 /* libPods-Covid19_Internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F773055344AEAC236D8F779 /* libPods-Covid19_Internal.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,10 +108,11 @@
 		1CD3000D24C990C700C31AAB /* light_cough.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = light_cough.gif; sourceTree = "<group>"; };
 		1CD3000E24C990C700C31AAB /* light_fever.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = light_fever.gif; sourceTree = "<group>"; };
 		1CD3001224CED6E900C31AAB /* GuideGuidelinesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideGuidelinesCell.swift; sourceTree = "<group>"; };
+		1CD3001624CF23D800C31AAB /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		1CDD481B24C03CAF00054986 /* GuideRightHandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideRightHandCell.swift; sourceTree = "<group>"; };
 		1CDD481F24C03D7000054986 /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		1CDD482124C0B8FD00054986 /* GuideLeftHandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideLeftHandCell.swift; sourceTree = "<group>"; };
-		5C584D39AC12C58308A9DB70 /* Pods_Covid19_Internal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid19_Internal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F773055344AEAC236D8F779 /* libPods-Covid19_Internal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Covid19_Internal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E250C2F78B200E2762FC6DC0 /* Pods-Covid19_Internal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19_Internal.release.xcconfig"; path = "Target Support Files/Pods-Covid19_Internal/Pods-Covid19_Internal.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,7 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D4EAE84DC7EBDE036F2E1B9 /* Pods_Covid19_Internal.framework in Frameworks */,
+				71063CAF9C1A8BF1D47300F2 /* libPods-Covid19_Internal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +195,7 @@
 			children = (
 				1C5DC139249772B100814CDB /* ConnectionManager.swift */,
 				1C5DC138249772B100814CDB /* Request.swift */,
+				1CD3001624CF23D800C31AAB /* ReachabilityManager.swift */,
 			);
 			path = "Network Manager";
 			sourceTree = "<group>";
@@ -299,7 +302,7 @@
 		A3C29F0D6DF6AC3A92F63C48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5C584D39AC12C58308A9DB70 /* Pods_Covid19_Internal.framework */,
+				3F773055344AEAC236D8F779 /* libPods-Covid19_Internal.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -324,7 +327,6 @@
 				1C5DC10F2496016600814CDB /* Sources */,
 				1C5DC1102496016600814CDB /* Frameworks */,
 				1C5DC1112496016600814CDB /* Resources */,
-				B350FCEB4FBFD09AAD10F2BA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -386,23 +388,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B350FCEB4FBFD09AAD10F2BA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Covid19_Internal/Pods-Covid19_Internal-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Covid19_Internal/Pods-Covid19_Internal-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Covid19_Internal/Pods-Covid19_Internal-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F2A80BFEAC683843474474FF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -448,6 +433,7 @@
 				1CDD481C24C03CAF00054986 /* GuideRightHandCell.swift in Sources */,
 				1C5DC13B249772B100814CDB /* ConnectionManager.swift in Sources */,
 				1C7B1678249CA0AC0069157B /* UISegmentControlExtension.swift in Sources */,
+				1CD3001724CF23D800C31AAB /* ReachabilityManager.swift in Sources */,
 				1C5DC1492497827100814CDB /* WorldCountWebService.swift in Sources */,
 				1C7B168724A244060069157B /* DistrictInfoViewController.swift in Sources */,
 				1C5DC1582497B11500814CDB /* AllCountriesParser.swift in Sources */,
@@ -621,9 +607,9 @@
 			baseConfigurationReference = 17DD888763B08B4D9E968056 /* Pods-Covid19_Internal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mahesh Sammatashetti (LN6AQUJTEA)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vungle, Inc.";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = GZ7XBB3Z9B;
+				DEVELOPMENT_TEAM = GTA9LK7P23;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid19_Internal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -631,9 +617,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cybage.Covid19-Inernal";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vungle.showcase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Cybage Wild Card";
+				PROVISIONING_PROFILE_SPECIFIER = "Showcase Application Provisioning Profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -644,9 +630,9 @@
 			baseConfigurationReference = E250C2F78B200E2762FC6DC0 /* Pods-Covid19_Internal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mahesh Sammatashetti (LN6AQUJTEA)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vungle, Inc.";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = GZ7XBB3Z9B;
+				DEVELOPMENT_TEAM = GTA9LK7P23;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid19_Internal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -654,9 +640,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cybage.Covid19-Inernal";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vungle.showcase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Cybage Wild Card";
+				PROVISIONING_PROFILE_SPECIFIER = "Showcase Application Provisioning Profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

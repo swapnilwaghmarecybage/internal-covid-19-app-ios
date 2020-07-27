@@ -51,6 +51,7 @@ struct Guide {
     static var lessCommonSymptoms = "• Aches and pains\n• Sore throa\n• Diarrhoea\n• Conjunctivitis\n• Headache\n• Loss of taste or smell\n• A rash on skin\n• Discolouration of fingers or toes"
 }
 
+let NetworkReceivedNotification = NSNotification.Name("Network received")
 
 let App_Name = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? ""
 

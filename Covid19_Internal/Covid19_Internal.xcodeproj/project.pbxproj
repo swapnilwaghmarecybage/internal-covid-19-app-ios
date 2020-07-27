@@ -51,6 +51,7 @@
 		1CD3000F24C990C700C31AAB /* light_tiredness.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1CD3000C24C990C700C31AAB /* light_tiredness.gif */; };
 		1CD3001024C990C700C31AAB /* light_cough.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1CD3000D24C990C700C31AAB /* light_cough.gif */; };
 		1CD3001124C990C700C31AAB /* light_fever.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1CD3000E24C990C700C31AAB /* light_fever.gif */; };
+		1CD3001324CED6E900C31AAB /* GuideGuidelinesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD3001224CED6E900C31AAB /* GuideGuidelinesCell.swift */; };
 		1CDD481C24C03CAF00054986 /* GuideRightHandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD481B24C03CAF00054986 /* GuideRightHandCell.swift */; };
 		1CDD482024C03D7000054986 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD481F24C03D7000054986 /* GuideViewController.swift */; };
 		1CDD482224C0B8FD00054986 /* GuideLeftHandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD482124C0B8FD00054986 /* GuideLeftHandCell.swift */; };
@@ -105,6 +106,7 @@
 		1CD3000C24C990C700C31AAB /* light_tiredness.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = light_tiredness.gif; sourceTree = "<group>"; };
 		1CD3000D24C990C700C31AAB /* light_cough.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = light_cough.gif; sourceTree = "<group>"; };
 		1CD3000E24C990C700C31AAB /* light_fever.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = light_fever.gif; sourceTree = "<group>"; };
+		1CD3001224CED6E900C31AAB /* GuideGuidelinesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideGuidelinesCell.swift; sourceTree = "<group>"; };
 		1CDD481B24C03CAF00054986 /* GuideRightHandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideRightHandCell.swift; sourceTree = "<group>"; };
 		1CDD481F24C03D7000054986 /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		1CDD482124C0B8FD00054986 /* GuideLeftHandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideLeftHandCell.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 		1C5DC1152496016600814CDB /* Covid19_Internal */ = {
 			isa = PBXGroup;
 			children = (
+				1CD3001424CEEC4D00C31AAB /* GuideResources */,
 				1C5DC14024977BAC00814CDB /* Utilities */,
 				1C5DC13C249773EB00814CDB /* Managers */,
 				1C5DC12D2497562300814CDB /* Layers */,
@@ -216,9 +219,6 @@
 		1C5DC14024977BAC00814CDB /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				1CD3000D24C990C700C31AAB /* light_cough.gif */,
-				1CD3000E24C990C700C31AAB /* light_fever.gif */,
-				1CD3000C24C990C700C31AAB /* light_tiredness.gif */,
 				1CD3000424C9790C00C31AAB /* iOSDevCenters+GIF.swift */,
 				1C5DC14124977BCC00814CDB /* Constants.swift */,
 				1C7B1675249BBC910069157B /* TabBarExtension.swift */,
@@ -265,16 +265,35 @@
 		1C7B1679249CC6A20069157B /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				1CD3001524CEEC7A00C31AAB /* Guide */,
 				1C7B167A249CC7940069157B /* TotalCountTableViewCell.swift */,
 				1C7B167C249CC7B50069157B /* GraphTableViewCell.swift */,
 				1C7B167E249CC7E40069157B /* ChildCountTableViewCell.swift */,
 				1CC9529324B5D7CC00DC557E /* RadioControlView.xib */,
 				1CC9529524B5E85300DC557E /* RadioButtonView.swift */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		1CD3001424CEEC4D00C31AAB /* GuideResources */ = {
+			isa = PBXGroup;
+			children = (
+				1CD3000D24C990C700C31AAB /* light_cough.gif */,
+				1CD3000E24C990C700C31AAB /* light_fever.gif */,
+				1CD3000C24C990C700C31AAB /* light_tiredness.gif */,
+			);
+			path = GuideResources;
+			sourceTree = "<group>";
+		};
+		1CD3001524CEEC7A00C31AAB /* Guide */ = {
+			isa = PBXGroup;
+			children = (
 				1CDD481B24C03CAF00054986 /* GuideRightHandCell.swift */,
 				1CDD482124C0B8FD00054986 /* GuideLeftHandCell.swift */,
 				1CD3000224C9672200C31AAB /* GuideSymptomsTableViewCell.swift */,
+				1CD3001224CED6E900C31AAB /* GuideGuidelinesCell.swift */,
 			);
-			path = CustomCells;
+			path = Guide;
 			sourceTree = "<group>";
 		};
 		A3C29F0D6DF6AC3A92F63C48 /* Frameworks */ = {
@@ -443,6 +462,7 @@
 				1C7B1672249916A40069157B /* CountryModel.swift in Sources */,
 				1CD3000324C9672200C31AAB /* GuideSymptomsTableViewCell.swift in Sources */,
 				1C5DC150249787C300814CDB /* BaseTabBarViewModel.swift in Sources */,
+				1CD3001324CED6E900C31AAB /* GuideGuidelinesCell.swift in Sources */,
 				1C5DC1562497B0F600814CDB /* WorldCountParser.swift in Sources */,
 				1C5DC14C2497871400814CDB /* HomeTabViewModel.swift in Sources */,
 				1C7B167B249CC7940069157B /* TotalCountTableViewCell.swift in Sources */,

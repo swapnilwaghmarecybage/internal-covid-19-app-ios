@@ -19,7 +19,7 @@ class GuideViewController: BaseViewController {
         tableViewGuide.separatorColor = Theme.labelColor
     }
     
-    func createHeaderView(viewBackgroundColor: UIColor, labelBackgroundColor: UIColor, labelTextColor: UIColor, viewWidth: CGFloat, viewHeight:CGFloat, labelText: String) -> UIView{
+    func createHeaderView(viewBackgroundColor: UIColor, labelBackgroundColor: UIColor, labelTextColor: UIColor, labelWidth:CGFloat, viewWidth: CGFloat, viewHeight:CGFloat, labelText: String) -> UIView{
         let headerView = UIView.init(frame: CGRect.init(x: 10, y: 0, width: viewWidth , height: viewHeight))
         headerView.backgroundColor = viewBackgroundColor
         let labelLine = UILabel()
@@ -29,9 +29,15 @@ class GuideViewController: BaseViewController {
 
         let labelTitle = UILabel()
         labelTitle.backgroundColor = labelBackgroundColor
-        labelTitle.frame = CGRect(x: (viewWidth/2) - 50, y: 5, width: 100, height: viewHeight - 10)
+        labelTitle.frame = CGRect(x: (viewWidth/2) - (labelWidth/2) + 15, y: 5, width: labelWidth, height: viewHeight - 10)
         labelTitle.text = labelText
-        labelTitle.font = UIFont.systemFont(ofSize: 17, weight: .bold) // my custom font
+        if UIScreen.main.bounds.width > 350 {
+            labelTitle.font = UIFont.systemFont(ofSize: 17, weight: .bold) // my custom font
+
+        } else {
+            labelTitle.font = UIFont.systemFont(ofSize: 15, weight: .bold) // my custom font
+
+        }
         labelTitle.textColor = labelTextColor // my custom colour
         labelTitle.textAlignment = .center
         headerView.addSubview(labelTitle)
@@ -53,7 +59,7 @@ class GuideViewController: BaseViewController {
         let boundingBoxTitle = array[indexPath.row].title.boundingRect(with: constraintRectTitle, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize:fontSizeTitle)], context: nil)
         let constraintRectDescription = CGSize(width: labelWidth, height: 100)
         let boundingBoxDescription = array[indexPath.row].description.boundingRect(with: constraintRectDescription, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSizeDescription)], context: nil)
-        return boundingBoxTitle.height + boundingBoxDescription.height + 100
+        return boundingBoxTitle.height + boundingBoxDescription.height + 120
     }
 
 }
@@ -61,7 +67,7 @@ class GuideViewController: BaseViewController {
 extension GuideViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,7 +79,7 @@ extension GuideViewController: UITableViewDataSource {
         case 2:
             return Guide.Donts.count
         case 3:
-            return 0
+            return 1
         default:
             return 0
         }
@@ -114,6 +120,11 @@ extension GuideViewController: UITableViewDataSource {
                 
             }
         case 3:
+            if let guidelinesCell  = tableView.dequeueReusableCell(withIdentifier: "GuideGuidelinesCell") as? GuideGuidelinesCell {
+                guidelinesCell.configureCell()
+                return guidelinesCell
+            }
+
             return UITableViewCell()
         default:
             return UITableViewCell()
@@ -129,25 +140,25 @@ extension GuideViewController: UITableViewDataSource {
         case 1:
            return self.createHeaderView(viewBackgroundColor: Theme.backgroundColor,
                                   labelBackgroundColor: BarColors.recoveredColor,
-                                  labelTextColor: Theme.labelColor,
+                                  labelTextColor: Theme.labelColor, labelWidth: 100,
                                   viewWidth: tableView.frame.width - 20,
                                   viewHeight: 50,
                                   labelText: "DO'S")
         case 2:
             return self.createHeaderView(viewBackgroundColor: Theme.backgroundColor,
                                    labelBackgroundColor: BarColors.activeColor,
-                                   labelTextColor: Theme.labelColor,
+                                   labelTextColor: Theme.labelColor, labelWidth: 100,
                                    viewWidth: tableView.frame.width - 20,
                                    viewHeight: 50,
                                    labelText: "DON'TS")
 
         case 3:
             return self.createHeaderView(viewBackgroundColor: Theme.backgroundColor,
-                                   labelBackgroundColor: BarColors.confirmedColor,
-                                   labelTextColor: Theme.labelColor,
+                                         labelBackgroundColor: UIColor.purple,
+                                   labelTextColor: Theme.labelColor, labelWidth: 300,
                                    viewWidth: tableView.frame.width - 20,
                                    viewHeight: 50,
-                                   labelText: "GUIDELINES")
+                                   labelText: "PSYCOLOGICAL GUIDELINES")
 
         default:
             let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 0))
@@ -174,11 +185,13 @@ extension GuideViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 440
+            return 500
         case 1 :
             return self.heightForRowFor(array: Guide.Dos, indexPath: indexPath)
         case 2:
             return self.heightForRowFor(array: Guide.Donts, indexPath: indexPath)
+        case 3:
+            return 1000
         default:
            return 175
         }

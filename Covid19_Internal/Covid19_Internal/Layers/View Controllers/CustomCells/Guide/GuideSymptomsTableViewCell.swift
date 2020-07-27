@@ -22,10 +22,17 @@ class GuideSymptomsTableViewCell: UITableViewCell {
     }
 
     func configureCell(){
+        if UIScreen.main.bounds.width > 350 {
+            self.labelLessCommonSymptoms.font = .systemFont(ofSize: 20)
+
+        } else {
+            self.labelLessCommonSymptoms.font = .systemFont(ofSize: 18)
+        }
+
         
         self.viewStackViewParent.layer.cornerRadius = 10
         self.viewStackViewParent.backgroundColor = Theme.highlightedColor
-
+        self.labelLessCommonSymptoms.text = Guide.lessCommonSymptoms
         imageViewFever.image = UIImage.gifImageWithName("light_fever")
         imageViewDryCough.image = UIImage.gifImageWithName("light_cough")
         imageViewTiredness.image = UIImage.gifImageWithName("light_tiredness")

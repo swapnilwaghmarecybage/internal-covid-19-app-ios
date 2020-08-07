@@ -110,4 +110,11 @@ class Utilities {
         dateFormatter.dateFormat = "dd-MMM"
         return  dateFormatter.string(from: dateVar)
     }
+    
+    func validatePhone(_ phoneNumber: String?) -> Bool {
+    let phoneRegex = "^((\\+)|(00))[0-9]{6,14}$"
+    let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+
+    return phoneTest.evaluate(with: phoneNumber)
+}
 }

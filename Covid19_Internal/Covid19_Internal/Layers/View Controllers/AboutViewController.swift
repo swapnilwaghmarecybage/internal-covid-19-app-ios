@@ -10,20 +10,51 @@ import UIKit
 
 class AboutViewController: BaseViewController {
 
+    @IBOutlet weak var buttonSignIn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = Theme.backgroundColor
+        self.buttonSignIn.layer.cornerRadius = 5
+
         // Do any additional setup after loading the view.
     }
 
-    /*
-    // MARK: - Navigation
+    @IBAction func onClickSignIn(_ sender: Any) {
+        AlertView.instance.delegate = self
+        AlertView.instance.showAlert()
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    
+}
+
+
+extension AboutViewController: CustomAlert{
+    
+    func sendOTPToNumber(number:String){
+        if(Utilities.sharedInstance.validatePhone(number)){
+            AlertView.instance.OTPReceivedSuccess()
+            
+        } else {
+            AlertView.instance.actionFailure(message: "Please enter valid phone number")
+        }
+        
+    }
+    
+    func verifyOTP(number:String){
+        if(number == "123456"){
+            AlertView.instance.OTPVerificationSuccess()
+        } else {
+            AlertView.instance.actionFailure(message: "OTP verification Failed")
+        }
+    }
+    func loginSuccess(){
+        
+        if let userWelcomeVc = self.storyboard?.instantiateViewController(withIdentifier: "UserWelcomeViewController") as? UserWelcomeViewController {
+         self.navigationController?.pushViewController(userWelcomeVc, animated: true)
+         }
+
+    }
 
 }

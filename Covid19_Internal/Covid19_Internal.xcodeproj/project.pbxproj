@@ -10,6 +10,10 @@
 		1C28181A24DD518A008316DB /* UserWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28181924DD518A008316DB /* UserWelcomeViewController.swift */; };
 		1C28181D24DD6859008316DB /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C28181B24DD6858008316DB /* AlertView.xib */; };
 		1C28181E24DD6859008316DB /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28181C24DD6858008316DB /* AlertView.swift */; };
+		1C28182524E29A39008316DB /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28182424E29A39008316DB /* FirebaseManager.swift */; };
+		1C28182724E29C97008316DB /* ProtocolCustomPhoneVerificationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28182624E29C97008316DB /* ProtocolCustomPhoneVerificationAlert.swift */; };
+		1C28182924E29CEC008316DB /* ProtocolFirebasePhoneVerificationResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28182824E29CEC008316DB /* ProtocolFirebasePhoneVerificationResponce.swift */; };
+		1C28182C24E3CD0E008316DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C28182B24E3CD0E008316DB /* GoogleService-Info.plist */; };
 		1C5DC1172496016600814CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC1162496016600814CDB /* AppDelegate.swift */; };
 		1C5DC11E2496016600814CDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5DC11C2496016600814CDB /* Main.storyboard */; };
 		1C5DC1212496016600814CDB /* Covid19_Internal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC11F2496016600814CDB /* Covid19_Internal.xcdatamodeld */; };
@@ -67,6 +71,11 @@
 		1C28181924DD518A008316DB /* UserWelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWelcomeViewController.swift; sourceTree = "<group>"; };
 		1C28181B24DD6858008316DB /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		1C28181C24DD6858008316DB /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		1C28181F24E14264008316DB /* Covid19_Internal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Covid19_Internal.entitlements; sourceTree = "<group>"; };
+		1C28182424E29A39008316DB /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		1C28182624E29C97008316DB /* ProtocolCustomPhoneVerificationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolCustomPhoneVerificationAlert.swift; sourceTree = "<group>"; };
+		1C28182824E29CEC008316DB /* ProtocolFirebasePhoneVerificationResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolFirebasePhoneVerificationResponce.swift; sourceTree = "<group>"; };
+		1C28182B24E3CD0E008316DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1C5DC1132496016600814CDB /* Covid19_Internal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Covid19_Internal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C5DC1162496016600814CDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C5DC11D2496016600814CDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -134,6 +143,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C28182A24E29CF9008316DB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1C28182624E29C97008316DB /* ProtocolCustomPhoneVerificationAlert.swift */,
+				1C28182824E29CEC008316DB /* ProtocolFirebasePhoneVerificationResponce.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		1C5DC10A2496016600814CDB = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +173,7 @@
 		1C5DC1152496016600814CDB /* Covid19_Internal */ = {
 			isa = PBXGroup;
 			children = (
+				1C28181F24E14264008316DB /* Covid19_Internal.entitlements */,
 				1CD3001424CEEC4D00C31AAB /* GuideResources */,
 				1C5DC14024977BAC00814CDB /* Utilities */,
 				1C5DC13C249773EB00814CDB /* Managers */,
@@ -210,6 +229,7 @@
 		1C5DC13C249773EB00814CDB /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				1C28182A24E29CF9008316DB /* Protocols */,
 				1C5DC1372497725F00814CDB /* Network Manager */,
 			);
 			path = Managers;
@@ -229,6 +249,7 @@
 		1C5DC14024977BAC00814CDB /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				1C28182B24E3CD0E008316DB /* GoogleService-Info.plist */,
 				1C28181C24DD6858008316DB /* AlertView.swift */,
 				1C28181B24DD6858008316DB /* AlertView.xib */,
 				1CD3000424C9790C00C31AAB /* iOSDevCenters+GIF.swift */,
@@ -237,6 +258,7 @@
 				1C7B1677249CA0AC0069157B /* UISegmentControlExtension.swift */,
 				1C7B168224A106790069157B /* ImageExtension.swift */,
 				1C7B168C24A478290069157B /* ChartsLayer.swift */,
+				1C28182424E29A39008316DB /* FirebaseManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -388,6 +410,7 @@
 				1C28181D24DD6859008316DB /* AlertView.xib in Resources */,
 				1CC9529424B5D7CC00DC557E /* RadioControlView.xib in Resources */,
 				1CD3000F24C990C700C31AAB /* light_tiredness.gif in Resources */,
+				1C28182C24E3CD0E008316DB /* GoogleService-Info.plist in Resources */,
 				1C5DC1262496017400814CDB /* LaunchScreen.storyboard in Resources */,
 				1C5DC1232496017400814CDB /* Assets.xcassets in Resources */,
 				1CD3001024C990C700C31AAB /* light_cough.gif in Resources */,
@@ -432,13 +455,16 @@
 				1CDD482024C03D7000054986 /* GuideViewController.swift in Sources */,
 				1C5DC13424975B3800814CDB /* AboutViewController.swift in Sources */,
 				1C5DC1442497822F00814CDB /* AllIndiaHistoricalDataWebServices.swift in Sources */,
+				1C28182924E29CEC008316DB /* ProtocolFirebasePhoneVerificationResponce.swift in Sources */,
 				1C5DC1462497824B00814CDB /* AllCountriesCountWebService.swift in Sources */,
 				1C7B168924A247060069157B /* DistrictViewModel.swift in Sources */,
 				1CDD482224C0B8FD00054986 /* GuideLeftHandCell.swift in Sources */,
 				1C5DC15A2497B18D00814CDB /* AllIndiaHistoricalDataParser.swift in Sources */,
+				1C28182724E29C97008316DB /* ProtocolCustomPhoneVerificationAlert.swift in Sources */,
 				1C7B168124A093920069157B /* BaseViewController.swift in Sources */,
 				1C5DC14E2497876800814CDB /* AboutTabViewModel.swift in Sources */,
 				1C5DC13A249772B100814CDB /* Request.swift in Sources */,
+				1C28182524E29A39008316DB /* FirebaseManager.swift in Sources */,
 				1C5DC13224975B2300814CDB /* HomeViewController.swift in Sources */,
 				1CDD481C24C03CAF00054986 /* GuideRightHandCell.swift in Sources */,
 				1C5DC13B249772B100814CDB /* ConnectionManager.swift in Sources */,
@@ -619,9 +645,10 @@
 			baseConfigurationReference = 17DD888763B08B4D9E968056 /* Pods-Covid19_Internal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Vungle, Inc.";
+				CODE_SIGN_ENTITLEMENTS = Covid19_Internal/Covid19_Internal.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development: Mahesh Sammatashetti (LN6AQUJTEA)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = GTA9LK7P23;
+				DEVELOPMENT_TEAM = GZ7XBB3Z9B;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid19_Internal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -629,9 +656,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vungle.showcase;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cybage.covidcare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Showcase Application Provisioning Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "Vungle Covid Care";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -642,9 +669,10 @@
 			baseConfigurationReference = E250C2F78B200E2762FC6DC0 /* Pods-Covid19_Internal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Vungle, Inc.";
+				CODE_SIGN_ENTITLEMENTS = Covid19_Internal/Covid19_Internal.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development: Mahesh Sammatashetti (LN6AQUJTEA)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = GTA9LK7P23;
+				DEVELOPMENT_TEAM = GZ7XBB3Z9B;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid19_Internal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -652,9 +680,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vungle.showcase;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cybage.covidcare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Showcase Application Provisioning Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "Vungle Covid Care";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

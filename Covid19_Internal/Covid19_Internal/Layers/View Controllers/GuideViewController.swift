@@ -185,7 +185,7 @@ extension GuideViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 500
+            return 540
         case 1 :
             return self.heightForRowFor(array: Guide.Dos, indexPath: indexPath)
         case 2:

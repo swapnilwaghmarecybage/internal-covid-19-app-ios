@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 typealias BarGraphDataType = (labels: [String], valuesOfTotalConfirmed:[Double],
-                        valueOfTotalActive:[Double], valueOfTotalRecovered:[Double],
-                        valueOfTotalDeaths:[Double])
+    valueOfTotalActive:[Double], valueOfTotalRecovered:[Double],
+    valueOfTotalDeaths:[Double])
 
 typealias Dos_And_Donts = (title:String,imageName:String,description: String)
 
@@ -39,14 +39,14 @@ struct Theme {
 
 struct Guide {
     static var Dos: [Dos_And_Donts] {return[("Hand Wash","Hand Wash","Regular hand wash for 20 seconds will help you avoid germs or any kind of infection."),
-                                                                            ("Cover Your Mouth & Nose","Cover Your Mouth & Nose","Covering your mouth and nose while sneezing or when anyone next to coughs or sneezes can do you a lot better."),
-                                                                            ("Consult A Doctor If Sick","Consult A Doctor If Sick","If you are suffering from a common cold, cough, nausea, vomiting, shortness of breath and fatigue make it a point to consult a doctor at the earliest."),
-                                                                            ("Stay Indoors","Stay Indoors","Avoid being in crowded places. An infected person can spread the virus instantly and crowded places is a good way to accomplish this.")]}
+                                            ("Cover Your Mouth & Nose","Cover Your Mouth & Nose","Covering your mouth and nose while sneezing or when anyone next to coughs or sneezes can do you a lot better."),
+                                            ("Consult A Doctor If Sick","Consult A Doctor If Sick","If you are suffering from a common cold, cough, nausea, vomiting, shortness of breath and fatigue make it a point to consult a doctor at the earliest."),
+                                            ("Stay Indoors","Stay Indoors","Avoid being in crowded places. An infected person can spread the virus instantly and crowded places is a good way to accomplish this.")]}
     
     static var Donts: [Dos_And_Donts] {return[("Don’t Touch Your Face","Don’t Touch Your Face","Do not touch your face, nose and mouth often. This avoids the risks of developing the virus."),
-                                                                              ("Avoid Close Contact","Avoid Close Contact","Do not get close to anyone, especially touching or laughing closely. Also, use anti-pollution masks when out with friends or family."),
-                                                                              ("Do Not Spit","Do Not Spit","Spitting can increase the spread of the virus. Avoid spiting at in public and home. Also, avoid getting close to a sick person suffering from cold and cough."),
-                                                                              ("Don’t Panic, Take It Easy","Don’t Panic, Take It Easy","Most often a state of fear can lead to taking wrong decisions and use of self-medication. All you need to keep in mind is hygiene.")]}
+                                              ("Avoid Close Contact","Avoid Close Contact","Do not get close to anyone, especially touching or laughing closely. Also, use anti-pollution masks when out with friends or family."),
+                                              ("Do Not Spit","Do Not Spit","Spitting can increase the spread of the virus. Avoid spiting at in public and home. Also, avoid getting close to a sick person suffering from cold and cough."),
+                                              ("Don’t Panic, Take It Easy","Don’t Panic, Take It Easy","Most often a state of fear can lead to taking wrong decisions and use of self-medication. All you need to keep in mind is hygiene.")]}
     static var psycologicalGuidelines = "• Isolate yourself from news about the virus. (Everything we need to know, we already know).\n\n • Don't look out for death toll. It's not a cricket match to know the latest score. Avoid that.\n\n• Don't look for additional information on the Internet, it would weaken your mental state.\n\n• Avoid sending fatalistic messages. Some people don't have the same mental strength as you (Instead of helping, you could activate pathologies such as depression).\n\n• If possible, listen to music at home at a pleasant volume. Look for board games to entertain children, tell stories and future plans.\n\n• Maintain discipline in the home by washing your hands, putting up a sign or alarm for everyone in the house.\n\n• Your positive mood will help protect your immune system, while negative thoughts have been shown to depress your immune system and make it weak against viruses.\n\n• Most importantly, firmly believe that this shall also pass and we will be safe.... !\n\n\n Stay mentally positive...Stay safe!"
     static var lessCommonSymptoms = "• Aches and pains\n• Sore throa\n• Diarrhoea\n• Conjunctivitis\n• Headache\n• Loss of taste or smell\n• A rash on skin\n• Discolouration of fingers or toes"
 }
@@ -54,12 +54,23 @@ struct Guide {
 let NetworkReceivedNotification = NSNotification.Name("Network received")
 
 let App_Name = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? ""
+let Helpline_Number = "+918793107825"
 
 enum BarName: String {
     case confirmed = "Confirmed"
     case active = "Active"
     case receovered = "Recovered"
     case deceased = "Deceased"
+}
+
+enum PhoneVerificationErrorCodes: String {
+    case OTP_SENDING_FAILED = "Failed to send OTP."
+    case FIELDS_EMPTY = "Please enter Name and Mobile number."
+    case OTP_VERIFICATION_FAILED = "Please enter correct OTP."
+    case OTP_EMPTY = "Please enter OTP."
+    case INVALID_PHONE_NUMBER = "Please enter valid phone number."
+    case NULL_AUTH = "Auth result is null"
+    case NULL_VERIFICATIONID = "VerificationID is null"
 }
 
 enum BarTag: Int {
@@ -81,16 +92,16 @@ enum SegmentSelectionIndex:Int {
     case World //1
 }
 
-  struct API {
+struct API {
     static let district = "https://api.covid19india.org/state_district_wise.json"
     static let all_india_historical_data = "https://api.rootnet.in/covid19-in/stats/history"
     static let all_countries = "https://disease.sh/v2/countries?yesterday=true&sort=cases&allowNull=false"
     static let world_count = "https://covid-19.dataflowkit.com/v1"
-    }
-    
-    
-class Utilities {
+}
 
+
+class Utilities {
+    
     static let sharedInstance = Utilities()
     private init(){}
     
@@ -112,9 +123,24 @@ class Utilities {
     }
     
     func validatePhone(_ phoneNumber: String?) -> Bool {
-    let phoneRegex = "^((\\+)|(00))[0-9]{6,14}$"
-    let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
-
-    return phoneTest.evaluate(with: phoneNumber)
-}
+        let phoneRegex = "^((\\+)|(00))[0-9]{6,14}$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+        
+        return phoneTest.evaluate(with: phoneNumber)
+    }
+    
+    func dialNumber(number : String) {
+        
+        if let url = URL(string: "tel://\(number)"),
+            UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler:nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        } else {
+            print("error in dial number")
+        }
+    }
+    
 }

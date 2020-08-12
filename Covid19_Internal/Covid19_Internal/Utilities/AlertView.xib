@@ -10,16 +10,22 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlertView" customModule="Covid19_Internal" customModuleProvider="target">
             <connections>
-                <outlet property="alertView" destination="715-6n-JpH" id="gwF-Nw-zYV"/>
-                <outlet property="buttonAlertAction" destination="gwN-mk-Yxx" id="1oo-Uw-oIl"/>
-                <outlet property="buttonCancel" destination="7ql-ot-wBL" id="YgW-06-MWl"/>
-                <outlet property="constraintCountryCodeWidth" destination="oNu-G9-h14" id="B3d-Ma-plK"/>
-                <outlet property="labelErrorMessage" destination="Pbf-a0-kOj" id="Rhr-uk-nq8"/>
-                <outlet property="labelMessage" destination="7q9-fK-7Zj" id="sfj-fp-ktl"/>
-                <outlet property="labelTitle" destination="FOD-xm-5YQ" id="b21-Q2-JWe"/>
-                <outlet property="parentView" destination="iN0-l3-epB" id="Jue-g7-bNy"/>
-                <outlet property="textFieldName" destination="iCZ-gj-Pgw" id="gpw-m4-A7v"/>
-                <outlet property="textFieldNumberInput" destination="ft0-jr-n0r" id="ZJp-7A-ncS"/>
+                <outlet property="alertViewMobileNumberAndName" destination="715-6n-JpH" id="FF6-cT-xIF"/>
+                <outlet property="alertViewOTP" destination="GFh-hI-mM6" id="v5J-6b-T9U"/>
+                <outlet property="buttonGenerateOTP" destination="gwN-mk-Yxx" id="EMg-TP-m8g"/>
+                <outlet property="buttonLogin" destination="UBS-Lp-i92" id="HIh-GM-oeN"/>
+                <outlet property="buttonResendOTP" destination="7ql-ot-wBL" id="nyc-6V-cjW"/>
+                <outlet property="labelErrorMessageAlertViewMobileNumberAndName" destination="Pbf-a0-kOj" id="6A1-iR-9hu"/>
+                <outlet property="labelErrorMessageAlertViewOTP" destination="vgL-1F-Gbq" id="XWH-ac-1Yg"/>
+                <outlet property="labelMessageAlertViewMobileNumberAndName" destination="7q9-fK-7Zj" id="OAB-HX-Hcu"/>
+                <outlet property="labelMessageAlertViewOTP" destination="Xtg-Cp-Pxl" id="ZYd-q7-igd"/>
+                <outlet property="labelTitleAlertViewMobileNumberAndName" destination="FOD-xm-5YQ" id="kcG-B3-Wnd"/>
+                <outlet property="labelTitleAlertViewOTP" destination="5Hd-DY-mlU" id="ABT-Jv-ZYh"/>
+                <outlet property="parentView" destination="iN0-l3-epB" id="D5K-cc-cFD"/>
+                <outlet property="shadowView" destination="bU0-do-5ea" id="hEG-Fr-CE6"/>
+                <outlet property="textFieldName" destination="iCZ-gj-Pgw" id="lru-BG-9xL"/>
+                <outlet property="textFieldNumberInput" destination="ft0-jr-n0r" id="cdh-Ak-81Y"/>
+                <outlet property="textFieldOTP" destination="JG3-m9-ekQ" id="vFh-Kv-6nW"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -31,7 +37,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                     <color key="backgroundColor" white="0.0" alpha="0.81213872832369938" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="715-6n-JpH">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="715-6n-JpH" userLabel="Alert View Mobile Number">
                     <rect key="frame" x="40" y="159" width="295" height="300"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOD-xm-5YQ" userLabel="LabelAlertTitle">
@@ -63,12 +69,18 @@ receive verification code</string>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" textContentType="name"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="n1r-tA-SEg"/>
+                            </connections>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ft0-jr-n0r" userLabel="TextFieldMobileNumber">
-                            <rect key="frame" x="77.5" y="164" width="180" height="34"/>
+                            <rect key="frame" x="37.5" y="164" width="220" height="34"/>
                             <color key="backgroundColor" red="0.3411764705882353" green="0.47843137254901957" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" textContentType="tel"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="QPB-NC-e6I"/>
+                            </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwN-mk-Yxx" userLabel="ButtonGenerateOTP">
                             <rect key="frame" x="20" y="238" width="120" height="40"/>
@@ -81,47 +93,35 @@ receive verification code</string>
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
-                                <action selector="onClickGenerateOTP:" destination="-1" eventType="touchUpInside" id="bZ7-jd-d3Q"/>
+                                <action selector="onClickSendOTP:" destination="-1" eventType="touchUpInside" id="TDn-xF-Ox2"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ql-ot-wBL" userLabel="ButtonCANCEL">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ql-ot-wBL" userLabel="ButtonResendOTP">
                             <rect key="frame" x="155" y="238" width="120" height="40"/>
                             <color key="backgroundColor" red="0.070588235289999995" green="0.1647058824" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="1dU-qm-Ueh"/>
                                 <constraint firstAttribute="width" constant="120" id="bFJ-3D-Ujw"/>
                             </constraints>
-                            <state key="normal" title="CANCEL">
+                            <state key="normal" title="RESEND OTP">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
-                                <action selector="onClickCancel:" destination="-1" eventType="touchUpInside" id="2ns-Ss-joq"/>
+                                <action selector="onClickSendOTP:" destination="-1" eventType="touchUpInside" id="CnL-Xw-8Oh"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+91" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q83-Xy-Nam" userLabel="LabelCountryCode">
-                            <rect key="frame" x="37.5" y="164" width="40" height="34"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="40" id="oNu-G9-h14"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.098039215686274508" green="0.22352941176470587" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="gwN-mk-Yxx" firstAttribute="top" secondItem="Pbf-a0-kOj" secondAttribute="bottom" constant="10" id="1yz-3X-Jjo"/>
                         <constraint firstAttribute="height" constant="300" id="1zy-sR-DVa"/>
                         <constraint firstItem="7q9-fK-7Zj" firstAttribute="leading" secondItem="715-6n-JpH" secondAttribute="leading" id="2Qe-uF-iDS"/>
-                        <constraint firstItem="Q83-Xy-Nam" firstAttribute="leading" secondItem="iCZ-gj-Pgw" secondAttribute="leading" id="2gm-55-WvU"/>
-                        <constraint firstItem="ft0-jr-n0r" firstAttribute="leading" secondItem="Q83-Xy-Nam" secondAttribute="trailing" id="5UV-5c-gMP"/>
                         <constraint firstItem="FOD-xm-5YQ" firstAttribute="top" secondItem="715-6n-JpH" secondAttribute="top" constant="10" id="AfG-2n-gLt"/>
                         <constraint firstItem="gwN-mk-Yxx" firstAttribute="top" secondItem="ft0-jr-n0r" secondAttribute="bottom" constant="40" id="AtE-qA-Cc9"/>
                         <constraint firstAttribute="trailing" secondItem="7q9-fK-7Zj" secondAttribute="trailing" id="DFZ-bv-lFC"/>
                         <constraint firstItem="Pbf-a0-kOj" firstAttribute="top" secondItem="ft0-jr-n0r" secondAttribute="bottom" constant="10" id="F8i-GT-v4m"/>
-                        <constraint firstItem="Q83-Xy-Nam" firstAttribute="bottom" secondItem="ft0-jr-n0r" secondAttribute="bottom" id="FvX-Bv-sp5"/>
                         <constraint firstItem="FOD-xm-5YQ" firstAttribute="leading" secondItem="715-6n-JpH" secondAttribute="leading" id="MWY-F9-EDx"/>
-                        <constraint firstItem="Q83-Xy-Nam" firstAttribute="top" secondItem="ft0-jr-n0r" secondAttribute="top" id="MsG-zZ-z0b"/>
+                        <constraint firstItem="iCZ-gj-Pgw" firstAttribute="leading" secondItem="ft0-jr-n0r" secondAttribute="leading" id="OT1-Bo-aVq"/>
                         <constraint firstItem="7ql-ot-wBL" firstAttribute="leading" secondItem="gwN-mk-Yxx" secondAttribute="trailing" constant="15" id="PpC-wK-Hw0"/>
                         <constraint firstAttribute="trailing" secondItem="7q9-fK-7Zj" secondAttribute="trailing" id="Ppu-TG-x5h"/>
                         <constraint firstItem="iCZ-gj-Pgw" firstAttribute="centerX" secondItem="715-6n-JpH" secondAttribute="centerX" id="RVZ-su-PNT"/>
@@ -139,30 +139,94 @@ receive verification code</string>
                         <constraint firstItem="ft0-jr-n0r" firstAttribute="top" secondItem="iCZ-gj-Pgw" secondAttribute="bottom" constant="15" id="zk2-9f-Ik8"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFh-hI-mM6" userLabel="Alert View OTP">
+                    <rect key="frame" x="40" y="184" width="295" height="250"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hd-DY-mlU" userLabel="LabelAlertTitle">
+                            <rect key="frame" x="0.0" y="10" width="295" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtg-Cp-Pxl" userLabel="LabelAlertMessage">
+                            <rect key="frame" x="0.0" y="46" width="295" height="48"/>
+                            <string key="text">Please enter OTP received 
+on your mobile number</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" red="1" green="0.59607843140000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgL-1F-Gbq" userLabel="LabelErrorMessage">
+                            <rect key="frame" x="0.0" y="148" width="295" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="OTP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JG3-m9-ekQ" userLabel="TextFieldOTP">
+                            <rect key="frame" x="37.5" y="104" width="220" height="34"/>
+                            <color key="backgroundColor" red="0.3411764706" green="0.47843137250000001" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="220" id="GYm-um-u0g"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="VWO-I2-Vdl"/>
+                            </connections>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBS-Lp-i92" userLabel="ButtonLogin">
+                            <rect key="frame" x="87.5" y="178" width="120" height="40"/>
+                            <color key="backgroundColor" red="0.070588235289999995" green="0.1647058824" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="YO3-un-IxF"/>
+                                <constraint firstAttribute="width" constant="120" id="bIT-Oe-5JR"/>
+                            </constraints>
+                            <state key="normal" title="LOGIN">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="onClickLogin:" destination="-1" eventType="touchUpInside" id="qjm-JY-6ez"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.098039215690000001" green="0.22352941179999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Xtg-Cp-Pxl" firstAttribute="top" secondItem="5Hd-DY-mlU" secondAttribute="bottom" constant="15" id="7fV-s4-hym"/>
+                        <constraint firstAttribute="height" constant="250" id="9jN-gu-qTx"/>
+                        <constraint firstItem="vgL-1F-Gbq" firstAttribute="leading" secondItem="GFh-hI-mM6" secondAttribute="leading" id="ByM-ea-1tc"/>
+                        <constraint firstItem="5Hd-DY-mlU" firstAttribute="leading" secondItem="GFh-hI-mM6" secondAttribute="leading" id="COa-S9-18Z"/>
+                        <constraint firstAttribute="trailing" secondItem="Xtg-Cp-Pxl" secondAttribute="trailing" id="DKN-B7-dj8"/>
+                        <constraint firstItem="Xtg-Cp-Pxl" firstAttribute="leading" secondItem="GFh-hI-mM6" secondAttribute="leading" id="ItY-qE-PL2"/>
+                        <constraint firstItem="Xtg-Cp-Pxl" firstAttribute="leading" secondItem="GFh-hI-mM6" secondAttribute="leading" id="QRk-7H-JEu"/>
+                        <constraint firstItem="vgL-1F-Gbq" firstAttribute="top" secondItem="JG3-m9-ekQ" secondAttribute="bottom" constant="10" id="RIU-cA-GtY"/>
+                        <constraint firstAttribute="trailing" secondItem="vgL-1F-Gbq" secondAttribute="trailing" id="SrM-ET-OT5"/>
+                        <constraint firstItem="UBS-Lp-i92" firstAttribute="top" secondItem="JG3-m9-ekQ" secondAttribute="bottom" constant="40" id="SuD-kQ-rfD"/>
+                        <constraint firstItem="UBS-Lp-i92" firstAttribute="centerX" secondItem="GFh-hI-mM6" secondAttribute="centerX" id="VkO-lg-61j"/>
+                        <constraint firstItem="UBS-Lp-i92" firstAttribute="top" secondItem="vgL-1F-Gbq" secondAttribute="bottom" constant="10" id="fqi-zZ-x5e"/>
+                        <constraint firstItem="JG3-m9-ekQ" firstAttribute="top" secondItem="Xtg-Cp-Pxl" secondAttribute="bottom" constant="10" id="kw2-OS-O9P"/>
+                        <constraint firstItem="JG3-m9-ekQ" firstAttribute="centerX" secondItem="GFh-hI-mM6" secondAttribute="centerX" id="mbt-sm-O1h"/>
+                        <constraint firstItem="Xtg-Cp-Pxl" firstAttribute="top" secondItem="5Hd-DY-mlU" secondAttribute="bottom" constant="15" id="mir-Ua-aqg"/>
+                        <constraint firstAttribute="trailing" secondItem="5Hd-DY-mlU" secondAttribute="trailing" id="n6G-gP-bpg"/>
+                        <constraint firstAttribute="trailing" secondItem="Xtg-Cp-Pxl" secondAttribute="trailing" id="riP-oH-ACm"/>
+                        <constraint firstItem="5Hd-DY-mlU" firstAttribute="top" secondItem="GFh-hI-mM6" secondAttribute="top" constant="10" id="xMw-FY-HMz"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bU0-do-5ea" secondAttribute="trailing" id="0x5-iS-bq7"/>
+                <constraint firstItem="GFh-hI-mM6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1KN-rj-5eg"/>
+                <constraint firstItem="GFh-hI-mM6" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BYY-YZ-xo7"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="bU0-do-5ea" secondAttribute="bottom" id="XLu-lF-mP1"/>
                 <constraint firstItem="715-6n-JpH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="aB0-2w-Hmq"/>
                 <constraint firstItem="bU0-do-5ea" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gVJ-tp-tmX"/>
                 <constraint firstItem="bU0-do-5ea" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="god-2D-dy0"/>
                 <constraint firstItem="715-6n-JpH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gq0-e8-rS2"/>
+                <constraint firstItem="GFh-hI-mM6" firstAttribute="width" secondItem="715-6n-JpH" secondAttribute="width" id="ygl-sw-gkc"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="21.5625" y="11.619718309859156"/>
         </view>
-        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdu-TF-CxD" userLabel="ButtonGenerateOTP">
-            <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
-            <color key="backgroundColor" red="0.070588235289999995" green="0.1647058824" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
-            <constraints>
-                <constraint firstAttribute="width" constant="120" id="Zcg-E0-WNJ"/>
-                <constraint firstAttribute="height" constant="40" id="a2m-i5-rDK"/>
-            </constraints>
-            <state key="normal" title="GENERATE OTP">
-                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            </state>
-        </button>
     </objects>
 </document>

@@ -9,28 +9,41 @@
 import Foundation
 import UIKit
 
-protocol CustomAlert {
-    func sendOTPToNumber(number:String)
-    func verifyOTP(number:String)
-    func loginSuccess()
-}
-
 class AlertView: UIView {
     
     static let instance = AlertView()
     
     @IBOutlet var parentView: UIView!
-    @IBOutlet weak var alertView: UIView!
-    @IBOutlet weak var buttonAlertAction: UIButton!
-    @IBOutlet weak var labelMessage: UILabel!
-    @IBOutlet weak var labelTitle: UILabel!
-    @IBOutlet weak var labelErrorMessage: UILabel!
+    @IBOutlet var shadowView: UIView!
+
+    @IBOutlet weak var alertViewMobileNumberAndName: UIView!
+    @IBOutlet weak var labelTitleAlertViewMobileNumberAndName: UILabel!
+    @IBOutlet weak var labelMessageAlertViewMobileNumberAndName: UILabel!
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldNumberInput: UITextField!
-    @IBOutlet weak var buttonCancel: UIButton!
-    @IBOutlet weak var constraintCountryCodeWidth: NSLayoutConstraint!
+    @IBOutlet weak var labelErrorMessageAlertViewMobileNumberAndName: UILabel!
+    @IBOutlet weak var buttonGenerateOTP: UIButton!
+    @IBOutlet weak var buttonResendOTP: UIButton!
+
+    @IBOutlet weak var alertViewOTP: UIView!
+    @IBOutlet weak var labelTitleAlertViewOTP: UILabel!
+    @IBOutlet weak var labelMessageAlertViewOTP: UILabel!
+    @IBOutlet weak var textFieldOTP: UITextField!
+    @IBOutlet weak var labelErrorMessageAlertViewOTP: UILabel!
+    @IBOutlet weak var buttonLogin: UIButton!
+
+    private let ganarateButtonTitle = "GENERATE OTP"
+    private let resendButtonTitle = "RESEND OTP"
+    private let loginButtonTitle = "LOGIN"
+    private let placeholderName = "Name"
+    private let placeholderNumber = "Mobile Number"
+    private let placeholderOTP = "OTP"
+    private let OTPViewMessage = "Please enter OTP received\non your mobile number"
+    private let NumberNameViewMessage = "Please enter name and mobile number to receive OTP"
+
+
     
-    var delegate: CustomAlert?
+    var delegate: CustomPhoneVerificationAlert?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,77 +56,159 @@ class AlertView: UIView {
     }
     
     private func commonInit() {
-        alertView.layer.cornerRadius = 10
-        alertView.layer.borderColor = UIColor.white.cgColor
-        alertView.layer.borderWidth = 2
+        alertViewMobileNumberAndName.layer.cornerRadius = 10
+        alertViewMobileNumberAndName.layer.borderColor = UIColor.white.cgColor
+        alertViewMobileNumberAndName.layer.borderWidth = 2
+        
+        alertViewOTP.layer.cornerRadius = 10
+        alertViewOTP.layer.borderColor = UIColor.white.cgColor
+        alertViewOTP.layer.borderWidth = 2
 
         
         parentView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         parentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+
+        alertViewOTP.isHidden = true
+        alertViewMobileNumberAndName.isHidden = false
+        setupAlertViewMobileNumberAndName()
+        setupAlertViewOTP()
         
-   }
+        let tapGesture = UITapGestureRecognizer(target: self,
+                         action: #selector(dismissPopoup))
+        shadowView.addGestureRecognizer(tapGesture)
+        
+    }
     
+    private func setupAlertViewMobileNumberAndName() {
+        self.labelTitleAlertViewMobileNumberAndName.text = loginButtonTitle
+        self.labelMessageAlertViewMobileNumberAndName.text = NumberNameViewMessage
+        self.textFieldName.text = ""
+        self.textFieldNumberInput.text = ""
+        self.textFieldName.placeholder = placeholderName
+        self.textFieldNumberInput.placeholder = placeholderNumber
+        self.labelErrorMessageAlertViewMobileNumberAndName.text = ""
+        self.buttonGenerateOTP.isEnabled = true
+        self.buttonGenerateOTP.alpha = 1.0
+        self.buttonResendOTP.isEnabled = false
+        self.buttonResendOTP.alpha = 0.5
+
+        textFieldNumberInput.leftViewMode = .always
+        let flagImage =  UIImage(named: "indiaflag")
+        let leftView = UIImageView(image:flagImage)
+        let viewImageHolder = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 30))
+        viewImageHolder.backgroundColor = UIColor.clear
+        leftView.frame = CGRect(x: 15, y: 0, width: 30, height: 30)
+        viewImageHolder.addSubview(leftView)
+        self.textFieldNumberInput.leftView = viewImageHolder
+
+    }
+    
+    private func setupAlertViewOTP() {
+        self.labelTitleAlertViewOTP.text = loginButtonTitle
+        self.labelMessageAlertViewOTP.text = OTPViewMessage
+        self.textFieldOTP.text = ""
+        self.textFieldOTP.placeholder = placeholderOTP
+        self.textFieldOTP.isSecureTextEntry = true
+        self.labelErrorMessageAlertViewMobileNumberAndName.text = ""
+    }
+    
+    @objc func dismissPopoup() {
+        parentView.endEditing(true)
+        parentView.removeFromSuperview()
+        alertViewOTP.isHidden = true
+        alertViewMobileNumberAndName.isHidden = false
+        setupAlertViewMobileNumberAndName()
+        setupAlertViewOTP()
+    }
     
     func showAlert() {
         UIApplication.shared.keyWindow?.addSubview(parentView)
     }
-    
-    
-    
-    @IBAction func onClickGenerateOTP(_ sender: UIButton) {
-       // parentView.removeFromSuperview()
-        if(sender.titleLabel?.text == "GENERATE OTP"){
-            if let _delegate = self.delegate, let _mobileNumber = self.textFieldNumberInput.text {
-                _delegate.sendOTPToNumber(number: _mobileNumber)
-            } else {
-                
-            }
+        
+    @IBAction func onClickSendOTP(_ sender: UIButton) {
+        if let _delegate = self.delegate {
+            if let _mobileNumber = self.textFieldNumberInput.text, !_mobileNumber.isEmpty,
+                let name = self.textFieldName.text, !name.isEmpty {
+                if (sender.titleLabel?.text == "GENERATE OTP"){
+                    self.buttonGenerateOTP.isEnabled = false
+                    self.buttonGenerateOTP.alpha = 0.5
+                } else {
+                    self.buttonResendOTP.isEnabled = false
+                    self.buttonResendOTP.alpha = 0.5
+                }
+                _delegate.sendOTPToNumber(number: "+91\(_mobileNumber)")
 
-        } else if (sender.titleLabel?.text == "LOGIN"){
-            if let _delegate = self.delegate, let _otp = self.textFieldNumberInput.text {
-                _delegate.verifyOTP(number: _otp)
             } else {
-                
+                self.labelErrorMessageAlertViewMobileNumberAndName.text = "please enter username and Mobile Number"
             }
-        }else {
-            parentView.removeFromSuperview()
         }
     }
     
-    @IBAction func onClickCancel(_ sender: UIButton) {
-        if(sender.titleLabel?.text == "CANCEL"){
-            parentView.removeFromSuperview()
-        }else {
-            buttonAlertAction.titleLabel?.text = "GENERATE OTP"
-            buttonCancel.titleLabel?.text = "CANCEL"
-            self.labelErrorMessage.text = ""
-            self.textFieldNumberInput.placeholder = "Mobile Number"
-            constraintCountryCodeWidth.constant = 0
-
+    @IBAction func onClickLogin(_ sender: UIButton) {
+        if let _delegate = self.delegate, let _otp = self.textFieldOTP.text, !_otp.isEmpty {
+                _delegate.verifyOTP(otp: _otp)
+            } else {
+            self.labelErrorMessageAlertViewOTP.text = PhoneVerificationErrorCodes.OTP_EMPTY.rawValue
+            }
         }
-    }
-
     
     func OTPReceivedSuccess(){
-        buttonAlertAction.titleLabel?.text = "LOGIN"
-        buttonCancel.titleLabel?.text = "BACK"
-        self.labelErrorMessage.text = ""
-        self.textFieldNumberInput.text = ""
-        self.textFieldNumberInput.placeholder = "OTP"
-        constraintCountryCodeWidth.constant = 40
+        self.alertViewMobileNumberAndName.isHidden = true
+        self.alertViewOTP.isHidden = false
     }
     
     
     func OTPVerificationSuccess(){
-        self.labelErrorMessage.text = ""
-        delegate?.loginSuccess()
-        parentView.removeFromSuperview()
+        delegate?.loginSuccess(userName: self.textFieldName.text ?? "")
+        self.dismissPopoup()
     }
     
-    func actionFailure(message:String){
-        self.labelErrorMessage.text = message
-    }
+    func actionFailure(message:String) {
+        
+        if(self.alertViewMobileNumberAndName.isHidden) {
+            self.labelErrorMessageAlertViewOTP.text = message
+        }else {
+            self.labelErrorMessageAlertViewMobileNumberAndName.text = message
+            if (message == PhoneVerificationErrorCodes.OTP_SENDING_FAILED.rawValue
+                || message == PhoneVerificationErrorCodes.NULL_VERIFICATIONID.rawValue ){
+                self.buttonResendOTP.isEnabled = true
+                self.buttonResendOTP.alpha = 1.0
+            } else if (message == PhoneVerificationErrorCodes.INVALID_PHONE_NUMBER.rawValue ||
+                message == PhoneVerificationErrorCodes.FIELDS_EMPTY.rawValue){
+                self.buttonGenerateOTP.isEnabled = true
+                self.buttonGenerateOTP.alpha = 1.0
+            }
+        }
+        
     
+    }
 }
 
 
+extension AlertView: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if (textField == self.textFieldName){
+            self.textFieldNumberInput.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (textField == self.textFieldNumberInput){
+            let currentText = textField.text ?? ""
+            guard let stringRange = Range(range, in: currentText) else { return false }
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            return updatedText.count <= 10
+
+        } else if (textField == self.textFieldName){
+            let currentText = textField.text ?? ""
+            guard let stringRange = Range(range, in: currentText) else { return false }
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            return updatedText.count <= 20
+        }
+        return true
+    }
+}

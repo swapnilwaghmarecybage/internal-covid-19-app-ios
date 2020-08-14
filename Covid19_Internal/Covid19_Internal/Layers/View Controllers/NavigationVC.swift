@@ -46,7 +46,7 @@ class NavigationVC: UINavigationController , UINavigationControllerDelegate {
         self.navigationBar.barTintColor = Theme.navogationBarbackgroundColor
         
     }
-    
+        
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }

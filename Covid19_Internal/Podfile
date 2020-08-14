@@ -9,4 +9,5 @@ target 'Covid19_Internal' do
   pod ‘ReachabilitySwift’, ‘~> 3’
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 end

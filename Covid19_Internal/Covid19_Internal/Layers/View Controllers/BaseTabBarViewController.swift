@@ -20,6 +20,7 @@ class BaseTabBarViewController: UITabBarController {
         self.tabBar.tintColor = Theme.tabselectedColor
         //self.tabBar.updateTabBarTitlesAttributes()
         
+        
     }
 }
     

@@ -109,7 +109,7 @@ class AlertView: UIView {
         self.textFieldOTP.text = ""
         self.textFieldOTP.placeholder = placeholderOTP
         self.textFieldOTP.isSecureTextEntry = true
-        self.labelErrorMessageAlertViewMobileNumberAndName.text = ""
+        self.labelErrorMessageAlertViewOTP.text = ""
     }
     
     @objc func dismissPopoup() {

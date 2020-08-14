@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C28181A24DD518A008316DB /* UserWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28181924DD518A008316DB /* UserWelcomeViewController.swift */; };
 		1C28181D24DD6859008316DB /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C28181B24DD6858008316DB /* AlertView.xib */; };
 		1C28181E24DD6859008316DB /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28181C24DD6858008316DB /* AlertView.swift */; };
 		1C28182524E29A39008316DB /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28182424E29A39008316DB /* FirebaseManager.swift */; };
 		1C28182724E29C97008316DB /* ProtocolCustomPhoneVerificationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28182624E29C97008316DB /* ProtocolCustomPhoneVerificationAlert.swift */; };
 		1C28182924E29CEC008316DB /* ProtocolFirebasePhoneVerificationResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28182824E29CEC008316DB /* ProtocolFirebasePhoneVerificationResponce.swift */; };
 		1C28182C24E3CD0E008316DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C28182B24E3CD0E008316DB /* GoogleService-Info.plist */; };
+		1C28182E24E528C6008316DB /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28182D24E528C6008316DB /* NewsModel.swift */; };
+		1C28183024E5452E008316DB /* FeedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28182F24E5452E008316DB /* FeedListViewController.swift */; };
+		1C28183224E54575008316DB /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28183124E54575008316DB /* FeedTableViewCell.swift */; };
+		1C28183424E58CDE008316DB /* FeedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28183324E58CDE008316DB /* FeedDetailViewController.swift */; };
+		1C28183624E707E9008316DB /* ProtocolFirebaseFeedsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28183524E707E9008316DB /* ProtocolFirebaseFeedsResponse.swift */; };
 		1C5DC1172496016600814CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC1162496016600814CDB /* AppDelegate.swift */; };
 		1C5DC11E2496016600814CDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5DC11C2496016600814CDB /* Main.storyboard */; };
 		1C5DC1212496016600814CDB /* Covid19_Internal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC11F2496016600814CDB /* Covid19_Internal.xcdatamodeld */; };
@@ -68,7 +72,6 @@
 
 /* Begin PBXFileReference section */
 		17DD888763B08B4D9E968056 /* Pods-Covid19_Internal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19_Internal.debug.xcconfig"; path = "Target Support Files/Pods-Covid19_Internal/Pods-Covid19_Internal.debug.xcconfig"; sourceTree = "<group>"; };
-		1C28181924DD518A008316DB /* UserWelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWelcomeViewController.swift; sourceTree = "<group>"; };
 		1C28181B24DD6858008316DB /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		1C28181C24DD6858008316DB /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		1C28181F24E14264008316DB /* Covid19_Internal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Covid19_Internal.entitlements; sourceTree = "<group>"; };
@@ -76,6 +79,11 @@
 		1C28182624E29C97008316DB /* ProtocolCustomPhoneVerificationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolCustomPhoneVerificationAlert.swift; sourceTree = "<group>"; };
 		1C28182824E29CEC008316DB /* ProtocolFirebasePhoneVerificationResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolFirebasePhoneVerificationResponce.swift; sourceTree = "<group>"; };
 		1C28182B24E3CD0E008316DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1C28182D24E528C6008316DB /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		1C28182F24E5452E008316DB /* FeedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListViewController.swift; sourceTree = "<group>"; };
+		1C28183124E54575008316DB /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		1C28183324E58CDE008316DB /* FeedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailViewController.swift; sourceTree = "<group>"; };
+		1C28183524E707E9008316DB /* ProtocolFirebaseFeedsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolFirebaseFeedsResponse.swift; sourceTree = "<group>"; };
 		1C5DC1132496016600814CDB /* Covid19_Internal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Covid19_Internal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C5DC1162496016600814CDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C5DC11D2496016600814CDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -148,6 +156,7 @@
 			children = (
 				1C28182624E29C97008316DB /* ProtocolCustomPhoneVerificationAlert.swift */,
 				1C28182824E29CEC008316DB /* ProtocolFirebasePhoneVerificationResponce.swift */,
+				1C28183524E707E9008316DB /* ProtocolFirebaseFeedsResponse.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -211,7 +220,8 @@
 				1C7B168024A093920069157B /* BaseViewController.swift */,
 				1C7B168624A244060069157B /* DistrictInfoViewController.swift */,
 				1CDD481F24C03D7000054986 /* GuideViewController.swift */,
-				1C28181924DD518A008316DB /* UserWelcomeViewController.swift */,
+				1C28182F24E5452E008316DB /* FeedListViewController.swift */,
+				1C28183324E58CDE008316DB /* FeedDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -292,6 +302,7 @@
 				1C7B1671249916A40069157B /* CountryModel.swift */,
 				1C7B168424A203290069157B /* IndiaHistoryModel.swift */,
 				1C7B168A24A331B50069157B /* DistrictModel.swift */,
+				1C28182D24E528C6008316DB /* NewsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -305,6 +316,7 @@
 				1C7B167E249CC7E40069157B /* ChildCountTableViewCell.swift */,
 				1CC9529324B5D7CC00DC557E /* RadioControlView.xib */,
 				1CC9529524B5E85300DC557E /* RadioButtonView.swift */,
+				1C28183124E54575008316DB /* FeedTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -469,19 +481,23 @@
 				1CDD481C24C03CAF00054986 /* GuideRightHandCell.swift in Sources */,
 				1C5DC13B249772B100814CDB /* ConnectionManager.swift in Sources */,
 				1C7B1678249CA0AC0069157B /* UISegmentControlExtension.swift in Sources */,
-				1C28181A24DD518A008316DB /* UserWelcomeViewController.swift in Sources */,
 				1CD3001724CF23D800C31AAB /* ReachabilityManager.swift in Sources */,
 				1C5DC1492497827100814CDB /* WorldCountWebService.swift in Sources */,
 				1C7B168724A244060069157B /* DistrictInfoViewController.swift in Sources */,
 				1C5DC1582497B11500814CDB /* AllCountriesParser.swift in Sources */,
+				1C28182E24E528C6008316DB /* NewsModel.swift in Sources */,
 				1C7B167D249CC7B50069157B /* GraphTableViewCell.swift in Sources */,
 				1C5DC1212496016600814CDB /* Covid19_Internal.xcdatamodeld in Sources */,
 				1C7B168324A106790069157B /* ImageExtension.swift in Sources */,
+				1C28183424E58CDE008316DB /* FeedDetailViewController.swift in Sources */,
 				1C7B168D24A4782A0069157B /* ChartsLayer.swift in Sources */,
+				1C28183224E54575008316DB /* FeedTableViewCell.swift in Sources */,
 				1C28181E24DD6859008316DB /* AlertView.swift in Sources */,
+				1C28183624E707E9008316DB /* ProtocolFirebaseFeedsResponse.swift in Sources */,
 				1C7B1674249B9B2C0069157B /* NavigationVC.swift in Sources */,
 				1C5DC15C2497B26F00814CDB /* AllDistrictsCountParser.swift in Sources */,
 				1C7B168524A203290069157B /* IndiaHistoryModel.swift in Sources */,
+				1C28183024E5452E008316DB /* FeedListViewController.swift in Sources */,
 				1C5DC13624975BAF00814CDB /* BaseTabBarViewController.swift in Sources */,
 				1C7B1672249916A40069157B /* CountryModel.swift in Sources */,
 				1CD3000324C9672200C31AAB /* GuideSymptomsTableViewCell.swift in Sources */,

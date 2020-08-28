@@ -28,7 +28,11 @@ class HelplineTableViewCell: UITableViewCell {
 
 extension HelplineTableViewCell: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-        Utilities.sharedInstance.dialNumber(number: URL.absoluteString)
+      
+        NSLog("@@@###@@@ Helpline number URL: %@",URL.absoluteString )
+        if let number = URL.absoluteString.components(separatedBy: ":").last {
+            Utilities.sharedInstance.dialNumber(number: number)
+        }
         return true
     }
 }

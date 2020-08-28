@@ -12,12 +12,24 @@ class FeedDetailViewController: UIViewController {
     
     @IBOutlet weak var feedTextView: UITextView!
     var news: NewsModel?
+    var newsid: String?
+    
     // @IBOutlet weak var textViewHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateNavigationBar()
-        self.updateView()
+        
+        if let _ = self.news {
+            self.updateView()
+        } else if let  _newsId = self.newsid {
+            FirebaseManager.getNewsForId(newsId: _newsId) { (_news) in
+                self.news = _news
+                self.updateView()
+            }
+        } else {
+            print("No news ID no news")
+        }
     }
     
     func updateNavigationBar(){
@@ -43,8 +55,8 @@ class FeedDetailViewController: UIViewController {
         let detailsString = news?.content ?? ""
         
         let title = NSMutableAttributedString(string: news?.title ?? "", attributes: titleAtributes)
-        let subject = NSMutableAttributedString(string: "\n\(news?.subject ?? "")", attributes: subjectAtributes)
-        let date = NSMutableAttributedString(string: "\n\n\(news?.date ?? "")\n\n", attributes: dateAttributes)
+        let subject = NSMutableAttributedString(string: "\(news?.subject ?? "")\n", attributes: subjectAtributes)
+        let date = NSMutableAttributedString(string: "\n\(Utilities.sharedInstance.getDateOfNews(timeStamp: news?.date, dateFormat: "MMM dd YYYY hh:mm a") )\n\n", attributes: dateAttributes)
         let receivedLink = news?.link ?? "https://www.cybage.com/"
         let link = NSMutableAttributedString(string: "\n\nLink: \(receivedLink)", attributes: linkAttributes)
         link.addAttribute(.link, value: receivedLink, range: NSRange(location: 7, length: receivedLink.count + 1))
@@ -52,8 +64,8 @@ class FeedDetailViewController: UIViewController {
         let details = NSMutableAttributedString(string: "\n\n\(detailsString)", attributes: detailsAttributes)
         let combination = NSMutableAttributedString()
         
-        combination.append(title)
         combination.append(subject)
+        combination.append(title)
         combination.append(date)
         combination.append(link)
         combination.append(details)

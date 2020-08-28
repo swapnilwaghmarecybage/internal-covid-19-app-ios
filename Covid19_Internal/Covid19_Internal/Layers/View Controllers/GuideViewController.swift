@@ -158,7 +158,7 @@ extension GuideViewController: UITableViewDataSource {
                                    labelTextColor: Theme.labelColor, labelWidth: 300,
                                    viewWidth: tableView.frame.width - 20,
                                    viewHeight: 50,
-                                   labelText: "PSYCOLOGICAL GUIDELINES")
+                                   labelText: "PSYCHOLOGICAL GUIDELINES")
 
         default:
             let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 0))

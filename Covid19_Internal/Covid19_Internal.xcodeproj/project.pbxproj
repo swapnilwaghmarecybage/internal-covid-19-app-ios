@@ -18,6 +18,20 @@
 		1C28183224E54575008316DB /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28183124E54575008316DB /* FeedTableViewCell.swift */; };
 		1C28183424E58CDE008316DB /* FeedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28183324E58CDE008316DB /* FeedDetailViewController.swift */; };
 		1C28183624E707E9008316DB /* ProtocolFirebaseFeedsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28183524E707E9008316DB /* ProtocolFirebaseFeedsResponse.swift */; };
+		1C28183824F4F5C3008316DB /* HelplineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28183724F4F5C3008316DB /* HelplineViewController.swift */; };
+		1C28183A24F50768008316DB /* HelplineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28183924F50768008316DB /* HelplineTableViewCell.swift */; };
+		1C28183E24F67703008316DB /* LogoInfiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28183D24F67703008316DB /* LogoInfiTableViewCell.swift */; };
+		1C28184024F67B41008316DB /* SelfAssistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28183F24F67B41008316DB /* SelfAssistanceViewController.swift */; };
+		1C28184224F68DE0008316DB /* QuestionSymptomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28184124F68DE0008316DB /* QuestionSymptomTableViewCell.swift */; };
+		1C28184424F6919D008316DB /* QuestionPreviousIllnessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28184324F6919D008316DB /* QuestionPreviousIllnessTableViewCell.swift */; };
+		1C28184724F692D4008316DB /* QuestionTravelHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28184624F692D4008316DB /* QuestionTravelHistoryTableViewCell.swift */; };
+		1C28184924F69302008316DB /* QuestionContactHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28184824F69302008316DB /* QuestionContactHistoryTableViewCell.swift */; };
+		1C28184B24F693C5008316DB /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28184A24F693C5008316DB /* ResultTableViewCell.swift */; };
+		1C28184D24F6AC56008316DB /* QustionContactHistoryForNoSymptomsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28184C24F6AC56008316DB /* QustionContactHistoryForNoSymptomsTableViewCell.swift */; };
+		1C28184F24F7D345008316DB /* SubmitQueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28184E24F7D345008316DB /* SubmitQueryViewController.swift */; };
+		1C28185124F7D738008316DB /* HelpLinePopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C28185024F7D738008316DB /* HelpLinePopup.xib */; };
+		1C28185324F7D75A008316DB /* HelpLinePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28185224F7D75A008316DB /* HelpLinePopup.swift */; };
+		1C28185524F7EE0C008316DB /* ProtocolHelpLinePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28185424F7EE0C008316DB /* ProtocolHelpLinePopup.swift */; };
 		1C5DC1172496016600814CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC1162496016600814CDB /* AppDelegate.swift */; };
 		1C5DC11E2496016600814CDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5DC11C2496016600814CDB /* Main.storyboard */; };
 		1C5DC1212496016600814CDB /* Covid19_Internal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC11F2496016600814CDB /* Covid19_Internal.xcdatamodeld */; };
@@ -55,6 +69,7 @@
 		1C7B168924A247060069157B /* DistrictViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B168824A247060069157B /* DistrictViewModel.swift */; };
 		1C7B168B24A331B50069157B /* DistrictModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B168A24A331B50069157B /* DistrictModel.swift */; };
 		1C7B168D24A4782A0069157B /* ChartsLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B168C24A478290069157B /* ChartsLayer.swift */; };
+		1CBC6C2B24F83A6400E040EA /* ProtocolSelfAssistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC6C2A24F83A6400E040EA /* ProtocolSelfAssistance.swift */; };
 		1CC9529424B5D7CC00DC557E /* RadioControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9529324B5D7CC00DC557E /* RadioControlView.xib */; };
 		1CC9529624B5E85300DC557E /* RadioButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9529524B5E85300DC557E /* RadioButtonView.swift */; };
 		1CD3000324C9672200C31AAB /* GuideSymptomsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD3000224C9672200C31AAB /* GuideSymptomsTableViewCell.swift */; };
@@ -84,6 +99,20 @@
 		1C28183124E54575008316DB /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		1C28183324E58CDE008316DB /* FeedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailViewController.swift; sourceTree = "<group>"; };
 		1C28183524E707E9008316DB /* ProtocolFirebaseFeedsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolFirebaseFeedsResponse.swift; sourceTree = "<group>"; };
+		1C28183724F4F5C3008316DB /* HelplineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelplineViewController.swift; sourceTree = "<group>"; };
+		1C28183924F50768008316DB /* HelplineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelplineTableViewCell.swift; sourceTree = "<group>"; };
+		1C28183D24F67703008316DB /* LogoInfiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoInfiTableViewCell.swift; sourceTree = "<group>"; };
+		1C28183F24F67B41008316DB /* SelfAssistanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAssistanceViewController.swift; sourceTree = "<group>"; };
+		1C28184124F68DE0008316DB /* QuestionSymptomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSymptomTableViewCell.swift; sourceTree = "<group>"; };
+		1C28184324F6919D008316DB /* QuestionPreviousIllnessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPreviousIllnessTableViewCell.swift; sourceTree = "<group>"; };
+		1C28184624F692D4008316DB /* QuestionTravelHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTravelHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		1C28184824F69302008316DB /* QuestionContactHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionContactHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		1C28184A24F693C5008316DB /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
+		1C28184C24F6AC56008316DB /* QustionContactHistoryForNoSymptomsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QustionContactHistoryForNoSymptomsTableViewCell.swift; sourceTree = "<group>"; };
+		1C28184E24F7D345008316DB /* SubmitQueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitQueryViewController.swift; sourceTree = "<group>"; };
+		1C28185024F7D738008316DB /* HelpLinePopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpLinePopup.xib; sourceTree = "<group>"; };
+		1C28185224F7D75A008316DB /* HelpLinePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpLinePopup.swift; sourceTree = "<group>"; };
+		1C28185424F7EE0C008316DB /* ProtocolHelpLinePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolHelpLinePopup.swift; sourceTree = "<group>"; };
 		1C5DC1132496016600814CDB /* Covid19_Internal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Covid19_Internal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C5DC1162496016600814CDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C5DC11D2496016600814CDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -123,6 +152,7 @@
 		1C7B168824A247060069157B /* DistrictViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictViewModel.swift; sourceTree = "<group>"; };
 		1C7B168A24A331B50069157B /* DistrictModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictModel.swift; sourceTree = "<group>"; };
 		1C7B168C24A478290069157B /* ChartsLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsLayer.swift; sourceTree = "<group>"; };
+		1CBC6C2A24F83A6400E040EA /* ProtocolSelfAssistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolSelfAssistance.swift; sourceTree = "<group>"; };
 		1CC9529324B5D7CC00DC557E /* RadioControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioControlView.xib; sourceTree = "<group>"; };
 		1CC9529524B5E85300DC557E /* RadioButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonView.swift; sourceTree = "<group>"; };
 		1CD3000224C9672200C31AAB /* GuideSymptomsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideSymptomsTableViewCell.swift; sourceTree = "<group>"; };
@@ -157,8 +187,24 @@
 				1C28182624E29C97008316DB /* ProtocolCustomPhoneVerificationAlert.swift */,
 				1C28182824E29CEC008316DB /* ProtocolFirebasePhoneVerificationResponce.swift */,
 				1C28183524E707E9008316DB /* ProtocolFirebaseFeedsResponse.swift */,
+				1C28185424F7EE0C008316DB /* ProtocolHelpLinePopup.swift */,
+				1CBC6C2A24F83A6400E040EA /* ProtocolSelfAssistance.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		1C28183B24F676D0008316DB /* SelfAssistance */ = {
+			isa = PBXGroup;
+			children = (
+				1C28183D24F67703008316DB /* LogoInfiTableViewCell.swift */,
+				1C28184124F68DE0008316DB /* QuestionSymptomTableViewCell.swift */,
+				1C28184324F6919D008316DB /* QuestionPreviousIllnessTableViewCell.swift */,
+				1C28184624F692D4008316DB /* QuestionTravelHistoryTableViewCell.swift */,
+				1C28184824F69302008316DB /* QuestionContactHistoryTableViewCell.swift */,
+				1C28184A24F693C5008316DB /* ResultTableViewCell.swift */,
+				1C28184C24F6AC56008316DB /* QustionContactHistoryForNoSymptomsTableViewCell.swift */,
+			);
+			path = SelfAssistance;
 			sourceTree = "<group>";
 		};
 		1C5DC10A2496016600814CDB = {
@@ -222,6 +268,9 @@
 				1CDD481F24C03D7000054986 /* GuideViewController.swift */,
 				1C28182F24E5452E008316DB /* FeedListViewController.swift */,
 				1C28183324E58CDE008316DB /* FeedDetailViewController.swift */,
+				1C28183724F4F5C3008316DB /* HelplineViewController.swift */,
+				1C28183F24F67B41008316DB /* SelfAssistanceViewController.swift */,
+				1C28184E24F7D345008316DB /* SubmitQueryViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -269,6 +318,8 @@
 				1C7B168224A106790069157B /* ImageExtension.swift */,
 				1C7B168C24A478290069157B /* ChartsLayer.swift */,
 				1C28182424E29A39008316DB /* FirebaseManager.swift */,
+				1C28185024F7D738008316DB /* HelpLinePopup.xib */,
+				1C28185224F7D75A008316DB /* HelpLinePopup.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -310,6 +361,7 @@
 		1C7B1679249CC6A20069157B /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				1C28183B24F676D0008316DB /* SelfAssistance */,
 				1CD3001524CEEC7A00C31AAB /* Guide */,
 				1C7B167A249CC7940069157B /* TotalCountTableViewCell.swift */,
 				1C7B167C249CC7B50069157B /* GraphTableViewCell.swift */,
@@ -317,6 +369,7 @@
 				1CC9529324B5D7CC00DC557E /* RadioControlView.xib */,
 				1CC9529524B5E85300DC557E /* RadioButtonView.swift */,
 				1C28183124E54575008316DB /* FeedTableViewCell.swift */,
+				1C28183924F50768008316DB /* HelplineTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -423,6 +476,7 @@
 				1CC9529424B5D7CC00DC557E /* RadioControlView.xib in Resources */,
 				1CD3000F24C990C700C31AAB /* light_tiredness.gif in Resources */,
 				1C28182C24E3CD0E008316DB /* GoogleService-Info.plist in Resources */,
+				1C28185124F7D738008316DB /* HelpLinePopup.xib in Resources */,
 				1C5DC1262496017400814CDB /* LaunchScreen.storyboard in Resources */,
 				1C5DC1232496017400814CDB /* Assets.xcassets in Resources */,
 				1CD3001024C990C700C31AAB /* light_cough.gif in Resources */,
@@ -464,12 +518,14 @@
 			files = (
 				1C5DC13F249776CE00814CDB /* AllIndiaDistrictCountWebService.swift in Sources */,
 				1CD3000524C9790C00C31AAB /* iOSDevCenters+GIF.swift in Sources */,
+				1C28183E24F67703008316DB /* LogoInfiTableViewCell.swift in Sources */,
 				1CDD482024C03D7000054986 /* GuideViewController.swift in Sources */,
 				1C5DC13424975B3800814CDB /* AboutViewController.swift in Sources */,
 				1C5DC1442497822F00814CDB /* AllIndiaHistoricalDataWebServices.swift in Sources */,
 				1C28182924E29CEC008316DB /* ProtocolFirebasePhoneVerificationResponce.swift in Sources */,
 				1C5DC1462497824B00814CDB /* AllCountriesCountWebService.swift in Sources */,
 				1C7B168924A247060069157B /* DistrictViewModel.swift in Sources */,
+				1C28184924F69302008316DB /* QuestionContactHistoryTableViewCell.swift in Sources */,
 				1CDD482224C0B8FD00054986 /* GuideLeftHandCell.swift in Sources */,
 				1C5DC15A2497B18D00814CDB /* AllIndiaHistoricalDataParser.swift in Sources */,
 				1C28182724E29C97008316DB /* ProtocolCustomPhoneVerificationAlert.swift in Sources */,
@@ -482,10 +538,12 @@
 				1C5DC13B249772B100814CDB /* ConnectionManager.swift in Sources */,
 				1C7B1678249CA0AC0069157B /* UISegmentControlExtension.swift in Sources */,
 				1CD3001724CF23D800C31AAB /* ReachabilityManager.swift in Sources */,
+				1C28183A24F50768008316DB /* HelplineTableViewCell.swift in Sources */,
 				1C5DC1492497827100814CDB /* WorldCountWebService.swift in Sources */,
 				1C7B168724A244060069157B /* DistrictInfoViewController.swift in Sources */,
 				1C5DC1582497B11500814CDB /* AllCountriesParser.swift in Sources */,
 				1C28182E24E528C6008316DB /* NewsModel.swift in Sources */,
+				1C28184024F67B41008316DB /* SelfAssistanceViewController.swift in Sources */,
 				1C7B167D249CC7B50069157B /* GraphTableViewCell.swift in Sources */,
 				1C5DC1212496016600814CDB /* Covid19_Internal.xcdatamodeld in Sources */,
 				1C7B168324A106790069157B /* ImageExtension.swift in Sources */,
@@ -498,10 +556,17 @@
 				1C5DC15C2497B26F00814CDB /* AllDistrictsCountParser.swift in Sources */,
 				1C7B168524A203290069157B /* IndiaHistoryModel.swift in Sources */,
 				1C28183024E5452E008316DB /* FeedListViewController.swift in Sources */,
+				1C28184D24F6AC56008316DB /* QustionContactHistoryForNoSymptomsTableViewCell.swift in Sources */,
 				1C5DC13624975BAF00814CDB /* BaseTabBarViewController.swift in Sources */,
+				1CBC6C2B24F83A6400E040EA /* ProtocolSelfAssistance.swift in Sources */,
 				1C7B1672249916A40069157B /* CountryModel.swift in Sources */,
 				1CD3000324C9672200C31AAB /* GuideSymptomsTableViewCell.swift in Sources */,
+				1C28184424F6919D008316DB /* QuestionPreviousIllnessTableViewCell.swift in Sources */,
+				1C28185524F7EE0C008316DB /* ProtocolHelpLinePopup.swift in Sources */,
+				1C28184F24F7D345008316DB /* SubmitQueryViewController.swift in Sources */,
+				1C28183824F4F5C3008316DB /* HelplineViewController.swift in Sources */,
 				1C5DC150249787C300814CDB /* BaseTabBarViewModel.swift in Sources */,
+				1C28185324F7D75A008316DB /* HelpLinePopup.swift in Sources */,
 				1CD3001324CED6E900C31AAB /* GuideGuidelinesCell.swift in Sources */,
 				1C5DC1562497B0F600814CDB /* WorldCountParser.swift in Sources */,
 				1C5DC14C2497871400814CDB /* HomeTabViewModel.swift in Sources */,
@@ -509,9 +574,12 @@
 				1C7B167F249CC7E40069157B /* ChildCountTableViewCell.swift in Sources */,
 				1CC9529624B5E85300DC557E /* RadioButtonView.swift in Sources */,
 				1C5DC1172496016600814CDB /* AppDelegate.swift in Sources */,
+				1C28184724F692D4008316DB /* QuestionTravelHistoryTableViewCell.swift in Sources */,
 				1C7B167024990C190069157B /* WorldCountModel.swift in Sources */,
 				1C7B168B24A331B50069157B /* DistrictModel.swift in Sources */,
+				1C28184224F68DE0008316DB /* QuestionSymptomTableViewCell.swift in Sources */,
 				1C5DC14224977BCC00814CDB /* Constants.swift in Sources */,
+				1C28184B24F693C5008316DB /* ResultTableViewCell.swift in Sources */,
 				1C7B1676249BBC910069157B /* TabBarExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

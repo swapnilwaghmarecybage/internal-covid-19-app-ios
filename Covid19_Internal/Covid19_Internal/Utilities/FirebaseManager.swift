@@ -8,17 +8,21 @@
 
 import Foundation
 import Firebase
-
+import UIKit
 
 struct FirebaseManager {
     
     static var delegatePhoneVerification: FirebasePhoneNumberVerification?
     static var arrayNews = [NewsModel]()
+    static var helplineData = [String: String]()
     static var delegateFeedsResponce: FirebaseFeedResponse?
 
     static func configure() {
         FirebaseApp.configure()
+        insertDeviceInformation()
     }
+    
+
     
     static func sendOTPWithFirebase(phoneNumber:String) {
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
@@ -58,17 +62,19 @@ struct FirebaseManager {
         }
     }
     
-    static func fetchAllNewsFromFirebase(){
+    static func fetchAllNewsFromFirebase() {
+        
         var ref: DatabaseReference!
         ref = Database.database().reference()
         if let referance = ref?.child("covid_care") {
             referance.observe(.value, with: { snapshot in
                 if let allNews = snapshot.value as? [String: Dictionary<String,Any>] {
+                    arrayNews.removeAll()
                     for object in allNews {
                         let currentNews =  object.value
                         var news = NewsModel()
                         news.content = currentNews["content"] as? String
-                        news.date = currentNews["date"] as? String
+                        news.date = currentNews["date"] as? Double
                         news.link = currentNews["link"] as? String
                         news.title = currentNews["title"] as? String
                         news.photo = currentNews["photo"] as? String
@@ -76,6 +82,7 @@ struct FirebaseManager {
                         news.id = object.key
                         arrayNews.append(news)
                     }
+                   arrayNews = arrayNews.sorted(by: {$0.date ?? 0 > $1.date ?? 0})
                     delegateFeedsResponce?.feedsReceivedSuccess()
                 }
             })
@@ -94,5 +101,141 @@ struct FirebaseManager {
 
             })
         }
+    }
+    
+   static func checkIfNumerIsRegistered(number: String,  completion: @escaping (Bool)->Void){
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        if let referance = ref?.child("registered_users") {
+            referance.observeSingleEvent(of: .value, with: { (snapshot) in
+                print(snapshot)
+                if snapshot.hasChild(number){
+                    completion(true)
+                }else{
+                    print("false number doesn't exist")
+                    completion(false)
+                }
+                
+            }) { (error) in
+                completion(false)
+            }
+        }
+    }
+    
+    func updateUserNameForMobileNumber(number:String, username:String) {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        if let referance = ref?.child("registered_users") {
+            referance.observeSingleEvent(of: .value, with: { (snapshot) in
+                print(snapshot)
+                snapshot.setValue(username, forKey: number)
+            }) { (error) in
+                print(error.localizedDescription)
+                print("Failed to update user name \(username) in table registered_users for mobile number \(number)")
+            }
+        }
+
+    }
+    
+    static func updateSignInStatusInFirebase(is_loggedin:Bool, completion: @escaping (Bool) -> Void) {
+        // change this with device id stored in keychain
+        if let _deviceId = UUID {
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            if let referance = ref?.child("app_users").child(_deviceId) {
+                referance.updateChildValues(["is_loggedin": is_loggedin])
+                completion(true)
+            }else {
+                completion(false)
+            }
+        }
+    }
+    
+   private static func insertDeviceInformation() {
+    
+        if let _deviceId = UUID {
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            if let referance = ref?.child("app_users") {
+               let isLoggedIn = UserDefaults.standard.value(forKey: USERNAME) != nil ? true : false
+                let fmc_token = UserDefaults.standard.value(forKey: FCM_TOKEN) as? String ?? ""
+               /**
+                var fmc_token = ""
+                       #if targetEnvironment(simulator)
+                   fmc_token = "i-a-m-s-i-m-u-l-a-t-o-r"
+               #else
+                    fmc_token = UserDefaults.standard.value(forKey: FCM_TOKEN) as? String ?? ""
+               #endif
+                 */
+                referance.child(_deviceId).updateChildValues(["device_id": _deviceId,
+                                    "fcm_token": fmc_token,
+                                    "is_loggedin": isLoggedIn])
+                
+                
+            }
+
+        }
+    }
+    
+    static func updateFCMToken(token:String) {
+        let fcm_token = Messaging.messaging().fcmToken ?? ""
+        UserDefaults.standard.set(fcm_token, forKey: FCM_TOKEN)
+
+        if let _deviceId = UUID {
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            if let referance = ref?.child("app_users").child(_deviceId) {
+                referance.updateChildValues( ["fcm_token": fcm_token])
+            } else {
+                print("Failed to update FCM Token on database")
+            }
+
+        }
+
+    }
+    
+    static func getNewsForId(newsId: String, completion: @escaping (NewsModel?)-> Void){
+        var ref: DatabaseReference!
+              ref = Database.database().reference()
+        if let referance = ref?.child("covid_care").child(newsId) {
+                referance.observe(.value, with: { snapshot in
+                    print(snapshot)
+                    if let fetchedNews = snapshot.value as? Dictionary<String, Any>{
+                        var news = NewsModel()
+                        news.content = fetchedNews["content"] as? String
+                        news.title = fetchedNews["title"] as? String
+                        news.date = fetchedNews["date"] as? Double
+                        news.link = fetchedNews["link"] as? String
+                        news.subject = fetchedNews["subject"] as? String
+                        news.photo = fetchedNews["photo"] as? String
+                        news.id = snapshot.key
+                        completion(news)
+                    }
+                }){ (error) in
+                    print(error)
+                    completion(nil)
+                }
+                
+        }
+    }
+    
+    static func getHelplineData(completion: @escaping (Dictionary<String,String>?)->Void){
+        var ref: DatabaseReference!
+              ref = Database.database().reference()
+        if let referance = ref?.child("helpline") {
+            referance.observeSingleEvent(of: .value, with: { (snapshot) in
+                print(snapshot)
+                if let helpline = snapshot.value as? Dictionary<String, String>{
+                   // self.helplineData = helpline
+                    completion(helpline)
+                } else {
+                    completion(nil)
+                }
+            }) { (error) in
+                print(error.localizedDescription)
+                completion(nil)
+            }
+        }
+
     }
 }

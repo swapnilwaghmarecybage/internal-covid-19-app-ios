@@ -31,7 +31,7 @@ class GuideGuidelinesCell: UITableViewCell {
             self.labelGuidelines.font = .systemFont(ofSize: 18)
         }
 
-        labelGuidelines.text = Guide.psycologicalGuidelines
+        labelGuidelines.text = Guide.psychologicalGuidelines
     }
 
 }

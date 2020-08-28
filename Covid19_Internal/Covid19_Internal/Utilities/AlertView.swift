@@ -129,17 +129,25 @@ class AlertView: UIView {
         if let _delegate = self.delegate {
             if let _mobileNumber = self.textFieldNumberInput.text, !_mobileNumber.isEmpty,
                 let name = self.textFieldName.text, !name.isEmpty {
-                if (sender.titleLabel?.text == "GENERATE OTP"){
-                    self.buttonGenerateOTP.isEnabled = false
-                    self.buttonGenerateOTP.alpha = 0.5
-                } else {
-                    self.buttonResendOTP.isEnabled = false
-                    self.buttonResendOTP.alpha = 0.5
+                FirebaseManager.checkIfNumerIsRegistered(number: _mobileNumber) { (success) in
+                    if (success){
+                        if (sender.titleLabel?.text == "GENERATE OTP"){
+                            self.buttonGenerateOTP.isEnabled = false
+                            self.buttonGenerateOTP.alpha = 0.5
+                        } else {
+                            self.buttonResendOTP.isEnabled = false
+                            self.buttonResendOTP.alpha = 0.5
+                        }
+                        _delegate.sendOTPToNumber(number: "+91\(_mobileNumber)")
+
+                        
+                    } else {
+                        self.labelErrorMessageAlertViewMobileNumberAndName.text = PhoneVerificationErrorCodes.NOT_REGISTERED_USER.rawValue
+                    }
                 }
-                _delegate.sendOTPToNumber(number: "+91\(_mobileNumber)")
 
             } else {
-                self.labelErrorMessageAlertViewMobileNumberAndName.text = "please enter username and Mobile Number"
+                self.labelErrorMessageAlertViewMobileNumberAndName.text = PhoneVerificationErrorCodes.FIELDS_EMPTY.rawValue
             }
         }
     }
@@ -159,7 +167,7 @@ class AlertView: UIView {
     
     
     func OTPVerificationSuccess(){
-        delegate?.loginSuccess(userName: self.textFieldName.text ?? "")
+        delegate?.loginSuccess(userName: self.textFieldName.text ?? "", phoneNumber: self.textFieldNumberInput.text ?? "" )
         self.dismissPopoup()
     }
     

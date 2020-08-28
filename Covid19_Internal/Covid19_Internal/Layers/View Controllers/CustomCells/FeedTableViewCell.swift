@@ -14,7 +14,8 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var labelNewsTitle: UILabel!
     @IBOutlet weak var labelNewsContent: UILabel!
     @IBOutlet weak var labelNewsDate: UILabel!
-
+    @IBOutlet weak var labelNewsSubject: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,9 +26,10 @@ class FeedTableViewCell: UITableViewCell {
         self.viewInner.layer.cornerRadius = 10
         self.viewInner.backgroundColor = Theme.highlightedColor
         
-        self.labelNewsDate.text = newsModel.date ?? ""
+        self.labelNewsDate.text =  Utilities.sharedInstance.getDateOfNews(timeStamp: newsModel.date, dateFormat: nil)
         self.labelNewsTitle.text = newsModel.title ?? ""
-        self.labelNewsContent.text = newsModel.subject ?? ""
+        self.labelNewsContent.text = newsModel.content ?? ""
+        self.labelNewsSubject.text = newsModel.subject ?? ""
     }
 
 }

@@ -10,4 +10,5 @@ target 'Covid19_Internal' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/Messaging'
 end

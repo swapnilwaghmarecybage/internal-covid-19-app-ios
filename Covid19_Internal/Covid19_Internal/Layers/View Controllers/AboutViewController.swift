@@ -25,7 +25,7 @@ class AboutViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let _ = UserDefaults.standard.value(forKey: "username"){
+        if let _ = UserDefaults.standard.value(forKey: USERNAME){
             //userwelcome
             setupUserWelcomeView()
         } else {
@@ -46,7 +46,7 @@ class AboutViewController: BaseViewController {
     func setupUserWelcomeView(){
         self.view = viewUserWelcome
         decorateUI()
-        self.labelUserName.text = UserDefaults.standard.string(forKey: "username")
+        self.labelUserName.text = UserDefaults.standard.string(forKey: USERNAME)
 
     }
     private func decorateUI() {
@@ -81,17 +81,28 @@ class AboutViewController: BaseViewController {
     }
     
     @IBAction func onClickSelfAssistance(_ sender: Any) {
-        
+        if let selfAssistanceVC = self.storyboard?.instantiateViewController(withIdentifier: "SelfAssistanceViewController") as? SelfAssistanceViewController {
+            self.navigationController?.pushViewController(selfAssistanceVC, animated: true)
+        }
     }
     
     @IBAction func onClickHelpLine(_ sender: Any) {
-        Utilities.sharedInstance.dialNumber(number: Helpline_Number)
+        
+        HelpLinePopup.instance.delegate = self
+        HelpLinePopup.instance.showAlert()
+
     }
     
     @IBAction func onClickLogout(_ sender: Any) {
-        UserDefaults.standard.removeObject(forKey: "username")
-        UserDefaults.standard.removeObject(forKey: "authVerificationID")
-        setupAboutView()
+        FirebaseManager.updateSignInStatusInFirebase(is_loggedin: false) { (success) in
+           
+            DispatchQueue.main.async {
+                UserDefaults.standard.removeObject(forKey: USERNAME)
+                UserDefaults.standard.removeObject(forKey: "authVerificationID")
+
+                self.setupAboutView()
+            }
+        }
     }
 }
 
@@ -112,9 +123,17 @@ extension AboutViewController: CustomPhoneVerificationAlert{
         }
     }
     
-    func loginSuccess(userName: String) {
-        UserDefaults.standard.set(userName, forKey: "username")
-        setupUserWelcomeView()
+    func loginSuccess(userName: String, phoneNumber: String) {
+        UserDefaults.standard.set(userName, forKey: USERNAME)
+        UserDefaults.standard.set(phoneNumber, forKey: PHONENUMBER)
+        FirebaseManager.updateSignInStatusInFirebase(is_loggedin: true) { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.setupUserWelcomeView()
+                    (UIApplication.shared.delegate as? AppDelegate)?.setupNotificationForApplication()
+                }
+            }
+        }
     }
 }
 
@@ -131,6 +150,20 @@ extension AboutViewController: FirebasePhoneNumberVerification {
     }
     func OTPVerificationSuccessful(authResult: AuthDataResult){
         AlertView.instance.OTPVerificationSuccess()
+    }
+}
+
+extension AboutViewController: HelpLineAlert{
+    func justACall() {
+        if let helpLineVC = self.storyboard?.instantiateViewController(withIdentifier: "HelplineViewController") as? HelplineViewController {
+                  self.navigationController?.pushViewController(helpLineVC, animated: true)
+              }
+    }
+    
+    func justAQuery() {
+        if let submitQueryVC = self.storyboard?.instantiateViewController(withIdentifier: "SubmitQueryViewController") as? SubmitQueryViewController {
+                  self.navigationController?.pushViewController(submitQueryVC, animated: true)
+              }
     }
 }
 

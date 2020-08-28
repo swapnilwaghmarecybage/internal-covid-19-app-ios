@@ -10,7 +10,7 @@ import Foundation
 
 struct NewsModel: Codable {
     var content: String?
-    var date: String?
+    var date: Double?
     var link: String?
     var title: String?
     var photo: String?

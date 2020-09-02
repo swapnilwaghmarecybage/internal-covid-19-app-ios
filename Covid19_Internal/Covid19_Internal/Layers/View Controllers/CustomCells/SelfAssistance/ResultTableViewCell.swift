@@ -11,6 +11,10 @@ import UIKit
 class ResultTableViewCell: UITableViewCell {
 
     @IBOutlet weak var labelMessage: UILabel!
+    @IBOutlet weak var buttonConfirmAndSend: UIButton!
+    @IBOutlet weak var buttonIWillDOItLater: UIButton!
+    
+    
     var delegate: SelfAssistanceManager?
     override func awakeFromNib() {
         super.awakeFromNib()

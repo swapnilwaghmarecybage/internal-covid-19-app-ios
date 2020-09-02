@@ -13,6 +13,11 @@ class QustionContactHistoryForNoSymptomsTableViewCell: UITableViewCell {
    @IBOutlet weak var labelAnswer: UILabel!
     @IBOutlet weak var buttonNext: UIButton!
     @IBOutlet weak var buttonNoneOfTheAbove: UIButton!
+    @IBOutlet weak var buttonIAmHealthCareWorker: UIButton!
+    @IBOutlet weak var buttonRecentInteraction: UIButton!
+    
+        
+    
     var delegate: SelfAssistanceManager?
     
     override func awakeFromNib() {
@@ -32,7 +37,7 @@ class QustionContactHistoryForNoSymptomsTableViewCell: UITableViewCell {
         } else {
            delegate?.updateArray(value: 2)
         }
-        self.labelAnswer.text = sender.titleLabel?.text
+        self.labelAnswer.text = "  \(sender.titleLabel?.text ?? "")  "
 
     }
 

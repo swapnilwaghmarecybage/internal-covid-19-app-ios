@@ -13,6 +13,13 @@ class QuestionPreviousIllnessTableViewCell: UITableViewCell {
     @IBOutlet weak var labelAnswer: UILabel!
     @IBOutlet weak var buttonNext: UIButton!
     @IBOutlet weak var buttonNoneOfTheAbove: UIButton!
+    @IBOutlet weak var buttonDibetes: UIButton!
+    @IBOutlet weak var buttonHeartDisease: UIButton!
+    @IBOutlet weak var buttonLungDisease: UIButton!
+    
+    @IBOutlet weak var buttonHypertension: UIButton!
+    @IBOutlet weak var buttonKidneyDisorder: UIButton!
+    
     var delegate: SelfAssistanceManager?
     
     override func awakeFromNib() {
@@ -32,7 +39,7 @@ class QuestionPreviousIllnessTableViewCell: UITableViewCell {
         } else {
            delegate?.updateArray(value: 2)
         }
-        self.labelAnswer.text = sender.titleLabel?.text
+        self.labelAnswer.text = "  \(sender.titleLabel?.text ?? "")  "
 
     }
 

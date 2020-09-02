@@ -11,6 +11,10 @@ import UIKit
 class QuestionTravelHistoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var labelAnswer: UILabel!
+    @IBOutlet weak var buttonNo: UIButton!
+    
+    @IBOutlet weak var buttonYes: UIButton!
+    
     var delegate: SelfAssistanceManager?
     
     override func awakeFromNib() {
@@ -26,10 +30,12 @@ class QuestionTravelHistoryTableViewCell: UITableViewCell {
 
     @IBAction func onClickOption(_ sender: UIButton) {
         if(sender.tag == 0){
+            self.labelAnswer.text = "  \("NO")  "
             delegate?.updateArray(value: 0)
         } else {
+            self.labelAnswer.text = "  \("YES")  "
             delegate?.updateArray(value: 1)
-            delegate?.goBackCheckupDone()
+            //delegate?.goBackCheckupDone()
         }
     }
 

@@ -19,6 +19,9 @@ class SubmitQueryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         let style = NSMutableParagraphStyle()
         style.alignment = NSTextAlignment.center
         let titleAtributes = [NSAttributedString.Key.foregroundColor: Theme.tabselectedColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .bold), NSAttributedString.Key.paragraphStyle: style ]
@@ -28,13 +31,13 @@ class SubmitQueryViewController: UIViewController {
         let title = NSMutableAttributedString(string: "Drop us a query\n", attributes: titleAtributes)
         let subtitle = NSMutableAttributedString(string: "Fill the below details and we will\nhelp you in next 24 hours", attributes: subtitleAtributes)
         let combination = NSMutableAttributedString()
-
+        
         combination.append(title)
         combination.append(subtitle)
-       
+        
         self.lebelHeadLine.numberOfLines = 0
         self.lebelHeadLine.attributedText = combination
-
+        
         
         self.textFieldEmployeeName.text = UserDefaults.standard.value(forKey: USERNAME) as? String ?? ""
         self.textFieldPhoneNumber.text = UserDefaults.standard.value(forKey: PHONENUMBER) as? String ?? ""
@@ -42,7 +45,19 @@ class SubmitQueryViewController: UIViewController {
         self.textFieldQuery.delegate = self
         updateNavigationBar()
     }
-    
+    @objc func keyboardWillShow(notification: NSNotification) {
+    if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -=  keyboardSize.height
+        }
+    }
+}
+
+@objc func keyboardWillHide(notification: NSNotification) {
+    if self.view.frame.origin.y != 0 {
+        self.view.frame.origin.y = 0
+    }
+}
     @IBAction func onClickSubmit(_ sender: Any) {
         goBack()
     }

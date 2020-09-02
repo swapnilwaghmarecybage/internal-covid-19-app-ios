@@ -52,7 +52,10 @@ struct Guide {
     static var psychologicalGuidelines = "• Isolate yourself from news about the virus. (Everything we need to know, we already know).\n\n • Don't look out for death toll. It's not a cricket match to know the latest score. Avoid that.\n\n• Don't look for additional information on the Internet, it would weaken your mental state.\n\n• Avoid sending fatalistic messages. Some people don't have the same mental strength as you (Instead of helping, you could activate pathologies such as depression).\n\n• If possible, listen to music at home at a pleasant volume. Look for board games to entertain children, tell stories and future plans.\n\n• Maintain discipline in the home by washing your hands, putting up a sign or alarm for everyone in the house.\n\n• Your positive mood will help protect your immune system, while negative thoughts have been shown to depress your immune system and make it weak against viruses.\n\n• Most importantly, firmly believe that this shall also pass and we will be safe.... !\n\n\n Stay mentally positive...Stay safe!"
     static var lessCommonSymptoms = "• Aches and pains\n• Sore throa\n• Diarrhoea\n• Conjunctivitis\n• Headache\n• Loss of taste or smell\n• A rash on skin\n• Discolouration of fingers or toes"
 }
-
+struct SelfAssesmentMessages {
+    static let lowRisk = "Your infection risk is low. We recommednted that you stay at home to avoid any chance of exposure to Novel Coronavirus.\n\nRetake the self assesment Test if you develop symptoms or come in contact with a COVID-19 confirmed patients.\n\nDo visit:\nhttps://www.mohfw.gov.in/\nfor more information"
+    static let potentialRisk = "Thank you for taking this assessment\n\nIf the information provided by you is accuarte, it indicates that you are either unwell or at risk. Your test results and location history need to be sent to Cybage HRD to help you and help identify potential hotspots where infection may be spreading"
+}
 let NetworkReceivedNotification = NSNotification.Name("Network received")
 
 let App_Name = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? ""

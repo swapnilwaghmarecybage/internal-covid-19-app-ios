@@ -13,7 +13,13 @@ class QuestionContactHistoryTableViewCell: UITableViewCell {
      @IBOutlet weak var labelAnswer: UILabel!
        @IBOutlet weak var buttonNext: UIButton!
        @IBOutlet weak var buttonNoneOfTheAbove: UIButton!
-       var delegate: SelfAssistanceManager?
+      
+    @IBOutlet weak var buttonTravelInfo: UIButton!
+    @IBOutlet weak var buttonIAmHealthCareWorker: UIButton!
+    
+    @IBOutlet weak var buttonContactedRecently: UIButton!
+    
+    var delegate: SelfAssistanceManager?
     
        override func awakeFromNib() {
            super.awakeFromNib()
@@ -32,7 +38,7 @@ class QuestionContactHistoryTableViewCell: UITableViewCell {
            } else {
               delegate?.updateArray(value: 2)
            }
-           self.labelAnswer.text = sender.titleLabel?.text
+           self.labelAnswer.text = "  \(sender.titleLabel?.text ?? "")  "
 
        }
 

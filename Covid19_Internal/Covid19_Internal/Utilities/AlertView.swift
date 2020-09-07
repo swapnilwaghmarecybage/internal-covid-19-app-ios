@@ -18,8 +18,6 @@ class AlertView: UIView {
 
     @IBOutlet weak var alertViewMobileNumberAndName: UIView!
     @IBOutlet weak var labelTitleAlertViewMobileNumberAndName: UILabel!
-    @IBOutlet weak var labelMessageAlertViewMobileNumberAndName: UILabel!
-    @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldNumberInput: UITextField!
     @IBOutlet weak var labelErrorMessageAlertViewMobileNumberAndName: UILabel!
     @IBOutlet weak var buttonGenerateOTP: UIButton!
@@ -27,7 +25,6 @@ class AlertView: UIView {
 
     @IBOutlet weak var alertViewOTP: UIView!
     @IBOutlet weak var labelTitleAlertViewOTP: UILabel!
-    @IBOutlet weak var labelMessageAlertViewOTP: UILabel!
     @IBOutlet weak var textFieldOTP: UITextField!
     @IBOutlet weak var labelErrorMessageAlertViewOTP: UILabel!
     @IBOutlet weak var buttonLogin: UIButton!
@@ -40,7 +37,7 @@ class AlertView: UIView {
     private let placeholderOTP = "OTP"
     private let OTPViewMessage = "Please enter OTP received\non your mobile number"
     private let NumberNameViewMessage = "Please enter name and mobile number to receive OTP"
-
+    private var uservalues =  Dictionary<String, Any>()
 
     
     var delegate: CustomPhoneVerificationAlert?
@@ -81,10 +78,7 @@ class AlertView: UIView {
     
     private func setupAlertViewMobileNumberAndName() {
         self.labelTitleAlertViewMobileNumberAndName.text = loginButtonTitle
-        self.labelMessageAlertViewMobileNumberAndName.text = NumberNameViewMessage
-        self.textFieldName.text = ""
         self.textFieldNumberInput.text = ""
-        self.textFieldName.placeholder = placeholderName
         self.textFieldNumberInput.placeholder = placeholderNumber
         self.labelErrorMessageAlertViewMobileNumberAndName.text = ""
         self.buttonGenerateOTP.isEnabled = true
@@ -93,19 +87,22 @@ class AlertView: UIView {
         self.buttonResendOTP.alpha = 0.5
 
         textFieldNumberInput.leftViewMode = .always
-        let flagImage =  UIImage(named: "indiaflag")
-        let leftView = UIImageView(image:flagImage)
-        let viewImageHolder = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 30))
+        
+        let countryCode = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 40))
+        countryCode.backgroundColor = UIColor.clear
+        countryCode.text = "+91"
+        countryCode.font = .systemFont(ofSize: 17, weight: .bold)
+        countryCode.textAlignment = .center
+        countryCode.textColor = UIColor.black
+        let viewImageHolder = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 40))
         viewImageHolder.backgroundColor = UIColor.clear
-        leftView.frame = CGRect(x: 15, y: 0, width: 30, height: 30)
-        viewImageHolder.addSubview(leftView)
+        viewImageHolder.addSubview(countryCode)
         self.textFieldNumberInput.leftView = viewImageHolder
 
     }
     
     private func setupAlertViewOTP() {
         self.labelTitleAlertViewOTP.text = loginButtonTitle
-        self.labelMessageAlertViewOTP.text = OTPViewMessage
         self.textFieldOTP.text = ""
         self.textFieldOTP.placeholder = placeholderOTP
         self.textFieldOTP.isSecureTextEntry = true
@@ -127,10 +124,10 @@ class AlertView: UIView {
         
     @IBAction func onClickSendOTP(_ sender: UIButton) {
         if let _delegate = self.delegate {
-            if let _mobileNumber = self.textFieldNumberInput.text, !_mobileNumber.isEmpty,
-                let name = self.textFieldName.text, !name.isEmpty {
-                FirebaseManager.checkIfNumerIsRegistered(number: _mobileNumber) { (success) in
-                    if (success){
+            if let _mobileNumber = self.textFieldNumberInput.text, !_mobileNumber.isEmpty {
+                FirebaseManager.verifyIfCybagian(number: _mobileNumber) { (success, values) in
+                    if let _val = values, success == true {
+                        
                         if (sender.titleLabel?.text == "GENERATE OTP"){
                             self.buttonGenerateOTP.isEnabled = false
                             self.buttonGenerateOTP.alpha = 0.5
@@ -138,9 +135,8 @@ class AlertView: UIView {
                             self.buttonResendOTP.isEnabled = false
                             self.buttonResendOTP.alpha = 0.5
                         }
+                        self.uservalues = _val
                         _delegate.sendOTPToNumber(number: "+91\(_mobileNumber)")
-
-                        
                     } else {
                         self.labelErrorMessageAlertViewMobileNumberAndName.text = PhoneVerificationErrorCodes.NOT_REGISTERED_USER.rawValue
                     }
@@ -167,7 +163,7 @@ class AlertView: UIView {
     
     
     func OTPVerificationSuccess(){
-        delegate?.loginSuccess(userName: self.textFieldName.text ?? "", phoneNumber: self.textFieldNumberInput.text ?? "" )
+        delegate?.loginSuccess(uservalues: self.uservalues)
         self.dismissPopoup()
     }
     
@@ -196,11 +192,7 @@ class AlertView: UIView {
 extension AlertView: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if (textField == self.textFieldName){
-            self.textFieldNumberInput.becomeFirstResponder()
-        } else {
-            textField.resignFirstResponder()
-        }
+     textField.resignFirstResponder()
         return true
     }
     
@@ -211,11 +203,6 @@ extension AlertView: UITextFieldDelegate {
             let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
             return updatedText.count <= 10
 
-        } else if (textField == self.textFieldName){
-            let currentText = textField.text ?? ""
-            guard let stringRange = Range(range, in: currentText) else { return false }
-            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-            return updatedText.count <= 20
         }
         return true
     }

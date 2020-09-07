@@ -142,8 +142,8 @@ struct FirebaseManager {
         if let _deviceId = UUID {
             var ref: DatabaseReference!
             ref = Database.database().reference()
-            if let referance = ref?.child("app_users").child(_deviceId) {
-                referance.updateChildValues(["is_loggedin": is_loggedin])
+            if let referance = ref{
+                referance.child("app_users").child(_deviceId) .updateChildValues(["is_loggedin": is_loggedin])
                 completion(true)
             }else {
                 completion(false)
@@ -156,18 +156,10 @@ struct FirebaseManager {
         if let _deviceId = UUID {
             var ref: DatabaseReference!
             ref = Database.database().reference()
-            if let referance = ref?.child("app_users") {
+            if let referance = ref {
                let isLoggedIn = UserDefaults.standard.value(forKey: USERNAME) != nil ? true : false
                 let fmc_token = UserDefaults.standard.value(forKey: FCM_TOKEN) as? String ?? ""
-               /**
-                var fmc_token = ""
-                       #if targetEnvironment(simulator)
-                   fmc_token = "i-a-m-s-i-m-u-l-a-t-o-r"
-               #else
-                    fmc_token = UserDefaults.standard.value(forKey: FCM_TOKEN) as? String ?? ""
-               #endif
-                 */
-                referance.child(_deviceId).updateChildValues(["device_id": _deviceId,
+                referance.child("app_users").child(_deviceId).updateChildValues(["device_id": _deviceId,
                                     "fcm_token": fmc_token,
                                     "is_loggedin": isLoggedIn])
                 
@@ -184,10 +176,10 @@ struct FirebaseManager {
         if let _deviceId = UUID {
             var ref: DatabaseReference!
             ref = Database.database().reference()
-            if let referance = ref?.child("app_users").child(_deviceId) {
-                referance.updateChildValues( ["fcm_token": fcm_token])
+            if let referance = ref {
+                referance.child("app_users").child(_deviceId).updateChildValues( ["fcm_token": fcm_token])
             } else {
-                print("Failed to update FCM Token on database")
+                print("database not found.Failed to update FCM Token on database")
             }
 
         }
@@ -197,8 +189,8 @@ struct FirebaseManager {
     static func getNewsForId(newsId: String, completion: @escaping (NewsModel?)-> Void){
         var ref: DatabaseReference!
               ref = Database.database().reference()
-        if let referance = ref?.child("covid_care").child(newsId) {
-                referance.observe(.value, with: { snapshot in
+        if let referance = ref {
+                referance.child("covid_care").child(newsId).observe(.value, with: { snapshot in
                     print(snapshot)
                     if let fetchedNews = snapshot.value as? Dictionary<String, Any>{
                         var news = NewsModel()
@@ -215,15 +207,16 @@ struct FirebaseManager {
                     print(error)
                     completion(nil)
                 }
-                
+        } else {
+            print("database not found")
         }
     }
     
     static func getHelplineData(completion: @escaping (Dictionary<String,String>?)->Void){
         var ref: DatabaseReference!
               ref = Database.database().reference()
-        if let referance = ref?.child("helpline") {
-            referance.observeSingleEvent(of: .value, with: { (snapshot) in
+        if let referance = ref {
+            referance.child("helpline").observeSingleEvent(of: .value, with: { (snapshot) in
                 print(snapshot)
                 if let helpline = snapshot.value as? Dictionary<String, String>{
                    // self.helplineData = helpline
@@ -235,7 +228,68 @@ struct FirebaseManager {
                 print(error.localizedDescription)
                 completion(nil)
             }
+        } else {
+            print("databadse not found")
         }
-
     }
+    
+    
+     static func submitQuery(username:String, empployeeId: String,
+                             phoneNumber: String, email:String, query: String) {
+     
+             var ref: DatabaseReference!
+             ref = Database.database().reference()
+             if let referance = ref {
+                referance.child("queries").childByAutoId().updateChildValues(["username": username,
+                                     "employee_id": empployeeId,
+                                     "phone_number": phoneNumber,
+                                     "query":query,
+                                     "email": email,
+                                     "timestamp": "\(Date().currentTimeMillis())" ])
+                 
+             } else {
+                print("database not found")
+            }
+     }
+    
+    
+    static func submitSelfAssistanceStatus(username:String, employeeId: Int,
+    phoneNumber: Int, email:String, status: String){
+        
+         var ref: DatabaseReference!
+         ref = Database.database().reference()
+         if let referance = ref {
+            referance.child("self-assistance").childByAutoId().updateChildValues(["username": username,
+                                 "employee_id": employeeId,
+                                 "phone_number": phoneNumber,
+                                 "status":status,
+                                 "email": email,
+                                 "timestamp": "\(Date().currentTimeMillis())" ])
+             
+         } else {
+            print("database not found")
+        }
+    }
+    
+    static func verifyIfCybagian(number: String,  completion: @escaping (Bool, Dictionary<String, Any>?)->Void){
+         var ref: DatabaseReference!
+         ref = Database.database().reference()
+         if let referance = ref {
+            referance.child("cybagians").queryOrdered(byChild: "phone").queryEqual(toValue: Int(number)).observeSingleEvent(of: .value) { (snapshot) in
+                //print(snapshot)
+                if let userdata = snapshot.value as? Dictionary<String, Any>, let user = userdata.first{
+                    if let values = user.value as? Dictionary<String, Any> {
+                        completion(true, values)
+
+                    } else {
+                        completion(false, nil)
+                    }
+                }else{
+                    completion(false, nil)
+                }
+            }
+         }else{
+            completion(false, nil)
+        }
+     }
 }

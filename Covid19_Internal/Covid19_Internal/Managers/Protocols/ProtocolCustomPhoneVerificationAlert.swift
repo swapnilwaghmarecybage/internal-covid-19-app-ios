@@ -12,6 +12,6 @@ protocol CustomPhoneVerificationAlert {
     
     func sendOTPToNumber(number:String)
     func verifyOTP(otp:String)
-    func loginSuccess(userName: String, phoneNumber: String)
+    func loginSuccess(uservalues: Dictionary<String,Any>)
     
 }

@@ -10,7 +10,6 @@ import UIKit
 
 class QuestionSymptomTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var labelAnswer: UILabel!
     @IBOutlet weak var buttonNext: UIButton!
     @IBOutlet weak var buttonNoneOfTheAbove: UIButton!
     @IBOutlet weak var buttonCough: UIButton!
@@ -21,7 +20,9 @@ class QuestionSymptomTableViewCell: UITableViewCell {
     private var arraySymptoms = [String]()
     var delegate: SelfAssistanceManager?
     @IBOutlet weak var heightOfView: NSLayoutConstraint!
-    
+    @IBOutlet weak var textViewAnswer: UITextView!
+    @IBOutlet weak var question: UILabel!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,6 +34,14 @@ class QuestionSymptomTableViewCell: UITableViewCell {
         self.buttonDifficultyInBreathing.isHidden = false
         self.buttonNoneOfTheAbove.isHidden = false
         
+        self.buttonNext.layer.cornerRadius = 5
+        self.buttonCough.layer.cornerRadius = 5
+        self.buttonFever.layer.cornerRadius = 5
+        self.buttonLossOfTaste.layer.cornerRadius = 5
+        self.buttonDifficultyInBreathing.layer.cornerRadius = 5
+        self.buttonNoneOfTheAbove.layer.cornerRadius = 5
+        self.textViewAnswer.isHidden = true
+        self.textViewAnswer.layer.cornerRadius = 5
         
     }
     
@@ -47,16 +56,21 @@ class QuestionSymptomTableViewCell: UITableViewCell {
         if(sender.tag == 0){
             delegate?.updateArray(value: 0)
             updateUI()
-            
+            delegate?.adduserAnswers(value: "\(self.question.text!): \(self.textViewAnswer.text!)")
+
         } else {
             if(sender.tag == 9) {
                 delegate?.updateArray(value: 2)
                 updateUI()
+                delegate?.adduserAnswers(value: "\(self.question.text!): \(self.textViewAnswer.text!)")
+
             } else {
                 sender.isSelected = !sender.isSelected
                 if (sender.isSelected){
+                    sender.backgroundColor = UIColor.orange
                     arraySymptoms.append(sender.titleLabel?.text ?? "nil")
                 } else {
+                    sender.backgroundColor = Theme.selfAssistanceLightPeacockColor
                     if let index = arraySymptoms.firstIndex(of: sender.titleLabel?.text ?? "nil") {
                         arraySymptoms.remove(at: index)
                     }
@@ -81,13 +95,17 @@ class QuestionSymptomTableViewCell: UITableViewCell {
         self.buttonLossOfTaste.isHidden = true
         self.buttonDifficultyInBreathing.isHidden = true
         self.buttonNoneOfTheAbove.isHidden = true
-        
+        self.textViewAnswer.isHidden = false
         heightOfView.constant = 0
         
         if  (self.arraySymptoms.count > 0) {
-            self.labelAnswer.text = "  \(self.arraySymptoms.joined(separator: ", "))  "
+           // self.labelAnswer.text = "\(self.arraySymptoms.joined(separator: ", "))"
+            textViewAnswer.text = "\(self.arraySymptoms.joined(separator: ", "))"
         } else {
-            self.labelAnswer.text = "  None of the above  "
+            //self.labelAnswer.text = "None of the above"
+             textViewAnswer.text = "None of the above"
         }
+        //self.labelAnswer.setMargins()
+
     }
 }

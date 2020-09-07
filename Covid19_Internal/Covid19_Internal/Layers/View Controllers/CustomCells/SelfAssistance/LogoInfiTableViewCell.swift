@@ -18,14 +18,14 @@ class LogoInfiTableViewCell: UITableViewCell {
     }
 
     func configureCell(){
-        let line1Attributes = [NSAttributedString.Key.foregroundColor: Theme.selfAssistanceLightPeacockColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular) ]
-        let line2Attributes = [NSAttributedString.Key.foregroundColor: Theme.selfAssistanceLightPeacockColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .regular) ]
-        let line3Attributes =  [NSAttributedString.Key.foregroundColor: Theme.selfAssistanceLightPeacockColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular)]
+        let line1Attributes = [NSAttributedString.Key.foregroundColor: Theme.selfAssistanceLightPeacockColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .bold) ]
+        let line2Attributes = [NSAttributedString.Key.foregroundColor: Theme.selfAssistanceLightPeacockColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .regular) ]
+        let line3Attributes =  [NSAttributedString.Key.foregroundColor: Theme.selfAssistanceLightPeacockColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .bold)]
         
         
         let line1 = NSMutableAttributedString(string:"Please give correct Answers", attributes: line1Attributes)
-        let line2 = NSMutableAttributedString(string: "All the info you have shared with us is protected", attributes: line2Attributes)
-        let line3 = NSMutableAttributedString(string: "Help us- Help you", attributes: line3Attributes)
+        let line2 = NSMutableAttributedString(string: "\nAll the info you have shared with us is protected", attributes: line2Attributes)
+        let line3 = NSMutableAttributedString(string: "\nHelp us- Help you", attributes: line3Attributes)
         let combination = NSMutableAttributedString()
         
         combination.append(line1)

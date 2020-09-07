@@ -12,5 +12,7 @@ protocol SelfAssistanceManager {
     
     func updateArray(value:Int)
     func goBackCheckupDone()
+    func sendDataToFirebase()
+    func adduserAnswers(value: String)
 }
 

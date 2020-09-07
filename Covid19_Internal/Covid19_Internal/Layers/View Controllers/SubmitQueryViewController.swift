@@ -14,6 +14,8 @@ class SubmitQueryViewController: UIViewController {
     @IBOutlet weak var textFieldEmployeeName: UITextField!
     @IBOutlet weak var textFieldEmployeeId: UITextField!
     @IBOutlet weak var textFieldPhoneNumber: UITextField!
+    @IBOutlet weak var labelErrorMessage: UILabel!
+
     
     @IBOutlet weak var textFieldQuery: UITextField!
     override func viewDidLoad() {
@@ -37,12 +39,16 @@ class SubmitQueryViewController: UIViewController {
         
         self.lebelHeadLine.numberOfLines = 0
         self.lebelHeadLine.attributedText = combination
-        
-        
-        self.textFieldEmployeeName.text = UserDefaults.standard.value(forKey: USERNAME) as? String ?? ""
-        self.textFieldPhoneNumber.text = UserDefaults.standard.value(forKey: PHONENUMBER) as? String ?? ""
-        self.textFieldEmployeeId.text = "XXX XXX"
+         if let _username = UserDefaults.standard.value(forKey: USERNAME),
+        let _phone = UserDefaults.standard.value(forKey: PHONENUMBER),
+            let _employeeid = UserDefaults.standard.value(forKey: EMPLOYEEID){
+            
+            self.textFieldEmployeeName.text = "\(_username)"
+            self.textFieldPhoneNumber.text = "\(_phone)"
+            self.textFieldEmployeeId.text = "\(_employeeid)"
+        }
         self.textFieldQuery.delegate = self
+        self.labelErrorMessage.text = ""
         updateNavigationBar()
     }
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -59,7 +65,17 @@ class SubmitQueryViewController: UIViewController {
     }
 }
     @IBAction func onClickSubmit(_ sender: Any) {
-        goBack()
+        if let query = self.textFieldQuery.text, !query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+        let username = self.textFieldEmployeeName.text,!username.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+            let phone = self.textFieldPhoneNumber.text,!phone.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+            let employeeid = self.textFieldEmployeeId.text, !employeeid.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        {
+            let email =  UserDefaults.standard.value(forKey: EMAILID) as? String ?? "swapnilwaghm@cybage.com"
+            FirebaseManager.submitQuery(username: username, empployeeId: employeeid, phoneNumber: phone, email:email, query: query)
+            goBack()
+        } else {
+            self.labelErrorMessage.text = "All fields are mandatory"
+        }
     }
     
     func updateNavigationBar(){
@@ -80,4 +96,11 @@ extension SubmitQueryViewController:UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let text = textField.text, !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty{
+            self.labelErrorMessage.text = ""
+        }
+        return true
+    }
 }
+

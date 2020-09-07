@@ -62,6 +62,8 @@ let App_Name = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? Stri
 let Helpline_Number = "+918793107825"
 let USERNAME = "username"
 let PHONENUMBER = "phonenumber"
+let EMAILID = "emailid"
+let EMPLOYEEID = "employeeid"
 
 let UUID = UIDevice.current.identifierForVendor?.uuidString.replacingOccurrences(of: "-", with: "")
 let FCM_TOKEN = "fmc_token"
@@ -174,5 +176,10 @@ class Utilities {
         }
         return ""
         
+    }
+}
+extension Date {
+    func currentTimeMillis() -> Int64 {
+        return Int64(self.timeIntervalSince1970 * 1000)
     }
 }

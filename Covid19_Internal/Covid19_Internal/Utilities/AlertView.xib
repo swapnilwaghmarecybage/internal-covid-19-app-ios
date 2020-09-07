@@ -17,13 +17,10 @@
                 <outlet property="buttonResendOTP" destination="7ql-ot-wBL" id="nyc-6V-cjW"/>
                 <outlet property="labelErrorMessageAlertViewMobileNumberAndName" destination="Pbf-a0-kOj" id="6A1-iR-9hu"/>
                 <outlet property="labelErrorMessageAlertViewOTP" destination="vgL-1F-Gbq" id="XWH-ac-1Yg"/>
-                <outlet property="labelMessageAlertViewMobileNumberAndName" destination="7q9-fK-7Zj" id="OAB-HX-Hcu"/>
-                <outlet property="labelMessageAlertViewOTP" destination="Xtg-Cp-Pxl" id="ZYd-q7-igd"/>
                 <outlet property="labelTitleAlertViewMobileNumberAndName" destination="FOD-xm-5YQ" id="kcG-B3-Wnd"/>
                 <outlet property="labelTitleAlertViewOTP" destination="5Hd-DY-mlU" id="ABT-Jv-ZYh"/>
                 <outlet property="parentView" destination="iN0-l3-epB" id="D5K-cc-cFD"/>
                 <outlet property="shadowView" destination="bU0-do-5ea" id="hEG-Fr-CE6"/>
-                <outlet property="textFieldName" destination="iCZ-gj-Pgw" id="lru-BG-9xL"/>
                 <outlet property="textFieldNumberInput" destination="ft0-jr-n0r" id="cdh-Ak-81Y"/>
                 <outlet property="textFieldOTP" destination="JG3-m9-ekQ" id="vFh-Kv-6nW"/>
             </connections>
@@ -38,7 +35,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.81213872832369938" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="715-6n-JpH" userLabel="Alert View Mobile Number">
-                    <rect key="frame" x="40" y="159" width="295" height="300"/>
+                    <rect key="frame" x="40" y="209" width="295" height="200"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOD-xm-5YQ" userLabel="LabelAlertTitle">
                             <rect key="frame" x="0.0" y="10" width="295" height="21"/>
@@ -46,36 +43,18 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7q9-fK-7Zj" userLabel="LabelAlertMessage">
-                            <rect key="frame" x="0.0" y="46" width="295" height="48"/>
-                            <string key="text">Please enter mobile number to 
-receive verification code</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <color key="textColor" red="1" green="0.59607843140000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbf-a0-kOj">
-                            <rect key="frame" x="0.0" y="208" width="295" height="20"/>
+                            <rect key="frame" x="0.0" y="111" width="295" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iCZ-gj-Pgw" userLabel="TextFieldName">
-                            <rect key="frame" x="37.5" y="114" width="220" height="35"/>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ft0-jr-n0r" userLabel="TextFieldMobileNumber">
+                            <rect key="frame" x="22.5" y="61" width="250" height="40"/>
                             <color key="backgroundColor" red="0.3411764705882353" green="0.47843137254901957" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="220" id="Q6M-gX-rJG"/>
-                                <constraint firstAttribute="height" constant="35" id="mcU-f1-meV"/>
+                                <constraint firstAttribute="height" constant="40" id="XKG-qd-Tdf"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" textContentType="name"/>
-                            <connections>
-                                <outlet property="delegate" destination="-1" id="n1r-tA-SEg"/>
-                            </connections>
-                        </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ft0-jr-n0r" userLabel="TextFieldMobileNumber">
-                            <rect key="frame" x="37.5" y="164" width="220" height="34"/>
-                            <color key="backgroundColor" red="0.3411764705882353" green="0.47843137254901957" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
                             <connections>
@@ -83,7 +62,7 @@ receive verification code</string>
                             </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwN-mk-Yxx" userLabel="ButtonGenerateOTP">
-                            <rect key="frame" x="20" y="238" width="120" height="40"/>
+                            <rect key="frame" x="20" y="141" width="120" height="40"/>
                             <color key="backgroundColor" red="0.070588235294117646" green="0.16470588235294117" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="f2B-vR-WYM"/>
@@ -97,7 +76,7 @@ receive verification code</string>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ql-ot-wBL" userLabel="ButtonResendOTP">
-                            <rect key="frame" x="155" y="238" width="120" height="40"/>
+                            <rect key="frame" x="155" y="141" width="120" height="40"/>
                             <color key="backgroundColor" red="0.070588235289999995" green="0.1647058824" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="1dU-qm-Ueh"/>
@@ -114,33 +93,25 @@ receive verification code</string>
                     <color key="backgroundColor" red="0.098039215686274508" green="0.22352941176470587" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="gwN-mk-Yxx" firstAttribute="top" secondItem="Pbf-a0-kOj" secondAttribute="bottom" constant="10" id="1yz-3X-Jjo"/>
-                        <constraint firstAttribute="height" constant="300" id="1zy-sR-DVa"/>
-                        <constraint firstItem="7q9-fK-7Zj" firstAttribute="leading" secondItem="715-6n-JpH" secondAttribute="leading" id="2Qe-uF-iDS"/>
+                        <constraint firstAttribute="height" constant="200" id="1zy-sR-DVa"/>
                         <constraint firstItem="FOD-xm-5YQ" firstAttribute="top" secondItem="715-6n-JpH" secondAttribute="top" constant="10" id="AfG-2n-gLt"/>
                         <constraint firstItem="gwN-mk-Yxx" firstAttribute="top" secondItem="ft0-jr-n0r" secondAttribute="bottom" constant="40" id="AtE-qA-Cc9"/>
-                        <constraint firstAttribute="trailing" secondItem="7q9-fK-7Zj" secondAttribute="trailing" id="DFZ-bv-lFC"/>
                         <constraint firstItem="Pbf-a0-kOj" firstAttribute="top" secondItem="ft0-jr-n0r" secondAttribute="bottom" constant="10" id="F8i-GT-v4m"/>
                         <constraint firstItem="FOD-xm-5YQ" firstAttribute="leading" secondItem="715-6n-JpH" secondAttribute="leading" id="MWY-F9-EDx"/>
-                        <constraint firstItem="iCZ-gj-Pgw" firstAttribute="leading" secondItem="ft0-jr-n0r" secondAttribute="leading" id="OT1-Bo-aVq"/>
                         <constraint firstItem="7ql-ot-wBL" firstAttribute="leading" secondItem="gwN-mk-Yxx" secondAttribute="trailing" constant="15" id="PpC-wK-Hw0"/>
-                        <constraint firstAttribute="trailing" secondItem="7q9-fK-7Zj" secondAttribute="trailing" id="Ppu-TG-x5h"/>
-                        <constraint firstItem="iCZ-gj-Pgw" firstAttribute="centerX" secondItem="715-6n-JpH" secondAttribute="centerX" id="RVZ-su-PNT"/>
+                        <constraint firstItem="ft0-jr-n0r" firstAttribute="width" secondItem="715-6n-JpH" secondAttribute="width" multiplier="250:295" id="SsE-12-wsM"/>
                         <constraint firstItem="Pbf-a0-kOj" firstAttribute="leading" secondItem="715-6n-JpH" secondAttribute="leading" id="VGx-2u-d3f"/>
-                        <constraint firstItem="7q9-fK-7Zj" firstAttribute="top" secondItem="FOD-xm-5YQ" secondAttribute="bottom" constant="15" id="XPd-tp-Vdl"/>
-                        <constraint firstItem="ft0-jr-n0r" firstAttribute="trailing" secondItem="iCZ-gj-Pgw" secondAttribute="trailing" id="bU6-SN-wR9"/>
                         <constraint firstItem="gwN-mk-Yxx" firstAttribute="top" secondItem="7ql-ot-wBL" secondAttribute="top" id="dWx-bD-hPe"/>
                         <constraint firstAttribute="trailing" secondItem="FOD-xm-5YQ" secondAttribute="trailing" id="ey0-F7-cD7"/>
+                        <constraint firstItem="ft0-jr-n0r" firstAttribute="top" secondItem="FOD-xm-5YQ" secondAttribute="bottom" constant="30" id="fF7-Qj-IMX"/>
+                        <constraint firstItem="ft0-jr-n0r" firstAttribute="centerX" secondItem="715-6n-JpH" secondAttribute="centerX" id="ot8-RP-kSF"/>
                         <constraint firstAttribute="trailing" secondItem="Pbf-a0-kOj" secondAttribute="trailing" id="phO-Id-RVv"/>
                         <constraint firstItem="gwN-mk-Yxx" firstAttribute="leading" secondItem="715-6n-JpH" secondAttribute="leading" constant="20" id="rEj-uH-f5A"/>
-                        <constraint firstItem="iCZ-gj-Pgw" firstAttribute="top" secondItem="7q9-fK-7Zj" secondAttribute="bottom" constant="20" id="ufj-w4-grg"/>
-                        <constraint firstItem="7q9-fK-7Zj" firstAttribute="leading" secondItem="715-6n-JpH" secondAttribute="leading" id="vvY-bJ-rFV"/>
-                        <constraint firstItem="7q9-fK-7Zj" firstAttribute="top" secondItem="FOD-xm-5YQ" secondAttribute="bottom" constant="15" id="wg2-DM-3oF"/>
                         <constraint firstAttribute="trailing" secondItem="7ql-ot-wBL" secondAttribute="trailing" constant="20" id="z5p-cY-V1p"/>
-                        <constraint firstItem="ft0-jr-n0r" firstAttribute="top" secondItem="iCZ-gj-Pgw" secondAttribute="bottom" constant="15" id="zk2-9f-Ik8"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFh-hI-mM6" userLabel="Alert View OTP">
-                    <rect key="frame" x="40" y="184" width="295" height="250"/>
+                    <rect key="frame" x="40" y="209" width="295" height="200"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hd-DY-mlU" userLabel="LabelAlertTitle">
                             <rect key="frame" x="0.0" y="10" width="295" height="21"/>
@@ -148,24 +119,17 @@ receive verification code</string>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtg-Cp-Pxl" userLabel="LabelAlertMessage">
-                            <rect key="frame" x="0.0" y="46" width="295" height="48"/>
-                            <string key="text">Please enter OTP received 
-on your mobile number</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <color key="textColor" red="1" green="0.59607843140000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgL-1F-Gbq" userLabel="LabelErrorMessage">
-                            <rect key="frame" x="0.0" y="148" width="295" height="20"/>
+                            <rect key="frame" x="0.0" y="111" width="295" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="OTP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JG3-m9-ekQ" userLabel="TextFieldOTP">
-                            <rect key="frame" x="37.5" y="104" width="220" height="34"/>
+                            <rect key="frame" x="37.5" y="61" width="220" height="40"/>
                             <color key="backgroundColor" red="0.3411764706" green="0.47843137250000001" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
+                                <constraint firstAttribute="height" constant="40" id="FI5-ha-tfb"/>
                                 <constraint firstAttribute="width" constant="220" id="GYm-um-u0g"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -175,7 +139,7 @@ on your mobile number</string>
                             </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBS-Lp-i92" userLabel="ButtonLogin">
-                            <rect key="frame" x="87.5" y="178" width="120" height="40"/>
+                            <rect key="frame" x="87.5" y="141" width="120" height="40"/>
                             <color key="backgroundColor" red="0.070588235289999995" green="0.1647058824" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="YO3-un-IxF"/>
@@ -191,23 +155,17 @@ on your mobile number</string>
                     </subviews>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.22352941179999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="Xtg-Cp-Pxl" firstAttribute="top" secondItem="5Hd-DY-mlU" secondAttribute="bottom" constant="15" id="7fV-s4-hym"/>
-                        <constraint firstAttribute="height" constant="250" id="9jN-gu-qTx"/>
+                        <constraint firstAttribute="height" constant="200" id="9jN-gu-qTx"/>
                         <constraint firstItem="vgL-1F-Gbq" firstAttribute="leading" secondItem="GFh-hI-mM6" secondAttribute="leading" id="ByM-ea-1tc"/>
                         <constraint firstItem="5Hd-DY-mlU" firstAttribute="leading" secondItem="GFh-hI-mM6" secondAttribute="leading" id="COa-S9-18Z"/>
-                        <constraint firstAttribute="trailing" secondItem="Xtg-Cp-Pxl" secondAttribute="trailing" id="DKN-B7-dj8"/>
-                        <constraint firstItem="Xtg-Cp-Pxl" firstAttribute="leading" secondItem="GFh-hI-mM6" secondAttribute="leading" id="ItY-qE-PL2"/>
-                        <constraint firstItem="Xtg-Cp-Pxl" firstAttribute="leading" secondItem="GFh-hI-mM6" secondAttribute="leading" id="QRk-7H-JEu"/>
                         <constraint firstItem="vgL-1F-Gbq" firstAttribute="top" secondItem="JG3-m9-ekQ" secondAttribute="bottom" constant="10" id="RIU-cA-GtY"/>
                         <constraint firstAttribute="trailing" secondItem="vgL-1F-Gbq" secondAttribute="trailing" id="SrM-ET-OT5"/>
                         <constraint firstItem="UBS-Lp-i92" firstAttribute="top" secondItem="JG3-m9-ekQ" secondAttribute="bottom" constant="40" id="SuD-kQ-rfD"/>
                         <constraint firstItem="UBS-Lp-i92" firstAttribute="centerX" secondItem="GFh-hI-mM6" secondAttribute="centerX" id="VkO-lg-61j"/>
                         <constraint firstItem="UBS-Lp-i92" firstAttribute="top" secondItem="vgL-1F-Gbq" secondAttribute="bottom" constant="10" id="fqi-zZ-x5e"/>
-                        <constraint firstItem="JG3-m9-ekQ" firstAttribute="top" secondItem="Xtg-Cp-Pxl" secondAttribute="bottom" constant="10" id="kw2-OS-O9P"/>
                         <constraint firstItem="JG3-m9-ekQ" firstAttribute="centerX" secondItem="GFh-hI-mM6" secondAttribute="centerX" id="mbt-sm-O1h"/>
-                        <constraint firstItem="Xtg-Cp-Pxl" firstAttribute="top" secondItem="5Hd-DY-mlU" secondAttribute="bottom" constant="15" id="mir-Ua-aqg"/>
                         <constraint firstAttribute="trailing" secondItem="5Hd-DY-mlU" secondAttribute="trailing" id="n6G-gP-bpg"/>
-                        <constraint firstAttribute="trailing" secondItem="Xtg-Cp-Pxl" secondAttribute="trailing" id="riP-oH-ACm"/>
+                        <constraint firstItem="JG3-m9-ekQ" firstAttribute="top" secondItem="5Hd-DY-mlU" secondAttribute="bottom" constant="30" id="vi0-U4-8vL"/>
                         <constraint firstItem="5Hd-DY-mlU" firstAttribute="top" secondItem="GFh-hI-mM6" secondAttribute="top" constant="10" id="xMw-FY-HMz"/>
                     </constraints>
                 </view>

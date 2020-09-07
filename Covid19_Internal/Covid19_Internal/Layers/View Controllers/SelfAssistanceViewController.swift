@@ -11,6 +11,7 @@ import UIKit
 class SelfAssistanceViewController: UIViewController {
 
     private var arrayScore = [Int]()
+    private var arrayAnswers = [String]()
     @IBOutlet weak var tableViewSelfAssistance: UITableView!
     
     override func viewDidLoad() {
@@ -69,14 +70,23 @@ class SelfAssistanceViewController: UIViewController {
         return UITableViewCell()
     }
     
-    private func resultCell(tableView: UITableView,indexPath: IndexPath, message: String) -> UITableViewCell{
+    private func resultCell(tableView: UITableView,indexPath: IndexPath, message: String, severity: Int) -> UITableViewCell{
         if let resultCell = tableView.dequeueReusableCell(withIdentifier: "ResultTableViewCell", for: indexPath) as? ResultTableViewCell {
             resultCell.delegate = self
-            resultCell.configureCell(message: message)
+            resultCell.configureCell(message: message, severity: severity)
             return resultCell
         }
         return UITableViewCell()
     }
+    
+    private func InteractionDurationCell(tableView: UITableView,indexPath: IndexPath) -> UITableViewCell{
+        if let interactionDurationCell = tableView.dequeueReusableCell(withIdentifier: "InteractionDurationTableViewCell", for: indexPath) as? InteractionDurationTableViewCell {
+            interactionDurationCell.delegate = self
+            return interactionDurationCell
+        }
+        return UITableViewCell()
+    }
+
 }
 
 extension SelfAssistanceViewController: UITableViewDataSource {
@@ -148,11 +158,11 @@ extension SelfAssistanceViewController: UITableViewDataSource {
                 case 3:
                     let sum = arrayScore[0] + arrayScore[1] + arrayScore[2]
                     if(sum == 0){
-                        return contactHistory(tableView: tableView, indexPath: indexPath)
+                        return contactHistorynoSymptoms(tableView: tableView, indexPath: indexPath)
                     } else if (sum == 1){
-                        return resultCell(tableView: tableView, indexPath: indexPath, message: SelfAssesmentMessages.potentialRisk)
+                        return resultCell(tableView: tableView, indexPath: indexPath, message: SelfAssesmentMessages.potentialRisk, severity: 1)
                     } else {
-                        return resultCell(tableView: tableView, indexPath: indexPath, message: SelfAssesmentMessages.potentialRisk)
+                        return resultCell(tableView: tableView, indexPath: indexPath, message: SelfAssesmentMessages.potentialRisk, severity: 1)
                     }
                     
                 default:
@@ -176,23 +186,59 @@ extension SelfAssistanceViewController: UITableViewDataSource {
                 case 3:
                     let sum = arrayScore[0] + arrayScore[1] + arrayScore[2]
                     if(sum == 0){
-                        return contactHistory(tableView: tableView, indexPath: indexPath)
+                        return contactHistorynoSymptoms(tableView: tableView, indexPath: indexPath)
                     } else if (sum == 1){
-                        return resultCell(tableView: tableView, indexPath: indexPath, message: SelfAssesmentMessages.potentialRisk)
+                        return resultCell(tableView: tableView, indexPath: indexPath, message: SelfAssesmentMessages.potentialRisk, severity: 1)
                     } else {
-                        return resultCell(tableView: tableView, indexPath: indexPath, message: SelfAssesmentMessages.potentialRisk)
+                        return resultCell(tableView: tableView, indexPath: indexPath, message: SelfAssesmentMessages.potentialRisk, severity: 1)
                     }
                 case 4:
                     let sum = arrayScore[0] + arrayScore[1] + arrayScore[2] + arrayScore[3]
                     if(sum == 0){
-                        return resultCell(tableView: tableView, indexPath: indexPath, message: SelfAssesmentMessages.lowRisk)
+                        return resultCell(tableView: tableView, indexPath: indexPath, message: SelfAssesmentMessages.lowRisk, severity: 0)
                     } else {
-                        return resultCell(tableView: tableView, indexPath: indexPath, message: SelfAssesmentMessages.potentialRisk)
+                        return InteractionDurationCell(tableView: tableView, indexPath: indexPath)
+                       // return resultCell(tableView: tableView, indexPath: indexPath, message: SelfAssesmentMessages.potentialRisk, severity: 1)
                     }
                 default:
                     return UITableViewCell()
                 }
-                
+            case 5:
+                switch indexPath.row {
+                case 0:
+                    return symptomCell(tableView: tableView, indexPath: indexPath)
+                case 1:
+                    return previousIllnesstableView(tableView: tableView, indexPath: indexPath)
+                case 2:
+                    let sum = arrayScore[0] + arrayScore[1]
+                    if sum == 0 {
+                        return  travelHistory(tableView: tableView, indexPath: indexPath)
+                    } else {
+                        return contactHistory(tableView: tableView, indexPath: indexPath)
+                    }
+                case 3:
+                    let sum = arrayScore[0] + arrayScore[1] + arrayScore[2]
+                    if(sum == 0){
+                        return contactHistorynoSymptoms(tableView: tableView, indexPath: indexPath)
+                    } else if (sum == 1){
+                        return resultCell(tableView: tableView, indexPath: indexPath, message: SelfAssesmentMessages.potentialRisk, severity: 1)
+                    } else {
+                        return resultCell(tableView: tableView, indexPath: indexPath, message: SelfAssesmentMessages.potentialRisk, severity: 1)
+                    }
+                case 4:
+                    let sum = arrayScore[0] + arrayScore[1] + arrayScore[2] + arrayScore[3]
+                    if(sum == 0){
+                        return resultCell(tableView: tableView, indexPath: indexPath, message: SelfAssesmentMessages.lowRisk, severity: 0)
+                    } else {
+                        return InteractionDurationCell(tableView: tableView, indexPath: indexPath)
+                       // return resultCell(tableView: tableView, indexPath: indexPath, message: SelfAssesmentMessages.potentialRisk, severity: 1)
+                    }
+                case 5:
+                        return resultCell(tableView: tableView, indexPath: indexPath, message: SelfAssesmentMessages.potentialRisk, severity: 1)
+
+                default:
+                    return UITableViewCell()
+                }
             default: // default case of  array count
                 return UITableViewCell()
             }
@@ -209,13 +255,13 @@ extension SelfAssistanceViewController: UITableViewDataSource {
         case 1:
             switch arrayScore.count {
             case 0:
-                return 330
+                return 325
             case 1:
                 switch indexPath.row {
                 case 0:
-                    return 175
+                    return 125//(325-155)
                 case 1:
-                    return 330
+                    return 325
                 default:
                     return 50
                 }
@@ -223,15 +269,15 @@ extension SelfAssistanceViewController: UITableViewDataSource {
                 
                 switch indexPath.row {
                 case 0:
-                    return 175
+                    return 125//(325-155)
                 case 1:
-                    return 330
+                    return 125//(325-155)
                 case 2:
                     let sum = arrayScore[0] + arrayScore[1]
                     if sum == 0 {
-                        return 220
+                        return 200
                     } else {
-                        return 400
+                        return 380
                     }
                 default:
                     return 50
@@ -241,24 +287,30 @@ extension SelfAssistanceViewController: UITableViewDataSource {
             case 3:
                 switch indexPath.row {
                 case 0:
-                    return 175
+                    return 125//(325-155)
                 case 1:
-                    return 330
+                    return 125//(325-155)
                 case 2:
                     let sum = arrayScore[0] + arrayScore[1]
                     if sum == 0 {
-                        return 220
+                        return (200-50)
                     } else {
-                        return 400
+                        let sumOf3 = arrayScore[0] + arrayScore[1] + arrayScore[2]
+                        if(sumOf3 > 1000){
+                            return 125
+                        } else {
+                            return 100
+                        } //(380-235)
+                         //(380-235)
                     }
                 case 3:
                     let sum = arrayScore[0] + arrayScore[1] + arrayScore[2]
                     if(sum == 0){
-                        return 400
+                        return 360
                     } else if (sum == 1){
-                        return 500
+                        return 350
                     } else {
-                        return 500
+                        return 350
                     }
                 default:
                     return 50
@@ -266,35 +318,88 @@ extension SelfAssistanceViewController: UITableViewDataSource {
             case 4:
                 switch indexPath.row {
                 case 0:
-                    return 175
+                    return 125//(325-155)
                 case 1:
-                    return 330
+                    return 125//(325-155)
                 case 2:
                     let sum = arrayScore[0] + arrayScore[1]
                     if sum == 0 {
-                        return 220
+                        return (200-50)
                     } else {
-                        return 400
+                        let sumOf3 = arrayScore[0] + arrayScore[1] + arrayScore[2]
+                        if(sumOf3 > 1000){
+                            return 125
+                        } else {
+                            return 100
+                        } //(380-235)
                     }
                 case 3:
                     let sum = arrayScore[0] + arrayScore[1] + arrayScore[2]
                     if(sum == 0){
-                        return 400
+                        if (sum + arrayScore[3]) > 0{
+                            return 150//(360-200)
+                        } else {
+                           return 100
+                        }
                     } else if (sum == 1){
-                        return 500
+                        return 350
                     } else {
-                        return 500
+                        return 350
                     }
                 case 4:
                     let sum = arrayScore[0] + arrayScore[1] + arrayScore[2] + arrayScore[3]
                     if(sum == 0){
-                        return 400
+                        return 350
                     } else {
-                        return 500
+                        return 240
                     }
                 default:
                     return 50
                 }
+                case 5:
+                    switch indexPath.row {
+                    case 0:
+                        return 125//(325-155)
+                    case 1:
+                        return 125//(325-155)
+                    case 2:
+                        let sum = arrayScore[0] + arrayScore[1]
+                        if sum == 0 {
+                            return (200-50)
+                        } else {
+                            let sumOf3 = arrayScore[0] + arrayScore[1] + arrayScore[2]
+                            if(sumOf3 > 1000){
+                                return 125
+                            } else {
+                                return 100
+                            } //(380-235)
+                        }
+                    case 3:
+                        let sum = arrayScore[0] + arrayScore[1] + arrayScore[2]
+                        if(sum == 0){
+                            if (sum + arrayScore[3]) > 0{
+                                return 150//(360-200)
+                            } else {
+                                return 100
+                            }
+                            //(360-200)
+                        } else if (sum == 1){
+                            return 350
+                        } else {
+                            return 350
+                        }
+                    case 4:
+                        let sum = arrayScore[0] + arrayScore[1] + arrayScore[2] + arrayScore[3]
+                        if(sum == 0){
+                            return 350
+                        } else {
+                            return 240 - 115
+                        }
+                    case 5:
+                            return 350
+                    default:
+                        return 50
+                    }
             default:
                 return 0
             }
@@ -326,4 +431,19 @@ extension SelfAssistanceViewController: SelfAssistanceManager{
         self.goBack()
         
     }
+    func sendDataToFirebase() {
+        // Todo
+        if let username = UserDefaults.standard.value(forKey: USERNAME) as? String ,
+            let email = UserDefaults.standard.value(forKey: EMAILID) as? String ,
+            let phone = UserDefaults.standard.value(forKey: PHONENUMBER) as? Int,
+            let employeeid = UserDefaults.standard.value(forKey: EMPLOYEEID) as? Int
+        {
+            FirebaseManager.submitSelfAssistanceStatus(username: username, employeeId: employeeid, phoneNumber: phone, email: email, status: self.arrayAnswers.joined(separator: "\n"))
+        }
+    }
+    
+    func adduserAnswers(value: String) {
+        self.arrayAnswers.append(value)
+    }
 }
+

@@ -47,7 +47,7 @@ class FeedDetailViewController: UIViewController {
     func updateView(){
         
         let titleAtributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular) ]
-        let subjectAtributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold) ]
+        let subjectAtributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.backgroundColor: Theme.selfAssistanceLightPeacockColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold) ]
         let dateAttributes =  [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .regular)]
         let detailsAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular)]
         let linkAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .regular)]

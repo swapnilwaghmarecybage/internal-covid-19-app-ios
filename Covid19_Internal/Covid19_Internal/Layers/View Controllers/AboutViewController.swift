@@ -94,15 +94,21 @@ class AboutViewController: BaseViewController {
     }
     
     @IBAction func onClickLogout(_ sender: Any) {
+        
         FirebaseManager.updateSignInStatusInFirebase(is_loggedin: false) { (success) in
            
             DispatchQueue.main.async {
                 UserDefaults.standard.removeObject(forKey: USERNAME)
+                UserDefaults.standard.removeObject(forKey: PHONENUMBER)
+                UserDefaults.standard.removeObject(forKey: EMAILID)
+                UserDefaults.standard.removeObject(forKey: EMPLOYEEID)
+
                 UserDefaults.standard.removeObject(forKey: "authVerificationID")
 
                 self.setupAboutView()
             }
         }
+        
     }
 }
 
@@ -123,9 +129,12 @@ extension AboutViewController: CustomPhoneVerificationAlert{
         }
     }
     
-    func loginSuccess(userName: String, phoneNumber: String) {
-        UserDefaults.standard.set(userName, forKey: USERNAME)
-        UserDefaults.standard.set(phoneNumber, forKey: PHONENUMBER)
+    func loginSuccess(uservalues: Dictionary<String,Any>) {
+        UserDefaults.standard.set(uservalues["username"], forKey: USERNAME)
+        UserDefaults.standard.set(uservalues["phone"], forKey: PHONENUMBER)
+        UserDefaults.standard.set(uservalues["employeeid"], forKey: EMPLOYEEID)
+        UserDefaults.standard.set(uservalues["emailid"], forKey: EMAILID)
+
         FirebaseManager.updateSignInStatusInFirebase(is_loggedin: true) { (success) in
             if success {
                 DispatchQueue.main.async {

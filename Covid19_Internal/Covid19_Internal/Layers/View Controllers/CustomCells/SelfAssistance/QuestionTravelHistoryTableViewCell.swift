@@ -10,16 +10,27 @@ import UIKit
 
 class QuestionTravelHistoryTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var labelAnswer: UILabel!
     @IBOutlet weak var buttonNo: UIButton!
     
     @IBOutlet weak var buttonYes: UIButton!
-    
+    @IBOutlet weak var heightOfView: NSLayoutConstraint!
+    @IBOutlet weak var textViewAnswer: UITextView!
+
     var delegate: SelfAssistanceManager?
+    private var arrayTravelHistory = [String]()
+    @IBOutlet weak var question: UILabel!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.buttonNo.isHidden = false
+        self.buttonYes.isHidden = false
+        
+        self.buttonNo.layer.cornerRadius = 5
+        self.buttonYes.layer.cornerRadius = 5
+        self.textViewAnswer.layer.cornerRadius = 5
+        self.textViewAnswer.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,13 +41,22 @@ class QuestionTravelHistoryTableViewCell: UITableViewCell {
 
     @IBAction func onClickOption(_ sender: UIButton) {
         if(sender.tag == 0){
-            self.labelAnswer.text = "  \("NO")  "
+            self.textViewAnswer.text = "\("NO")"
             delegate?.updateArray(value: 0)
+            delegate?.adduserAnswers(value: "\(self.question.text!): NO")
         } else {
-            self.labelAnswer.text = "  \("YES")  "
+            self.textViewAnswer.text = "\("YES")"
             delegate?.updateArray(value: 1)
+            delegate?.adduserAnswers(value: "\(self.question.text!): YES")
+
             //delegate?.goBackCheckupDone()
         }
+        self.textViewAnswer.isHidden = false
+        self.buttonYes.isHidden = true
+        self.buttonNo.isHidden = true
+        self.heightOfView.constant = 0
+        //self.labelAnswer.setMargins()
+
     }
 
 }

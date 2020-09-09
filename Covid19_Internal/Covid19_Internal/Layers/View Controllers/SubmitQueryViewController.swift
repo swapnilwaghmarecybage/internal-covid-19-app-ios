@@ -15,7 +15,8 @@ class SubmitQueryViewController: UIViewController {
     @IBOutlet weak var textFieldEmployeeId: UITextField!
     @IBOutlet weak var textFieldPhoneNumber: UITextField!
     @IBOutlet weak var labelErrorMessage: UILabel!
-
+    @IBOutlet weak var scrolView: UIScrollView!
+    
     
     @IBOutlet weak var textFieldQuery: UITextField!
     override func viewDidLoad() {
@@ -23,13 +24,15 @@ class SubmitQueryViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
         let style = NSMutableParagraphStyle()
         style.alignment = NSTextAlignment.center
         let titleAtributes = [NSAttributedString.Key.foregroundColor: Theme.tabselectedColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .bold), NSAttributedString.Key.paragraphStyle: style ]
         let subtitleAtributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular), NSAttributedString.Key.paragraphStyle: style ]
         
-        
+        if UIScreen.main.bounds.width > 350 {
+            self.scrolView.isScrollEnabled = false
+        }
+
         let title = NSMutableAttributedString(string: "Drop us a query\n", attributes: titleAtributes)
         let subtitle = NSMutableAttributedString(string: "Fill the below details and we will\nhelp you in next 24 hours", attributes: subtitleAtributes)
         let combination = NSMutableAttributedString()
@@ -51,6 +54,8 @@ class SubmitQueryViewController: UIViewController {
         self.labelErrorMessage.text = ""
         updateNavigationBar()
     }
+    
+
     @objc func keyboardWillShow(notification: NSNotification) {
     if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
         if self.view.frame.origin.y == 0 {
@@ -58,7 +63,7 @@ class SubmitQueryViewController: UIViewController {
         }
     }
 }
-
+    
 @objc func keyboardWillHide(notification: NSNotification) {
     if self.view.frame.origin.y != 0 {
         self.view.frame.origin.y = 0

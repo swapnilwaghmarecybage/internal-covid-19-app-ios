@@ -42,13 +42,28 @@ extension FeedListViewController: UITableViewDataSource {
             feedCell.configureCell(newsModel: FirebaseManager.arrayNews[indexPath.row])
             return feedCell
         }
-         return UITableViewCell()
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 110
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCell.EditingStyle.delete) {
+            feedsTableView.beginUpdates()
+            DBManager.save(id:FirebaseManager.arrayNews[indexPath.row].id)
+            FirebaseManager.arrayNews.remove(at: indexPath.row)
+            feedsTableView.deleteRows(at: [indexPath], with: .automatic)
+            feedsTableView.endUpdates()
+        }
+    }
 }
 
 extension FeedListViewController: UITableViewDelegate {

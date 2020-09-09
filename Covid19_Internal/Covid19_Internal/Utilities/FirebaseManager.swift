@@ -82,6 +82,9 @@ struct FirebaseManager {
                         news.id = object.key
                         arrayNews.append(news)
                     }
+                    if let deletedNews = DBManager.fetchIds(){
+                        arrayNews = arrayNews.filter { !deletedNews.contains($0.id ?? "")}
+                    }
                    arrayNews = arrayNews.sorted(by: {$0.date ?? 0 > $1.date ?? 0})
                     delegateFeedsResponce?.feedsReceivedSuccess()
                 }

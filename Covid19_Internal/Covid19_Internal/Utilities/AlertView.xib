@@ -35,7 +35,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.81213872832369938" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="715-6n-JpH" userLabel="Alert View Mobile Number">
-                    <rect key="frame" x="40" y="209" width="295" height="200"/>
+                    <rect key="frame" x="40" y="159" width="295" height="200"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOD-xm-5YQ" userLabel="LabelAlertTitle">
                             <rect key="frame" x="0.0" y="10" width="295" height="21"/>
@@ -111,7 +111,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFh-hI-mM6" userLabel="Alert View OTP">
-                    <rect key="frame" x="40" y="209" width="295" height="200"/>
+                    <rect key="frame" x="40" y="159" width="295" height="200"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hd-DY-mlU" userLabel="LabelAlertTitle">
                             <rect key="frame" x="0.0" y="10" width="295" height="21"/>
@@ -174,9 +174,9 @@
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bU0-do-5ea" secondAttribute="trailing" id="0x5-iS-bq7"/>
                 <constraint firstItem="GFh-hI-mM6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1KN-rj-5eg"/>
-                <constraint firstItem="GFh-hI-mM6" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BYY-YZ-xo7"/>
+                <constraint firstItem="GFh-hI-mM6" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-50" id="BYY-YZ-xo7"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="bU0-do-5ea" secondAttribute="bottom" id="XLu-lF-mP1"/>
-                <constraint firstItem="715-6n-JpH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="aB0-2w-Hmq"/>
+                <constraint firstItem="715-6n-JpH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-50" id="aB0-2w-Hmq"/>
                 <constraint firstItem="bU0-do-5ea" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gVJ-tp-tmX"/>
                 <constraint firstItem="bU0-do-5ea" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="god-2D-dy0"/>
                 <constraint firstItem="715-6n-JpH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gq0-e8-rS2"/>

@@ -27,7 +27,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.8121387283" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bH-pe-1Cw" userLabel="HelpLinePopup">
-                    <rect key="frame" x="37.5" y="219" width="300" height="180"/>
+                    <rect key="frame" x="37.5" y="169" width="300" height="180"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Helplines" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmm-3j-Izf" userLabel="LabelAlertTitle">
                             <rect key="frame" x="0.0" y="10" width="300" height="21"/>
@@ -35,28 +35,30 @@
                             <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oG0-U1-Uva" userLabel="ButtonCall">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oG0-U1-Uva" userLabel="ButtonCall">
                             <rect key="frame" x="75" y="51" width="150" height="40"/>
                             <color key="backgroundColor" red="0.070588235289999995" green="0.1647058824" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="ehl-ce-Rda"/>
                                 <constraint firstAttribute="width" constant="150" id="jLF-nq-kIS"/>
                             </constraints>
-                            <state key="normal" title="Just a call">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title=" Just a call" image="twotone_call_black_48pt_1x">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
                                 <action selector="onClickCall:" destination="-1" eventType="touchUpInside" id="fQd-Ik-DPW"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bvl-ve-LVR" userLabel="ButtonQuery">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bvl-ve-LVR" userLabel="ButtonQuery">
                             <rect key="frame" x="75" y="111" width="150" height="40"/>
                             <color key="backgroundColor" red="0.070588235289999995" green="0.1647058824" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="Nev-uf-01i"/>
                                 <constraint firstAttribute="width" constant="150" id="z32-ny-cSa"/>
                             </constraints>
-                            <state key="normal" title="Drop a query">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title=" Drop a query" image="twotone_help_outline_black_48pt_1x">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
@@ -80,7 +82,7 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="0bH-pe-1Cw" firstAttribute="centerY" secondItem="4AW-xJ-aq9" secondAttribute="centerY" id="2W9-vu-rLw"/>
+                <constraint firstItem="0bH-pe-1Cw" firstAttribute="centerY" secondItem="4AW-xJ-aq9" secondAttribute="centerY" constant="-50" id="2W9-vu-rLw"/>
                 <constraint firstItem="gjg-or-mkv" firstAttribute="bottom" secondItem="qnh-rM-nC2" secondAttribute="bottom" id="5Rw-Xx-8GH"/>
                 <constraint firstItem="qnh-rM-nC2" firstAttribute="leading" secondItem="gjg-or-mkv" secondAttribute="leading" id="B2L-fH-lYr"/>
                 <constraint firstItem="qnh-rM-nC2" firstAttribute="top" secondItem="4AW-xJ-aq9" secondAttribute="top" id="D2m-cH-s4q"/>
@@ -92,4 +94,8 @@
             <point key="canvasLocation" x="21.5625" y="11.619718309859156"/>
         </view>
     </objects>
+    <resources>
+        <image name="twotone_call_black_48pt_1x" width="24" height="24"/>
+        <image name="twotone_help_outline_black_48pt_1x" width="24" height="24"/>
+    </resources>
 </document>

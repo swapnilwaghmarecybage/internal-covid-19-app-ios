@@ -56,13 +56,13 @@ class QuestionSymptomTableViewCell: UITableViewCell {
         if(sender.tag == 0){
             delegate?.updateArray(value: 0)
             updateUI()
-            delegate?.adduserAnswers(value: "\(self.question.text!): \(self.textViewAnswer.text!)")
+            delegate?.adduserAnswers(value: "Question: \(self.question.text!)\nAnswer: \(self.textViewAnswer.text!)")
 
         } else {
             if(sender.tag == 9) {
                 delegate?.updateArray(value: 2)
                 updateUI()
-                delegate?.adduserAnswers(value: "\(self.question.text!): \(self.textViewAnswer.text!)")
+                delegate?.adduserAnswers(value: "Qustion: \(self.question.text!)\nAnswer: \(self.textViewAnswer.text!)")
 
             } else {
                 sender.isSelected = !sender.isSelected

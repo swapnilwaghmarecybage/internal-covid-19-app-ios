@@ -50,11 +50,11 @@ class QustionContactHistoryForNoSymptomsTableViewCell: UITableViewCell {
       if(sender.tag == 0){
           delegate?.updateArray(value: 0)
           updateUI(sender: sender)
-          delegate?.adduserAnswers(value: "\(self.question.text!): \(self.textViewAnswer.text!)")
+          delegate?.adduserAnswers(value: "Question: \(self.question.text!):\nAnswer: \(self.textViewAnswer.text!)")
       } else {
         delegate?.updateArray(value: 1000)
         updateUI(sender: sender)
-        delegate?.adduserAnswers(value: "\(self.question.text!): \(self.textViewAnswer.text!)")
+        delegate?.adduserAnswers(value: "Question: \(self.question.text!)\nAnswer: \(self.textViewAnswer.text!)")
 
         /*
           if(sender.tag == 9) {

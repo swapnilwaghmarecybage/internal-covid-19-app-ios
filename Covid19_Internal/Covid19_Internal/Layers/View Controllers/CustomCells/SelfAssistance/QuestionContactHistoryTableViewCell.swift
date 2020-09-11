@@ -55,7 +55,7 @@ class QuestionContactHistoryTableViewCell: UITableViewCell {
         if(sender.tag == 0){
             delegate?.updateArray(value: 0)
             updateUI(sender:sender)
-            delegate?.adduserAnswers(value: "\(self.question.text!): \(self.textViewAnswer.text!)")
+            delegate?.adduserAnswers(value: "Question: \(self.question.text!)\nAnswer: \(self.textViewAnswer.text!)")
 
         } else {
             arrayContactHistory.append(sender.titleLabel?.text ?? "nil")
@@ -66,7 +66,7 @@ class QuestionContactHistoryTableViewCell: UITableViewCell {
                 delegate?.updateArray(value: 2)
             }
             updateUI(sender:sender)
-            delegate?.adduserAnswers(value: "\(self.question.text!): \(self.textViewAnswer.text!)")
+            delegate?.adduserAnswers(value: "Question: \(self.question.text!)\nAnswer: \(self.textViewAnswer.text!)")
 
             /*
             if(sender.tag == 9) {

@@ -43,7 +43,7 @@ class InteractionDurationTableViewCell: UITableViewCell {
         arrayInteractionDuration.append(sender.titleLabel?.text ?? "nil")
         delegate?.updateArray(value: 2)
         updateUI()
-        delegate?.adduserAnswers(value: "\(self.question.text!): \(self.textViewAnswer.text!)")
+        delegate?.adduserAnswers(value: "Question: \(self.question.text!)\nAnswer: \(self.textViewAnswer.text!)")
 
         /*
        if(sender.tag == 0){

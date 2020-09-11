@@ -43,11 +43,11 @@ class QuestionTravelHistoryTableViewCell: UITableViewCell {
         if(sender.tag == 0){
             self.textViewAnswer.text = "\("NO")"
             delegate?.updateArray(value: 0)
-            delegate?.adduserAnswers(value: "\(self.question.text!): NO")
+            delegate?.adduserAnswers(value: "Question: \(self.question.text!)\nAnswer: NO")
         } else {
             self.textViewAnswer.text = "\("YES")"
             delegate?.updateArray(value: 1)
-            delegate?.adduserAnswers(value: "\(self.question.text!): YES")
+            delegate?.adduserAnswers(value: "Question: \(self.question.text!)\nAnswer: YES")
 
             //delegate?.goBackCheckupDone()
         }

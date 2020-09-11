@@ -17,7 +17,6 @@ class SubmitQueryViewController: UIViewController {
     @IBOutlet weak var labelErrorMessage: UILabel!
     @IBOutlet weak var scrolView: UIScrollView!
     
-    
     @IBOutlet weak var textFieldQuery: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,11 +71,11 @@ class SubmitQueryViewController: UIViewController {
     @IBAction func onClickSubmit(_ sender: Any) {
         if let query = self.textFieldQuery.text, !query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
         let username = self.textFieldEmployeeName.text,!username.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
-            let phone = self.textFieldPhoneNumber.text,!phone.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
-            let employeeid = self.textFieldEmployeeId.text, !employeeid.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            let phone = self.textFieldPhoneNumber.text ,!phone.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, let _phone = Int(phone),
+            let employeeid = self.textFieldEmployeeId.text, !employeeid.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, let _employeeid = Int(employeeid),
+            let email =  UserDefaults.standard.value(forKey: EMAILID) as? String
         {
-            let email =  UserDefaults.standard.value(forKey: EMAILID) as? String ?? "swapnilwaghm@cybage.com"
-            FirebaseManager.submitQuery(username: username, empployeeId: employeeid, phoneNumber: phone, email:email, query: query)
+            FirebaseManager.submitQuery(username: username, empployeeId: _employeeid, phoneNumber: _phone, email:email, query: query)
             goBack()
         } else {
             self.labelErrorMessage.text = "All fields are mandatory"

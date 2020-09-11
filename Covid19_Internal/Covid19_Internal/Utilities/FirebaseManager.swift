@@ -237,15 +237,15 @@ struct FirebaseManager {
     }
     
     
-     static func submitQuery(username:String, empployeeId: String,
-                             phoneNumber: String, email:String, query: String) {
+     static func submitQuery(username:String, empployeeId: Int,
+                             phoneNumber: Int, email:String, query: String) {
      
              var ref: DatabaseReference!
              ref = Database.database().reference()
              if let referance = ref {
                 referance.child("queries").childByAutoId().updateChildValues(["username": username,
-                                     "employee_id": empployeeId,
-                                     "phone_number": phoneNumber,
+                                     "employeeId": empployeeId,
+                                     "phoneNumber": phoneNumber,
                                      "query":query,
                                      "email": email,
                                      "timestamp": "\(Date().currentTimeMillis())" ])
@@ -263,8 +263,8 @@ struct FirebaseManager {
          ref = Database.database().reference()
          if let referance = ref {
             referance.child("self-assistance").childByAutoId().updateChildValues(["username": username,
-                                 "employee_id": employeeId,
-                                 "phone_number": phoneNumber,
+                                 "employeeId": employeeId,
+                                 "phoneNumber": phoneNumber,
                                  "status":status,
                                  "email": email,
                                  "timestamp": "\(Date().currentTimeMillis())" ])

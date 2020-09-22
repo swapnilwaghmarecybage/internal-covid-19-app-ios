@@ -11,12 +11,21 @@ import UIKit
 class GuideViewController: BaseViewController {
 
     @IBOutlet weak var tableViewGuide: UITableView!
+    @IBOutlet weak var bannerView: UIView!
+    @IBOutlet weak var bannerViewHeightConstraint: NSLayoutConstraint!
+    
+    private let sdkManager = VungleSDKManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = Theme.backgroundColor
        // self.tableViewGuide.backgroundColor = Theme.backgroundColor
         tableViewGuide.separatorColor = Theme.labelColor
+        if (self.sdkManager.isBanneAvailable()){
+            self.sdkManager.showBanner(bannerView: self.bannerView)
+        } else {
+            bannerViewHeightConstraint.constant = 0
+        }
     }
     
     func createHeaderView(viewBackgroundColor: UIColor, labelBackgroundColor: UIColor, labelTextColor: UIColor, labelWidth:CGFloat, viewWidth: CGFloat, viewHeight:CGFloat, labelText: String) -> UIView{

@@ -54,6 +54,7 @@
 		1C5DC1582497B11500814CDB /* AllCountriesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC1572497B11500814CDB /* AllCountriesParser.swift */; };
 		1C5DC15A2497B18D00814CDB /* AllIndiaHistoricalDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC1592497B18D00814CDB /* AllIndiaHistoricalDataParser.swift */; };
 		1C5DC15C2497B26F00814CDB /* AllDistrictsCountParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DC15B2497B26F00814CDB /* AllDistrictsCountParser.swift */; };
+		1C5E38122519B4AC00D0C87E /* VungleSDKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5E38112519B4AC00D0C87E /* VungleSDKManager.swift */; };
 		1C7B167024990C190069157B /* WorldCountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B166F24990C190069157B /* WorldCountModel.swift */; };
 		1C7B1672249916A40069157B /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B1671249916A40069157B /* CountryModel.swift */; };
 		1C7B1674249B9B2C0069157B /* NavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7B1673249B9B2B0069157B /* NavigationVC.swift */; };
@@ -140,6 +141,8 @@
 		1C5DC1572497B11500814CDB /* AllCountriesParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCountriesParser.swift; sourceTree = "<group>"; };
 		1C5DC1592497B18D00814CDB /* AllIndiaHistoricalDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllIndiaHistoricalDataParser.swift; sourceTree = "<group>"; };
 		1C5DC15B2497B26F00814CDB /* AllDistrictsCountParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDistrictsCountParser.swift; sourceTree = "<group>"; };
+		1C5E380B2519B17700D0C87E /* Covid19_Internal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Covid19_Internal-Bridging-Header.h"; sourceTree = "<group>"; };
+		1C5E38112519B4AC00D0C87E /* VungleSDKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VungleSDKManager.swift; sourceTree = "<group>"; };
 		1C7B166F24990C190069157B /* WorldCountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldCountModel.swift; sourceTree = "<group>"; };
 		1C7B1671249916A40069157B /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		1C7B1673249B9B2B0069157B /* NavigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationVC.swift; sourceTree = "<group>"; };
@@ -221,6 +224,7 @@
 				1C5DC1142496016600814CDB /* Products */,
 				B131381FB3293ED293396904 /* Pods */,
 				A3C29F0D6DF6AC3A92F63C48 /* Frameworks */,
+				1C5E380B2519B17700D0C87E /* Covid19_Internal-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -296,6 +300,7 @@
 		1C5DC13C249773EB00814CDB /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				1C5E38102519B49000D0C87E /* VungleSDKManager */,
 				1C28182A24E29CF9008316DB /* Protocols */,
 				1C5DC1372497725F00814CDB /* Network Manager */,
 			);
@@ -353,6 +358,14 @@
 				1C5DC15B2497B26F00814CDB /* AllDistrictsCountParser.swift */,
 			);
 			path = Parser;
+			sourceTree = "<group>";
+		};
+		1C5E38102519B49000D0C87E /* VungleSDKManager */ = {
+			isa = PBXGroup;
+			children = (
+				1C5E38112519B4AC00D0C87E /* VungleSDKManager.swift */,
+			);
+			path = VungleSDKManager;
 			sourceTree = "<group>";
 		};
 		1C7B166E24990BEF0069157B /* Models */ = {
@@ -462,6 +475,7 @@
 				TargetAttributes = {
 					1C5DC1122496016600814CDB = {
 						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1200;
 					};
 				};
 			};
@@ -575,6 +589,7 @@
 				1C5DC15C2497B26F00814CDB /* AllDistrictsCountParser.swift in Sources */,
 				1C7B168524A203290069157B /* IndiaHistoryModel.swift in Sources */,
 				1C28183024E5452E008316DB /* FeedListViewController.swift in Sources */,
+				1C5E38122519B4AC00D0C87E /* VungleSDKManager.swift in Sources */,
 				1C28184D24F6AC56008316DB /* QustionContactHistoryForNoSymptomsTableViewCell.swift in Sources */,
 				1C5DC13624975BAF00814CDB /* BaseTabBarViewController.swift in Sources */,
 				1CBC6C2B24F83A6400E040EA /* ProtocolSelfAssistance.swift in Sources */,
@@ -749,6 +764,7 @@
 			baseConfigurationReference = 17DD888763B08B4D9E968056 /* Pods-Covid19_Internal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Covid19_Internal/Covid19_Internal.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development: Mahesh Sammatashetti (LN6AQUJTEA)";
 				CODE_SIGN_STYLE = Manual;
@@ -763,6 +779,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cybage.covidcare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Vungle Covid Care";
+				SWIFT_OBJC_BRIDGING_HEADER = "Covid19_Internal-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -773,6 +791,7 @@
 			baseConfigurationReference = E250C2F78B200E2762FC6DC0 /* Pods-Covid19_Internal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Covid19_Internal/Covid19_Internal.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development: Mahesh Sammatashetti (LN6AQUJTEA)";
 				CODE_SIGN_STYLE = Manual;
@@ -787,6 +806,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cybage.covidcare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Vungle Covid Care";
+				SWIFT_OBJC_BRIDGING_HEADER = "Covid19_Internal-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -20,13 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        VungleSDKManager().initialiseVungleSDK()
         FirebaseManager.configure()
+        
         if let _ = UserDefaults.standard.value(forKey: USERNAME) {
             setupNotificationForApplication()
         }
         setupLaunchOptionFromNotification(launchOptions: launchOptions)
         return true
     }
+    
     
     func setupNotificationForApplication(){
         Messaging.messaging().delegate = self

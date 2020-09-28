@@ -9,15 +9,22 @@
 import UIKit
 
 class SubmitQueryViewController: UIViewController {
-
+    var imagePicker: UIImagePickerController!
     @IBOutlet weak var lebelHeadLine: UILabel!
     @IBOutlet weak var textFieldEmployeeName: UITextField!
     @IBOutlet weak var textFieldEmployeeId: UITextField!
     @IBOutlet weak var textFieldPhoneNumber: UITextField!
     @IBOutlet weak var labelErrorMessage: UILabel!
     @IBOutlet weak var scrolView: UIScrollView!
+  
+    @IBOutlet weak var buttonAddPhoto: UIButton!
     
+    
+    @IBOutlet weak var imageThumbnail: UIImageView!
     @IBOutlet weak var textFieldQuery: UITextField!
+ 
+    var imageView : UIImage!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,8 +99,16 @@ class SubmitQueryViewController: UIViewController {
     @objc func goBack() {
         self.navigationController?.popViewController(animated: true)
     }
-}
+   
+@IBAction func onClickAddPhoto(_ sender: Any) {
+        AddImageAlertPopup.instance.delegate = self
+        AddImageAlertPopup.instance.showAlert()
+        
+    }
+    
 
+ 
+}
 
 extension SubmitQueryViewController:UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -107,4 +122,50 @@ extension SubmitQueryViewController:UITextFieldDelegate {
         return true
     }
 }
+
+
+extension SubmitQueryViewController : AddImageAlert , UIImagePickerControllerDelegate,UINavigationControllerDelegate
+{
+    func addFromCamera() {
+          imagePicker = UIImagePickerController()
+          imagePicker.delegate = self
+         self.imagePicker.sourceType = .camera
+        self.present(self.imagePicker, animated: true, completion: nil)
+    }
+    
+    func addFromAlbum() {
+           imagePicker = UIImagePickerController()
+           imagePicker.delegate = self
+           self.imagePicker.sourceType = .photoLibrary
+        self.present(self.imagePicker, animated: true, completion: nil)
+        
+    }
+    
+     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+             imageView = info[.originalImage] as? UIImage
+           imagePicker.dismiss(animated: true, completion: nil)
+            if let imageData = imageView.pngData(){
+            let options = [
+                kCGImageSourceCreateThumbnailWithTransform: true,
+                kCGImageSourceCreateThumbnailFromImageAlways: true,
+                kCGImageSourceThumbnailMaxPixelSize: 100] as CFDictionary
+
+            imageData.withUnsafeBytes { ptr in
+               guard let bytes = ptr.baseAddress?.assumingMemoryBound(to: UInt8.self) else {
+                  return }
+               if let cfData = CFDataCreate(kCFAllocatorDefault, bytes, imageData.count){
+                  let source = CGImageSourceCreateWithData(cfData, nil)!
+                  let imageReference = CGImageSourceCreateThumbnailAtIndex(source, 0, options)!
+                  let thumbnail = UIImage(cgImage: imageReference)
+                   imageThumbnail.image = thumbnail
+               }
+            }
+         }
+       }
+   
+}
+
+
+
+
 

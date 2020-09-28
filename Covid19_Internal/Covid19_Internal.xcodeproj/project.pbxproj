@@ -86,6 +86,9 @@
 		1CDD482024C03D7000054986 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD481F24C03D7000054986 /* GuideViewController.swift */; };
 		1CDD482224C0B8FD00054986 /* GuideLeftHandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD482124C0B8FD00054986 /* GuideLeftHandCell.swift */; };
 		71063CAF9C1A8BF1D47300F2 /* libPods-Covid19_Internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F773055344AEAC236D8F779 /* libPods-Covid19_Internal.a */; };
+		931D8867251B656C0091C266 /* ProtocolAddImageAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931D8866251B656C0091C266 /* ProtocolAddImageAlert.swift */; };
+		931D8875251B757F0091C266 /* AddImageAlertPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931D8874251B757F0091C266 /* AddImageAlertPopup.swift */; };
+		931D8877251B75AA0091C266 /* AddImageAlertPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 931D8876251B75AA0091C266 /* AddImageAlertPopup.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -172,6 +175,9 @@
 		1CDD481F24C03D7000054986 /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		1CDD482124C0B8FD00054986 /* GuideLeftHandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideLeftHandCell.swift; sourceTree = "<group>"; };
 		3F773055344AEAC236D8F779 /* libPods-Covid19_Internal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Covid19_Internal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		931D8866251B656C0091C266 /* ProtocolAddImageAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolAddImageAlert.swift; sourceTree = "<group>"; };
+		931D8874251B757F0091C266 /* AddImageAlertPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageAlertPopup.swift; sourceTree = "<group>"; };
+		931D8876251B75AA0091C266 /* AddImageAlertPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddImageAlertPopup.xib; sourceTree = "<group>"; };
 		E250C2F78B200E2762FC6DC0 /* Pods-Covid19_Internal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19_Internal.release.xcconfig"; path = "Target Support Files/Pods-Covid19_Internal/Pods-Covid19_Internal.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -195,6 +201,7 @@
 				1C28183524E707E9008316DB /* ProtocolFirebaseFeedsResponse.swift */,
 				1C28185424F7EE0C008316DB /* ProtocolHelpLinePopup.swift */,
 				1CBC6C2A24F83A6400E040EA /* ProtocolSelfAssistance.swift */,
+				931D8866251B656C0091C266 /* ProtocolAddImageAlert.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -324,11 +331,13 @@
 				1C7B1675249BBC910069157B /* TabBarExtension.swift */,
 				1C7B1677249CA0AC0069157B /* UISegmentControlExtension.swift */,
 				1C7B168224A106790069157B /* ImageExtension.swift */,
+				1C28185024F7D738008316DB /* HelpLinePopup.xib */,
 				1C7B168C24A478290069157B /* ChartsLayer.swift */,
 				1C28182424E29A39008316DB /* FirebaseManager.swift */,
-				1C28185024F7D738008316DB /* HelpLinePopup.xib */,
 				1C28185224F7D75A008316DB /* HelpLinePopup.swift */,
 				1C7D3D1925041F9300D57D2D /* PaddedLabel.swift */,
+				931D8874251B757F0091C266 /* AddImageAlertPopup.swift */,
+				931D8876251B75AA0091C266 /* AddImageAlertPopup.xib */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -492,6 +501,7 @@
 				1C28181D24DD6859008316DB /* AlertView.xib in Resources */,
 				1CC9529424B5D7CC00DC557E /* RadioControlView.xib in Resources */,
 				1CD3000F24C990C700C31AAB /* light_tiredness.gif in Resources */,
+				931D8877251B75AA0091C266 /* AddImageAlertPopup.xib in Resources */,
 				1C28182C24E3CD0E008316DB /* GoogleService-Info.plist in Resources */,
 				1C28185124F7D738008316DB /* HelpLinePopup.xib in Resources */,
 				1C5DC1262496017400814CDB /* LaunchScreen.storyboard in Resources */,
@@ -554,10 +564,12 @@
 				1C5DC13224975B2300814CDB /* HomeViewController.swift in Sources */,
 				1CDD481C24C03CAF00054986 /* GuideRightHandCell.swift in Sources */,
 				1C5DC13B249772B100814CDB /* ConnectionManager.swift in Sources */,
+				931D8875251B757F0091C266 /* AddImageAlertPopup.swift in Sources */,
 				1C7B1678249CA0AC0069157B /* UISegmentControlExtension.swift in Sources */,
 				1CD3001724CF23D800C31AAB /* ReachabilityManager.swift in Sources */,
 				1C28183A24F50768008316DB /* HelplineTableViewCell.swift in Sources */,
 				1C5DC1492497827100814CDB /* WorldCountWebService.swift in Sources */,
+				931D8867251B656C0091C266 /* ProtocolAddImageAlert.swift in Sources */,
 				1C7B168724A244060069157B /* DistrictInfoViewController.swift in Sources */,
 				1C5DC1582497B11500814CDB /* AllCountriesParser.swift in Sources */,
 				1C7D3D1A25041F9400D57D2D /* PaddedLabel.swift in Sources */,

@@ -18,7 +18,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="Zmv-1u-IvR" userLabel="Parent View" customClass="AddImageAlertPopup" customModule="Covid19_Internal" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="Zmv-1u-IvR" userLabel="Parent View">
             <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -31,12 +31,13 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDU-nB-MZs">
                             <rect key="frame" x="75" y="69" width="140" height="40"/>
-                            <color key="backgroundColor" red="0.037415753529432098" green="0.089540013651949094" blue="0.11928934010152281" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.069674330868148796" green="0.13587305479119643" blue="0.21065989847715738" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="140" id="N2N-Mk-hZL"/>
                                 <constraint firstAttribute="height" constant="40" id="uj3-nR-skA"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="   Gallery" image="photo" catalog="system">
                                 <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </state>
@@ -46,12 +47,13 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bk-bk-FyD">
                             <rect key="frame" x="75" y="118" width="140" height="40"/>
-                            <color key="backgroundColor" red="0.042695481309585601" green="0.081845180391328598" blue="0.18020304568527923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.067021229546062114" green="0.14190891160899941" blue="0.23096446700507611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="140" id="bzO-1C-YQS"/>
                                 <constraint firstAttribute="height" constant="40" id="mCK-he-7PK"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="  Camera" image="camera" catalog="system">
                                 <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </state>
@@ -66,7 +68,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.16559585566214" green="0.45155777638107059" blue="0.57106598984771573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.11034754797990852" green="0.29944421903381269" blue="0.39340101522842641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="dDU-nB-MZs" firstAttribute="leading" secondItem="uFo-Nk-9KZ" secondAttribute="leading" constant="75" id="1Ft-lu-vE3"/>
                         <constraint firstAttribute="height" constant="180" id="6qS-lc-JMI"/>

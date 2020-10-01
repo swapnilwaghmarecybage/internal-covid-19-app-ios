@@ -796,7 +796,7 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6aa-2w-0uL">
                                                 <rect key="frame" x="279" y="520" width="120" height="40"/>
-                                                <color key="backgroundColor" red="0.076539928634539914" green="0.14394177339615782" blue="0.20050761421319796" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.080756197834697133" green="0.1822279241281137" blue="0.24619289340101524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="120" id="Ape-T1-oU5"/>
                                                     <constraint firstAttribute="height" constant="40" id="iBx-ru-W79"/>
@@ -1172,14 +1172,14 @@ ASSIST</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HelplineTableViewCell" id="6l6-uv-jJ4" customClass="HelplineTableViewCell" customModule="Covid19_Internal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="37"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="37.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6l6-uv-jJ4" id="kSl-Yl-XO2">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEC-1M-OxF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="37.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2755,7 +2755,7 @@ ASSIST</string>
     <resources>
         <image name="About_Discussion" width="125" height="72.5"/>
         <image name="InfoLogo" width="649.5" height="110.5"/>
-        <image name="Mobile-health-doctor-phone-technology" width="577" height="577"/>
+        <image name="Mobile-health-doctor-phone-technology" width="577.5" height="577.5"/>
         <image name="about" width="30" height="30"/>
         <image name="cybagelogo" width="281" height="65.5"/>
         <image name="guide" width="30" height="30"/>

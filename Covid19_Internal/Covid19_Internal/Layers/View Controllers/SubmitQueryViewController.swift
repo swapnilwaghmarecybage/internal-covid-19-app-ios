@@ -158,6 +158,8 @@ extension SubmitQueryViewController : AddImageAlert , UIImagePickerControllerDel
                   let imageReference = CGImageSourceCreateThumbnailAtIndex(source, 0, options)!
                   let thumbnail = UIImage(cgImage: imageReference)
                    imageThumbnail.image = thumbnail
+              imageThumbnail.layer.cornerRadius = 30
+                    
                }
             }
          }

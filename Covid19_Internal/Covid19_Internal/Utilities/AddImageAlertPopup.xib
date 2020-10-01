@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,7 +14,7 @@
                 <outlet property="AlertView" destination="uFo-Nk-9KZ" id="n8x-xC-Wbi"/>
                 <outlet property="buttonCamera" destination="6bk-bk-FyD" id="dFi-aS-Vv2"/>
                 <outlet property="buttonGallery" destination="dDU-nB-MZs" id="Uba-oX-bDo"/>
-                <outlet property="parentView" destination="Zmv-1u-IvR" id="dj0-TC-gdO"/>
+                <outlet property="parentView" destination="Zmv-1u-IvR" id="Wol-Mo-6W4"/>
                 <outlet property="shadowView" destination="gp2-oI-EYa" id="NMQ-PZ-EcS"/>
             </connections>
         </placeholder>
@@ -39,7 +40,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="   Gallery" image="photo" catalog="system">
-                                <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="titleColor" systemColor="systemBackgroundColor"/>
                             </state>
                             <connections>
                                 <action selector="onClickPhotoAlubm:" destination="-1" eventType="touchUpInside" id="NAc-H7-MRe"/>
@@ -55,7 +56,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="  Camera" image="camera" catalog="system">
-                                <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="titleColor" systemColor="systemBackgroundColor"/>
                             </state>
                             <connections>
                                 <action selector="onClickCamera:" destination="-1" eventType="touchUpInside" id="puM-lI-JZm"/>
@@ -83,6 +84,7 @@
                     </constraints>
                 </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="Ub7-sz-hUF"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="uFo-Nk-9KZ" firstAttribute="centerX" secondItem="Zmv-1u-IvR" secondAttribute="centerX" id="LTZ-OQ-hV2"/>
@@ -93,12 +95,14 @@
                 <constraint firstItem="gp2-oI-EYa" firstAttribute="leading" secondItem="Ub7-sz-hUF" secondAttribute="leading" id="uft-jW-K2g"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="Ub7-sz-hUF"/>
             <point key="canvasLocation" x="50" y="-112"/>
         </view>
     </objects>
     <resources>
-        <image name="camera" catalog="system" width="128" height="96"/>
+        <image name="camera" catalog="system" width="128" height="94"/>
         <image name="photo" catalog="system" width="128" height="93"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

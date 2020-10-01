@@ -13,14 +13,15 @@ class AddImageAlertPopup: UIView {
        
     static let instance = AddImageAlertPopup()
     
-    @IBOutlet weak var parentView: UIView!
+    @IBOutlet var parentView: UIView!
+    
     @IBOutlet weak var shadowView: UIView!
     
     @IBOutlet weak var AlertView: UIView!
     @IBOutlet weak var buttonCamera: UIButton!
     @IBOutlet weak var buttonGallery: UIButton!
     
-    var  delegate : AddImageAlert!
+    var  delegate : AddImageAlert?
     
     
 
@@ -30,26 +31,27 @@ class AddImageAlertPopup: UIView {
         commonInit()
     }
     
-      private func commonInit() {
-          AlertView.layer.cornerRadius = 10
-          AlertView.layer.borderColor = UIColor.white.cgColor
-          AlertView.layer.borderWidth = 2
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+       // fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func commonInit() {
+        AlertView.layer.cornerRadius = 10
+        AlertView.layer.borderColor = UIColor.white.cgColor
+        AlertView.layer.borderWidth = 2
         
         parentView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         parentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-          
-          let tapGesture = UITapGestureRecognizer(target: self,
-                           action: #selector(dismissPopoup))
-          shadowView.addGestureRecognizer(tapGesture)
-          
-      }
-    
-   
-    
-   
+        
+        let tapGesture = UITapGestureRecognizer(target: self,
+                                                action: #selector(dismissPopoup))
+        shadowView.addGestureRecognizer(tapGesture)
+        
+    }
     @IBAction func onClickPhotoAlubm(_ sender: Any) {
-    dismissPopoup()
-        if let _delegate = self.delegate{
+        self.dismissPopoup()
+        if let _delegate = self.delegate {
             _delegate.addFromAlbum()
         }
         
@@ -57,19 +59,12 @@ class AddImageAlertPopup: UIView {
    
     
     @IBAction func onClickCamera(_ sender: Any) {
-        dismissPopoup()
+        self.dismissPopoup()
         if let _delegate = self.delegate {
                    _delegate.addFromCamera()
                }
     }
     
-    
-    
-
-    
-    required init?(coder aDecoder: NSCoder) {
-       super.init(coder: aDecoder)
-    }
     
     
 @objc func dismissPopoup() {
@@ -78,9 +73,7 @@ class AddImageAlertPopup: UIView {
     }
     
     
-  func showAlert()
-    {
-       
+  func showAlert() {
         UIApplication.shared.keyWindow?.addSubview(parentView)
     }
     

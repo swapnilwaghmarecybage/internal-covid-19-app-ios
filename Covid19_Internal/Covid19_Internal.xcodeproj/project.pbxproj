@@ -85,14 +85,14 @@
 		1CDD481C24C03CAF00054986 /* GuideRightHandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD481B24C03CAF00054986 /* GuideRightHandCell.swift */; };
 		1CDD482024C03D7000054986 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD481F24C03D7000054986 /* GuideViewController.swift */; };
 		1CDD482224C0B8FD00054986 /* GuideLeftHandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD482124C0B8FD00054986 /* GuideLeftHandCell.swift */; };
-		71063CAF9C1A8BF1D47300F2 /* libPods-Covid19_Internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F773055344AEAC236D8F779 /* libPods-Covid19_Internal.a */; };
 		931D8867251B656C0091C266 /* ProtocolAddImageAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931D8866251B656C0091C266 /* ProtocolAddImageAlert.swift */; };
 		931D8875251B757F0091C266 /* AddImageAlertPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931D8874251B757F0091C266 /* AddImageAlertPopup.swift */; };
 		931D8877251B75AA0091C266 /* AddImageAlertPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 931D8876251B75AA0091C266 /* AddImageAlertPopup.xib */; };
+		936EA415252B282000E757AA /* AWSManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936EA414252B282000E757AA /* AWSManger.swift */; };
+		CA51A2CE9CAF12D0B4884066 /* Pods_Covid19_Internal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD1CF84CF6DA3433B445B09 /* Pods_Covid19_Internal.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		17DD888763B08B4D9E968056 /* Pods-Covid19_Internal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19_Internal.debug.xcconfig"; path = "Target Support Files/Pods-Covid19_Internal/Pods-Covid19_Internal.debug.xcconfig"; sourceTree = "<group>"; };
 		1C28181B24DD6858008316DB /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		1C28181C24DD6858008316DB /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		1C28181F24E14264008316DB /* Covid19_Internal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Covid19_Internal.entitlements; sourceTree = "<group>"; };
@@ -174,11 +174,13 @@
 		1CDD481B24C03CAF00054986 /* GuideRightHandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideRightHandCell.swift; sourceTree = "<group>"; };
 		1CDD481F24C03D7000054986 /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		1CDD482124C0B8FD00054986 /* GuideLeftHandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideLeftHandCell.swift; sourceTree = "<group>"; };
-		3F773055344AEAC236D8F779 /* libPods-Covid19_Internal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Covid19_Internal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7138C2188671931B5CF8C7F6 /* Pods-Covid19_Internal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19_Internal.release.xcconfig"; path = "Target Support Files/Pods-Covid19_Internal/Pods-Covid19_Internal.release.xcconfig"; sourceTree = "<group>"; };
+		85505DE26D2F90C8AE129556 /* Pods-Covid19_Internal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19_Internal.debug.xcconfig"; path = "Target Support Files/Pods-Covid19_Internal/Pods-Covid19_Internal.debug.xcconfig"; sourceTree = "<group>"; };
 		931D8866251B656C0091C266 /* ProtocolAddImageAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolAddImageAlert.swift; sourceTree = "<group>"; };
 		931D8874251B757F0091C266 /* AddImageAlertPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageAlertPopup.swift; sourceTree = "<group>"; };
 		931D8876251B75AA0091C266 /* AddImageAlertPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddImageAlertPopup.xib; sourceTree = "<group>"; };
-		E250C2F78B200E2762FC6DC0 /* Pods-Covid19_Internal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19_Internal.release.xcconfig"; path = "Target Support Files/Pods-Covid19_Internal/Pods-Covid19_Internal.release.xcconfig"; sourceTree = "<group>"; };
+		936EA414252B282000E757AA /* AWSManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSManger.swift; sourceTree = "<group>"; };
+		FFD1CF84CF6DA3433B445B09 /* Pods_Covid19_Internal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid19_Internal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71063CAF9C1A8BF1D47300F2 /* libPods-Covid19_Internal.a in Frameworks */,
+				CA51A2CE9CAF12D0B4884066 /* Pods_Covid19_Internal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +229,7 @@
 				1C5DC1152496016600814CDB /* Covid19_Internal */,
 				1C5DC1142496016600814CDB /* Products */,
 				B131381FB3293ED293396904 /* Pods */,
-				A3C29F0D6DF6AC3A92F63C48 /* Frameworks */,
+				BEFF00C00FC25732B35F0F9D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -266,6 +268,7 @@
 				1C5DC14A249786E200814CDB /* ViewModels */,
 				1C5DC13D2497741100814CDB /* WebService */,
 				1C5DC12E2497564E00814CDB /* View Controllers */,
+				936EA416252B283C00E757AA /* AWSManager */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -421,21 +424,29 @@
 			path = Guide;
 			sourceTree = "<group>";
 		};
-		A3C29F0D6DF6AC3A92F63C48 /* Frameworks */ = {
+		936EA416252B283C00E757AA /* AWSManager */ = {
 			isa = PBXGroup;
 			children = (
-				3F773055344AEAC236D8F779 /* libPods-Covid19_Internal.a */,
+				936EA414252B282000E757AA /* AWSManger.swift */,
 			);
-			name = Frameworks;
+			path = AWSManager;
 			sourceTree = "<group>";
 		};
 		B131381FB3293ED293396904 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				17DD888763B08B4D9E968056 /* Pods-Covid19_Internal.debug.xcconfig */,
-				E250C2F78B200E2762FC6DC0 /* Pods-Covid19_Internal.release.xcconfig */,
+				85505DE26D2F90C8AE129556 /* Pods-Covid19_Internal.debug.xcconfig */,
+				7138C2188671931B5CF8C7F6 /* Pods-Covid19_Internal.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		BEFF00C00FC25732B35F0F9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FFD1CF84CF6DA3433B445B09 /* Pods_Covid19_Internal.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,10 +456,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C5DC12A2496017500814CDB /* Build configuration list for PBXNativeTarget "Covid19_Internal" */;
 			buildPhases = (
-				F2A80BFEAC683843474474FF /* [CP] Check Pods Manifest.lock */,
+				D878FDFC5EF4BE4BFE1DD2CC /* [CP] Check Pods Manifest.lock */,
 				1C5DC10F2496016600814CDB /* Sources */,
 				1C5DC1102496016600814CDB /* Frameworks */,
 				1C5DC1112496016600814CDB /* Resources */,
+				BD2ACA143DC4D323830D43BC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -514,7 +526,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		F2A80BFEAC683843474474FF /* [CP] Check Pods Manifest.lock */ = {
+		BD2ACA143DC4D323830D43BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Covid19_Internal/Pods-Covid19_Internal-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Covid19_Internal/Pods-Covid19_Internal-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Covid19_Internal/Pods-Covid19_Internal-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D878FDFC5EF4BE4BFE1DD2CC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -564,6 +593,7 @@
 				1C5DC13224975B2300814CDB /* HomeViewController.swift in Sources */,
 				1CDD481C24C03CAF00054986 /* GuideRightHandCell.swift in Sources */,
 				1C5DC13B249772B100814CDB /* ConnectionManager.swift in Sources */,
+				936EA415252B282000E757AA /* AWSManger.swift in Sources */,
 				931D8875251B757F0091C266 /* AddImageAlertPopup.swift in Sources */,
 				1C7B1678249CA0AC0069157B /* UISegmentControlExtension.swift in Sources */,
 				1CD3001724CF23D800C31AAB /* ReachabilityManager.swift in Sources */,
@@ -758,7 +788,7 @@
 		};
 		1C5DC12B2496017500814CDB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17DD888763B08B4D9E968056 /* Pods-Covid19_Internal.debug.xcconfig */;
+			baseConfigurationReference = 85505DE26D2F90C8AE129556 /* Pods-Covid19_Internal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Covid19_Internal/Covid19_Internal.entitlements;
@@ -782,7 +812,7 @@
 		};
 		1C5DC12C2496017500814CDB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E250C2F78B200E2762FC6DC0 /* Pods-Covid19_Internal.release.xcconfig */;
+			baseConfigurationReference = 7138C2188671931B5CF8C7F6 /* Pods-Covid19_Internal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Covid19_Internal/Covid19_Internal.entitlements;

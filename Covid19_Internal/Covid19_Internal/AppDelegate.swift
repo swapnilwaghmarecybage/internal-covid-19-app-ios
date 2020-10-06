@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import Firebase
-
+import AWSS3
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,12 +21,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseManager.configure()
+        self.initializeS3()
         if let _ = UserDefaults.standard.value(forKey: USERNAME) {
             setupNotificationForApplication()
         }
         setupLaunchOptionFromNotification(launchOptions: launchOptions)
         return true
     }
+   
+    
+    
+    func initializeS3() {
+   
+        let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.USEast2,
+           identityPoolId:"us-east-2:25cd0485-f41a-4bd6-a6e3-57f985f47ec2")
+
+        let configuration = AWSServiceConfiguration(region:.APSouth1, credentialsProvider:credentialsProvider)
+
+        AWSServiceManager.default().defaultServiceConfiguration = configuration
+        
+    }
+    
+    
+    
+    
+    
     
     func setupNotificationForApplication(){
         Messaging.messaging().delegate = self

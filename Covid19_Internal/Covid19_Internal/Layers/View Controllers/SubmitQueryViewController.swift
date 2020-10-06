@@ -16,8 +16,13 @@ class SubmitQueryViewController: UIViewController {
     @IBOutlet weak var textFieldPhoneNumber: UITextField!
     @IBOutlet weak var labelErrorMessage: UILabel!
     @IBOutlet weak var scrolView: UIScrollView!
-  
+    @IBOutlet weak var checkboxAttachment: UIButton!
+   
+    
     @IBOutlet weak var buttonAddPhoto: UIButton!
+    @IBOutlet weak var addAttachmentView: UIStackView!
+
+    @IBOutlet weak var buttonDeleteImage: UIButton!
     
     
     @IBOutlet weak var imageThumbnail: UIImageView!
@@ -58,6 +63,8 @@ class SubmitQueryViewController: UIViewController {
         }
         self.textFieldQuery.delegate = self
         self.labelErrorMessage.text = ""
+        self.addAttachmentView.isHidden = true
+        self.buttonDeleteImage.isHidden = true
         updateNavigationBar()
     }
     
@@ -76,6 +83,22 @@ class SubmitQueryViewController: UIViewController {
     }
 }
     @IBAction func onClickSubmit(_ sender: Any) {
+        var imageUrl  = ""
+        if let querryimage = imageThumbnail.image{
+        
+          AWSS3Manager.shared.uploadImage(image: querryimage) {[weak self] (uploadedFileUrl, error) in
+              
+              guard let strongSelf = self else { return }
+              if let finalPath = uploadedFileUrl as? String {
+                imageUrl = finalPath
+                print("final path :\(finalPath)")
+              } else {
+                  print("\(String(describing: error?.localizedDescription))") // 4
+              }
+            }
+          }
+      print("final path :\(imageUrl)")
+        
         if let query = self.textFieldQuery.text, !query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
         let username = self.textFieldEmployeeName.text,!username.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
             let phone = self.textFieldPhoneNumber.text ,!phone.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, let _phone = Int(phone),
@@ -100,13 +123,26 @@ class SubmitQueryViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
    
-@IBAction func onClickAddPhoto(_ sender: Any) {
+
+   
+    @IBAction func onClickDeletePhoto(_ sender: Any) {
+        imageThumbnail.image = nil
+        buttonDeleteImage.isHidden = true
+    }
+    
+    
+    @IBAction func onClickAddPhoto(_ sender: Any) {
         AddImageAlertPopup.instance.delegate = self
         AddImageAlertPopup.instance.showAlert()
         
     }
     
-
+    @IBAction func onCheckAttachment(_ sender: Any) {
+        self.addAttachmentView.isHidden = false
+        
+       
+    }
+    
  
 }
 
@@ -158,7 +194,8 @@ extension SubmitQueryViewController : AddImageAlert , UIImagePickerControllerDel
                   let imageReference = CGImageSourceCreateThumbnailAtIndex(source, 0, options)!
                   let thumbnail = UIImage(cgImage: imageReference)
                    imageThumbnail.image = thumbnail
-              imageThumbnail.layer.cornerRadius = 10
+                   imageThumbnail.layer.cornerRadius = 10
+                buttonDeleteImage.isHidden = false
                     
                }
             }

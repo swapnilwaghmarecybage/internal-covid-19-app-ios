@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -89,6 +89,9 @@
 		931D8875251B757F0091C266 /* AddImageAlertPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931D8874251B757F0091C266 /* AddImageAlertPopup.swift */; };
 		931D8877251B75AA0091C266 /* AddImageAlertPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 931D8876251B75AA0091C266 /* AddImageAlertPopup.xib */; };
 		936EA415252B282000E757AA /* AWSManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936EA414252B282000E757AA /* AWSManger.swift */; };
+		938891F2252D84AB00DD70C1 /* ProtocolDeleteImagePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938891F1252D84AA00DD70C1 /* ProtocolDeleteImagePopup.swift */; };
+		938891F4252D855100DD70C1 /* DeleteImagePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938891F3252D855100DD70C1 /* DeleteImagePopup.swift */; };
+		938891F6252D859100DD70C1 /* DeleteImagePopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 938891F5252D859100DD70C1 /* DeleteImagePopup.xib */; };
 		CA51A2CE9CAF12D0B4884066 /* Pods_Covid19_Internal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD1CF84CF6DA3433B445B09 /* Pods_Covid19_Internal.framework */; };
 /* End PBXBuildFile section */
 
@@ -180,6 +183,9 @@
 		931D8874251B757F0091C266 /* AddImageAlertPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageAlertPopup.swift; sourceTree = "<group>"; };
 		931D8876251B75AA0091C266 /* AddImageAlertPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddImageAlertPopup.xib; sourceTree = "<group>"; };
 		936EA414252B282000E757AA /* AWSManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSManger.swift; sourceTree = "<group>"; };
+		938891F1252D84AA00DD70C1 /* ProtocolDeleteImagePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolDeleteImagePopup.swift; sourceTree = "<group>"; };
+		938891F3252D855100DD70C1 /* DeleteImagePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteImagePopup.swift; sourceTree = "<group>"; };
+		938891F5252D859100DD70C1 /* DeleteImagePopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteImagePopup.xib; sourceTree = "<group>"; };
 		FFD1CF84CF6DA3433B445B09 /* Pods_Covid19_Internal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid19_Internal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -204,6 +210,7 @@
 				1C28185424F7EE0C008316DB /* ProtocolHelpLinePopup.swift */,
 				1CBC6C2A24F83A6400E040EA /* ProtocolSelfAssistance.swift */,
 				931D8866251B656C0091C266 /* ProtocolAddImageAlert.swift */,
+				938891F1252D84AA00DD70C1 /* ProtocolDeleteImagePopup.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -341,6 +348,8 @@
 				1C7D3D1925041F9300D57D2D /* PaddedLabel.swift */,
 				931D8874251B757F0091C266 /* AddImageAlertPopup.swift */,
 				931D8876251B75AA0091C266 /* AddImageAlertPopup.xib */,
+				938891F3252D855100DD70C1 /* DeleteImagePopup.swift */,
+				938891F5252D859100DD70C1 /* DeleteImagePopup.xib */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -512,6 +521,7 @@
 				1CD3001124C990C700C31AAB /* light_fever.gif in Resources */,
 				1C28181D24DD6859008316DB /* AlertView.xib in Resources */,
 				1CC9529424B5D7CC00DC557E /* RadioControlView.xib in Resources */,
+				938891F6252D859100DD70C1 /* DeleteImagePopup.xib in Resources */,
 				1CD3000F24C990C700C31AAB /* light_tiredness.gif in Resources */,
 				931D8877251B75AA0091C266 /* AddImageAlertPopup.xib in Resources */,
 				1C28182C24E3CD0E008316DB /* GoogleService-Info.plist in Resources */,
@@ -604,11 +614,13 @@
 				1C5DC1582497B11500814CDB /* AllCountriesParser.swift in Sources */,
 				1C7D3D1A25041F9400D57D2D /* PaddedLabel.swift in Sources */,
 				1C28182E24E528C6008316DB /* NewsModel.swift in Sources */,
+				938891F4252D855100DD70C1 /* DeleteImagePopup.swift in Sources */,
 				1C28184024F67B41008316DB /* SelfAssistanceViewController.swift in Sources */,
 				1C7B167D249CC7B50069157B /* GraphTableViewCell.swift in Sources */,
 				1C5DC1212496016600814CDB /* Covid19_Internal.xcdatamodeld in Sources */,
 				1C7B168324A106790069157B /* ImageExtension.swift in Sources */,
 				1C28183424E58CDE008316DB /* FeedDetailViewController.swift in Sources */,
+				938891F2252D84AB00DD70C1 /* ProtocolDeleteImagePopup.swift in Sources */,
 				1C7B168D24A4782A0069157B /* ChartsLayer.swift in Sources */,
 				1C28183224E54575008316DB /* FeedTableViewCell.swift in Sources */,
 				1C28181E24DD6859008316DB /* AlertView.swift in Sources */,

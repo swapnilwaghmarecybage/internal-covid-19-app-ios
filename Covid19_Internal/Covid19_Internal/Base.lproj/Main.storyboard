@@ -773,7 +773,7 @@
                                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVs-eQ-rA6">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVs-eQ-rA6">
                                                 <rect key="frame" x="133" y="590" width="100" height="40"/>
                                                 <color key="backgroundColor" red="0.08235294118" green="0.17254901959999999" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -790,20 +790,20 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9d3-My-4Im">
-                                                <rect key="frame" x="20" y="512" width="19" height="19"/>
+                                                <rect key="frame" x="20" y="512" width="21" height="22"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="19" id="4YG-FX-9in"/>
-                                                    <constraint firstAttribute="height" constant="19" id="sm6-HJ-JiD"/>
+                                                    <constraint firstAttribute="width" constant="21" id="4YG-FX-9in"/>
+                                                    <constraint firstAttribute="height" constant="22" id="sm6-HJ-JiD"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="rectangle" catalog="system"/>
                                                 <connections>
-                                                    <action selector="onCheckAttachment:" destination="8l3-FH-i7r" eventType="touchUpInside" id="9Oc-ZR-cYK"/>
+                                                    <action selector="onClickUnCheckBoxAttachment:" destination="8l3-FH-i7r" eventType="touchUpInside" id="cdf-3X-mGJ"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Want to add an image as attachment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFh-WZ-k1W">
-                                                <rect key="frame" x="47" y="512" width="292" height="21"/>
+                                                <rect key="frame" x="49" y="512" width="290" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="SUA-td-1Ii"/>
                                                 </constraints>
@@ -811,14 +811,14 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="115" translatesAutoresizingMaskIntoConstraints="NO" id="jUz-Y4-nve">
+                                            <stackView opaque="NO" contentMode="left" alignment="top" spacing="119" translatesAutoresizingMaskIntoConstraints="NO" id="jUz-Y4-nve">
                                                 <rect key="frame" x="20" y="539" width="319.5" height="51"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Oux-ay-sH1">
-                                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="51"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="100.5" height="51"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cn4-Ke-Bw9">
-                                                                <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="15.5" height="22"/>
                                                                 <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <state key="normal" image="clear" catalog="system"/>
                                                                 <connections>
@@ -826,16 +826,26 @@
                                                                 </connections>
                                                             </button>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bvX-Tc-0a5">
-                                                                <rect key="frame" x="23.5" y="0.0" width="81" height="51"/>
+                                                                <rect key="frame" x="19.5" y="0.0" width="81" height="51"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="51" id="OLd-Ec-aNa"/>
+                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="51" id="Thk-Vh-gGW"/>
                                                                     <constraint firstAttribute="width" constant="81" id="YMm-W2-v3S"/>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="81" id="n8n-1s-YOR"/>
                                                                 </constraints>
                                                             </imageView>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="bvX-Tc-0a5" firstAttribute="top" secondItem="Oux-ay-sH1" secondAttribute="top" id="0cN-3e-aQP"/>
+                                                            <constraint firstItem="bvX-Tc-0a5" firstAttribute="leading" secondItem="Oux-ay-sH1" secondAttribute="leading" constant="19.5" id="A2J-RQ-wNY"/>
+                                                            <constraint firstAttribute="width" constant="100.5" id="NSH-ko-Tig"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="51" id="OKe-DB-DS5"/>
+                                                            <constraint firstItem="bvX-Tc-0a5" firstAttribute="leading" secondItem="Oux-ay-sH1" secondAttribute="leading" constant="19.5" id="Yt8-j3-KRz"/>
+                                                            <constraint firstItem="bvX-Tc-0a5" firstAttribute="leading" secondItem="Oux-ay-sH1" secondAttribute="leading" constant="19.5" id="dYu-Vm-C3x"/>
                                                             <constraint firstItem="bvX-Tc-0a5" firstAttribute="leading" secondItem="cn4-Ke-Bw9" secondAttribute="trailing" constant="4" id="dtX-mr-4gk"/>
+                                                            <constraint firstAttribute="height" constant="51" id="nG0-3k-kCE"/>
+                                                            <constraint firstItem="cn4-Ke-Bw9" firstAttribute="leading" secondItem="Oux-ay-sH1" secondAttribute="leading" id="rES-Es-lVu"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100.5" id="xb4-tf-UXH"/>
                                                         </constraints>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJj-5F-PlE">
@@ -858,10 +868,26 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="51" id="Bju-Qm-3ga"/>
                                                     <constraint firstItem="mJj-5F-PlE" firstAttribute="top" secondItem="jUz-Y4-nve" secondAttribute="top" id="Cbk-Qt-srY"/>
-                                                    <constraint firstItem="mJj-5F-PlE" firstAttribute="leading" secondItem="Oux-ay-sH1" secondAttribute="trailing" constant="115" id="FBs-2u-p22"/>
-                                                    <constraint firstAttribute="width" constant="319.5" id="VDg-bf-rXE"/>
+                                                    <constraint firstItem="Oux-ay-sH1" firstAttribute="leading" secondItem="jUz-Y4-nve" secondAttribute="leading" id="JV9-A6-6Nu"/>
+                                                    <constraint firstAttribute="width" constant="319.5" id="baA-1P-8Ek"/>
+                                                    <constraint firstItem="Oux-ay-sH1" firstAttribute="leading" secondItem="jUz-Y4-nve" secondAttribute="leading" id="fLZ-rK-YXf"/>
+                                                    <constraint firstItem="Oux-ay-sH1" firstAttribute="leading" secondItem="jUz-Y4-nve" secondAttribute="leading" id="k4h-yf-rRk"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="51" id="nhI-yi-8Bq"/>
+                                                    <constraint firstItem="Oux-ay-sH1" firstAttribute="leading" secondItem="jUz-Y4-nve" secondAttribute="leading" id="t7S-Gb-zs7"/>
                                                 </constraints>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bww-AC-JSG">
+                                                <rect key="frame" x="20" y="511" width="22" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="22" id="59M-e5-n8u"/>
+                                                    <constraint firstAttribute="height" constant="22" id="Bo0-zy-DnQ"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="checkmark.rectangle" catalog="system"/>
+                                                <connections>
+                                                    <action selector="onClickCheckBoxAttachment:" destination="8l3-FH-i7r" eventType="touchUpInside" id="dSL-r3-D0L"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -869,9 +895,11 @@
                                             <constraint firstItem="JVs-eQ-rA6" firstAttribute="leading" secondItem="DgK-sn-1K2" secondAttribute="leading" constant="133" id="4KE-cQ-UNs"/>
                                             <constraint firstItem="BY0-3M-Dp6" firstAttribute="top" secondItem="DgK-sn-1K2" secondAttribute="top" constant="20" id="5Kl-Wf-78M"/>
                                             <constraint firstItem="JVs-eQ-rA6" firstAttribute="top" secondItem="ciV-uV-Vi7" secondAttribute="bottom" constant="100" id="6ta-Rf-wYI"/>
+                                            <constraint firstItem="jUz-Y4-nve" firstAttribute="top" secondItem="IFh-WZ-k1W" secondAttribute="bottom" constant="6" id="91Q-eI-yGr"/>
                                             <constraint firstItem="ciV-uV-Vi7" firstAttribute="top" secondItem="yWg-X4-chR" secondAttribute="bottom" constant="10" id="9JV-8F-vuL"/>
                                             <constraint firstItem="8mq-i8-gWb" firstAttribute="leading" secondItem="DgK-sn-1K2" secondAttribute="leading" constant="20" id="9e3-Ug-zf3"/>
                                             <constraint firstAttribute="trailing" secondItem="IFh-WZ-k1W" secondAttribute="trailing" constant="36" id="AhJ-CT-lzA"/>
+                                            <constraint firstItem="Bww-AC-JSG" firstAttribute="leading" secondItem="DgK-sn-1K2" secondAttribute="leading" constant="20" id="Ak2-TF-l1M"/>
                                             <constraint firstItem="8mq-i8-gWb" firstAttribute="top" secondItem="sKv-8j-4re" secondAttribute="bottom" constant="20" id="BmR-lE-BXE"/>
                                             <constraint firstAttribute="trailing" secondItem="BY0-3M-Dp6" secondAttribute="trailing" constant="20" id="EDt-eM-On7"/>
                                             <constraint firstAttribute="trailing" secondItem="ciV-uV-Vi7" secondAttribute="trailing" constant="20" id="HDX-X6-RZN"/>
@@ -886,8 +914,10 @@
                                             <constraint firstItem="IFh-WZ-k1W" firstAttribute="leading" secondItem="9d3-My-4Im" secondAttribute="trailing" constant="8" id="ZQA-Si-bGn"/>
                                             <constraint firstAttribute="trailing" secondItem="yWg-X4-chR" secondAttribute="trailing" constant="20" id="fMp-Ug-JmF"/>
                                             <constraint firstItem="BY0-3M-Dp6" firstAttribute="leading" secondItem="DgK-sn-1K2" secondAttribute="leading" constant="20" id="hiM-xf-pY0"/>
+                                            <constraint firstItem="Bww-AC-JSG" firstAttribute="top" secondItem="ciV-uV-Vi7" secondAttribute="bottom" constant="21" id="i6G-qi-nZJ"/>
                                             <constraint firstItem="2MH-gP-bFY" firstAttribute="top" secondItem="8mq-i8-gWb" secondAttribute="bottom" constant="20" id="iYi-hf-0YA"/>
                                             <constraint firstAttribute="trailing" secondItem="8mq-i8-gWb" secondAttribute="trailing" constant="20" id="krT-ag-LLa"/>
+                                            <constraint firstItem="jUz-Y4-nve" firstAttribute="leading" secondItem="DgK-sn-1K2" secondAttribute="leading" constant="20" id="o42-1r-Iw0"/>
                                             <constraint firstItem="sKv-8j-4re" firstAttribute="leading" secondItem="DgK-sn-1K2" secondAttribute="leading" constant="20" id="pWr-mU-UrA"/>
                                             <constraint firstItem="jUz-Y4-nve" firstAttribute="leading" secondItem="DgK-sn-1K2" secondAttribute="leading" constant="20" id="tbN-Dj-nrF"/>
                                             <constraint firstItem="jUz-Y4-nve" firstAttribute="top" secondItem="IFh-WZ-k1W" secondAttribute="bottom" constant="6" id="vrT-6L-hgA"/>
@@ -923,15 +953,17 @@
                         <outlet property="addAttachmentView" destination="jUz-Y4-nve" id="C4I-lL-uCA"/>
                         <outlet property="buttonAddPhoto" destination="mJj-5F-PlE" id="BTP-xH-2ro"/>
                         <outlet property="buttonDeleteImage" destination="cn4-Ke-Bw9" id="kXh-Qa-raP"/>
-                        <outlet property="checkboxAttachment" destination="9d3-My-4Im" id="8vB-oH-FLW"/>
+                        <outlet property="checkboxAttachment" destination="Bww-AC-JSG" id="xDO-y2-mXA"/>
                         <outlet property="imageThumbnail" destination="bvX-Tc-0a5" id="1X9-GG-CJ5"/>
                         <outlet property="labelErrorMessage" destination="ciV-uV-Vi7" id="thQ-Oy-Eig"/>
                         <outlet property="lebelHeadLine" destination="BY0-3M-Dp6" id="oq4-Le-jnN"/>
+                        <outlet property="photoImageView" destination="Oux-ay-sH1" id="012-qQ-EZM"/>
                         <outlet property="scrolView" destination="fsJ-Dy-a2M" id="lwR-KO-6Vs"/>
                         <outlet property="textFieldEmployeeId" destination="8mq-i8-gWb" id="vNm-UR-3Bg"/>
                         <outlet property="textFieldEmployeeName" destination="sKv-8j-4re" id="jKF-Cs-XrI"/>
                         <outlet property="textFieldPhoneNumber" destination="2MH-gP-bFY" id="Uge-bk-erm"/>
                         <outlet property="textFieldQuery" destination="yWg-X4-chR" id="p82-Sh-q8S"/>
+                        <outlet property="unCheckBoxAttachment" destination="9d3-My-4Im" id="x11-85-0Fi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xXZ-Y9-hyx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1232,14 +1264,14 @@ ASSIST</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HelplineTableViewCell" id="6l6-uv-jJ4" customClass="HelplineTableViewCell" customModule="Covid19_Internal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="37.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6l6-uv-jJ4" id="kSl-Yl-XO2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="37.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="37"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEC-1M-OxF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="37.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="37"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2817,6 +2849,7 @@ ASSIST</string>
         <image name="InfoLogo" width="649.5" height="110.5"/>
         <image name="Mobile-health-doctor-phone-technology" width="577.5" height="577.5"/>
         <image name="about" width="30" height="30"/>
+        <image name="checkmark.rectangle" catalog="system" width="128" height="93"/>
         <image name="clear" catalog="system" width="128" height="114"/>
         <image name="cybagelogo" width="281" height="65.5"/>
         <image name="guide" width="30" height="30"/>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeleteImagePopup" customModule="Covid19_Internal" customModuleProvider="target">
+            <connections>
+                <outlet property="LableAlertTitle" destination="40w-85-2Z3" id="Zd2-JH-b6I"/>
+                <outlet property="buttonCancel" destination="9UT-MD-pa9" id="7zC-ru-JTr"/>
+                <outlet property="buttonDelete" destination="60F-Ds-vWQ" id="vVJ-0a-yYL"/>
+                <outlet property="deleteImageView" destination="v0J-te-6if" id="R3J-9l-BVP"/>
+                <outlet property="parentView" destination="M50-sT-uzz" id="gaW-yb-Z8W"/>
+                <outlet property="shadowView" destination="SwR-r3-vvr" id="BZN-I0-xji"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="M50-sT-uzz" userLabel="Parent View">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SwR-r3-vvr">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.8121387283" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0J-te-6if" userLabel="DeleteImagePopup">
+                    <rect key="frame" x="15" y="181.5" width="345" height="155"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to delete this photo" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40w-85-2Z3" userLabel="LabelAlertTitle">
+                            <rect key="frame" x="0.0" y="10" width="345" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="sZp-pC-Ch7"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60F-Ds-vWQ" userLabel="ButtonDelete">
+                            <rect key="frame" x="21" y="87" width="106" height="40"/>
+                            <color key="backgroundColor" red="0.070588235289999995" green="0.1647058824" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Hd1-w9-4Ac"/>
+                                <constraint firstAttribute="width" constant="106" id="Sn6-Wk-mUk"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Delete">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="onClickDelete:" destination="-1" eventType="touchUpInside" id="GWa-2c-fw3"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9UT-MD-pa9" userLabel="ButtonCancel">
+                            <rect key="frame" x="231" y="86" width="106" height="40"/>
+                            <color key="backgroundColor" red="0.070588235289999995" green="0.1647058824" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="106" id="8iQ-Xd-pjt"/>
+                                <constraint firstAttribute="height" constant="40" id="E8f-gH-DAl"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Cancel">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="onclickCancel:" destination="-1" eventType="touchUpInside" id="YhG-1g-bKd"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.098039215690000001" green="0.22352941179999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="60F-Ds-vWQ" firstAttribute="leading" secondItem="v0J-te-6if" secondAttribute="leading" constant="21" id="IBj-Lo-GBT"/>
+                        <constraint firstItem="40w-85-2Z3" firstAttribute="top" secondItem="v0J-te-6if" secondAttribute="top" constant="10" id="Nlk-32-XNp"/>
+                        <constraint firstAttribute="height" constant="155" id="Rki-Dl-Mna"/>
+                        <constraint firstItem="40w-85-2Z3" firstAttribute="leading" secondItem="v0J-te-6if" secondAttribute="leading" id="aBV-cH-DYp"/>
+                        <constraint firstItem="60F-Ds-vWQ" firstAttribute="top" secondItem="40w-85-2Z3" secondAttribute="bottom" constant="37" id="crC-IO-qfh"/>
+                        <constraint firstAttribute="trailing" secondItem="9UT-MD-pa9" secondAttribute="trailing" constant="8" id="fST-Q9-Eba"/>
+                        <constraint firstItem="9UT-MD-pa9" firstAttribute="top" secondItem="40w-85-2Z3" secondAttribute="bottom" constant="36" id="gvB-w8-EGv"/>
+                        <constraint firstAttribute="width" constant="345" id="xDk-AZ-VlV"/>
+                        <constraint firstAttribute="trailing" secondItem="40w-85-2Z3" secondAttribute="trailing" id="zcR-Ua-39r"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="SwR-r3-vvr" firstAttribute="leading" secondItem="hZR-Kz-Vuo" secondAttribute="leading" id="9tL-eH-Eve"/>
+                <constraint firstItem="v0J-te-6if" firstAttribute="centerX" secondItem="M50-sT-uzz" secondAttribute="centerX" id="Mrx-br-Yio"/>
+                <constraint firstItem="v0J-te-6if" firstAttribute="centerY" secondItem="M50-sT-uzz" secondAttribute="centerY" constant="-50" id="OoB-PP-Fsg"/>
+                <constraint firstItem="SwR-r3-vvr" firstAttribute="top" secondItem="M50-sT-uzz" secondAttribute="top" id="WmV-ve-uSm"/>
+                <constraint firstItem="hZR-Kz-Vuo" firstAttribute="trailing" secondItem="SwR-r3-vvr" secondAttribute="trailing" id="exj-EF-PzZ"/>
+                <constraint firstItem="hZR-Kz-Vuo" firstAttribute="bottom" secondItem="SwR-r3-vvr" secondAttribute="bottom" id="y3a-ll-e69"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="hZR-Kz-Vuo"/>
+            <point key="canvasLocation" x="21.014492753623191" y="11.383928571428571"/>
+        </view>
+    </objects>
+</document>

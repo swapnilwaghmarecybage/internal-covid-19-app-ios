@@ -8,7 +8,9 @@
 
 import UIKit
 
-class SubmitQueryViewController: UIViewController {
+class SubmitQueryViewController: UIViewController
+{
+    
     var imagePicker: UIImagePickerController!
     @IBOutlet weak var lebelHeadLine: UILabel!
     @IBOutlet weak var textFieldEmployeeName: UITextField!
@@ -16,20 +18,18 @@ class SubmitQueryViewController: UIViewController {
     @IBOutlet weak var textFieldPhoneNumber: UITextField!
     @IBOutlet weak var labelErrorMessage: UILabel!
     @IBOutlet weak var scrolView: UIScrollView!
-    @IBOutlet weak var checkboxAttachment: UIButton!
    
-    
     @IBOutlet weak var buttonAddPhoto: UIButton!
     @IBOutlet weak var addAttachmentView: UIStackView!
-
+    @IBOutlet weak var photoImageView: UIStackView!
     @IBOutlet weak var buttonDeleteImage: UIButton!
-    
-    
     @IBOutlet weak var imageThumbnail: UIImageView!
     @IBOutlet weak var textFieldQuery: UITextField!
- 
+    @IBOutlet weak var unCheckBoxAttachment: UIButton!
+    
+    @IBOutlet weak var checkboxAttachment: UIButton!
     var imageView : UIImage!
-
+    var hidePhotoImageView : Bool!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,6 +65,8 @@ class SubmitQueryViewController: UIViewController {
         self.labelErrorMessage.text = ""
         self.addAttachmentView.isHidden = true
         self.buttonDeleteImage.isHidden = true
+        self.hidePhotoImageView = true
+        self.checkboxAttachment.isHidden = true
         updateNavigationBar()
     }
     
@@ -126,8 +128,8 @@ class SubmitQueryViewController: UIViewController {
 
    
     @IBAction func onClickDeletePhoto(_ sender: Any) {
-        imageThumbnail.image = nil
-        buttonDeleteImage.isHidden = true
+        DeleteImagePopup.instance.delegate = self
+        DeleteImagePopup.instance.showAlert()
     }
     
     
@@ -137,13 +139,22 @@ class SubmitQueryViewController: UIViewController {
         
     }
     
-    @IBAction func onCheckAttachment(_ sender: Any) {
+    @IBAction func onClickUnCheckBoxAttachment(_ sender: Any) {
         self.addAttachmentView.isHidden = false
-        
-       
+
+        self.unCheckBoxAttachment.isHidden = true
+        self.checkboxAttachment.isHidden = false
+    
     }
     
- 
+    
+    @IBAction func onClickCheckBoxAttachment(_ sender: Any) {
+        self.addAttachmentView.isHidden = true
+        self.checkboxAttachment.isHidden = true
+        self.unCheckBoxAttachment.isHidden = false
+    }
+    
+  
 }
 
 extension SubmitQueryViewController:UITextFieldDelegate {
@@ -195,7 +206,8 @@ extension SubmitQueryViewController : AddImageAlert , UIImagePickerControllerDel
                   let thumbnail = UIImage(cgImage: imageReference)
                    imageThumbnail.image = thumbnail
                    imageThumbnail.layer.cornerRadius = 10
-                buttonDeleteImage.isHidden = false
+                    buttonDeleteImage.isHidden = false
+                buttonAddPhoto.isHidden = true
                     
                }
             }
@@ -204,6 +216,16 @@ extension SubmitQueryViewController : AddImageAlert , UIImagePickerControllerDel
    
 }
 
+extension SubmitQueryViewController : DeleteImageAlert
+{
+    func deleteImage() {
+        buttonDeleteImage.isHidden = true
+        buttonAddPhoto.isHidden = false
+         imageThumbnail.image = nil
+    }
+    
+    
+}
 
 
 

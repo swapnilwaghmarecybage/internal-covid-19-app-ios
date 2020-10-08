@@ -16,6 +16,8 @@ typealias BarGraphDataType = (labels: [String], valuesOfTotalConfirmed:[Double],
 typealias Dos_And_Donts = (title:String,imageName:String,description: String)
 
 typealias PieChartDataType = (labes: [String], values:[Double],shouldShowPercentage: Bool)
+typealias EmployeeDetails = (username:String, empployeeId: Int,
+                     phoneNumber: Int, email:String, query: String)
 
 struct BarColors {
     static var confirmedColor: UIColor { return UIColor(red: 255/255, green: 152/255, blue: 0/255, alpha: 1.0) }
@@ -23,7 +25,10 @@ struct BarColors {
     static var recoveredColor: UIColor { return UIColor(red: 39/255, green: 174/255, blue: 69/255, alpha: 1.0) }
     static var deceasedColor: UIColor { return UIColor(red: 16/255, green: 16/255, blue: 16/255, alpha: 1.0) }
 }
-
+enum NetworkError: Error {
+    case domainError
+    case decodingError
+}
 struct Theme {
     static var backgroundColor: UIColor {return UIColor(red: 60/255, green: 100/255, blue: 123/255, alpha: 1.0)}
     static var highlightedColor: UIColor {return UIColor(red: 25/255, green: 57/255, blue: 79/255, alpha: 1.0)}

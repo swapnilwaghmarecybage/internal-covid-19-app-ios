@@ -237,20 +237,20 @@ struct FirebaseManager {
     }
     
     
-     static func submitQuery(username:String, empployeeId: Int,
-                             phoneNumber: Int, email:String, query: String) {
+    static func submitQuery(employeeaDetails: EmployeeDetails, filePath: String) {
      
              var ref: DatabaseReference!
              ref = Database.database().reference()
-             if let referance = ref {
-                referance.child("queries").childByAutoId().updateChildValues(["username": username,
-                                     "employeeId": empployeeId,
-                                     "phoneNumber": phoneNumber,
-                                     "query":query,
-                                     "email": email,
-                                     "timestamp": "\(Date().currentTimeMillis())" ])
-                 
-             } else {
+        if let referance = ref {
+            referance.child("queries").childByAutoId().updateChildValues(["username": employeeaDetails.username,
+                                                                          "employeeId": employeeaDetails.empployeeId,
+                                                                          "phoneNumber": employeeaDetails.phoneNumber,
+                                                                          "query": employeeaDetails.query,
+                                                                          "email": employeeaDetails.email,
+                                                                          "attachmentPath": filePath,
+                                                                          "timestamp": "\(Date().currentTimeMillis())" ])
+            
+        } else {
                 print("database not found")
             }
      }

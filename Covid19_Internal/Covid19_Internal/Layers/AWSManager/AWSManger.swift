@@ -19,11 +19,12 @@ class AWSS3Manager {
     private init () { }
     let bucketName = "covidcare"
    
-    func uploadImage(image: UIImage, completion: completionBlock?) {
-        
+ 
+    func SaveImageInDocumentsDirectory(image: UIImage, completion: @escaping (_ fileName:String?, _ fileUrl: URL?)->(Void)){
         guard let imageData = image.jpegData(compressionQuality: 1.0) else {
             let error = NSError(domain:"", code:402, userInfo:[NSLocalizedDescriptionKey: "invalid image"])
-            completion?(nil, error)
+            print("error: \(error.debugDescription)")
+            completion(nil, nil)
             return
         }
         
@@ -31,24 +32,22 @@ class AWSS3Manager {
         let fileName: String = ProcessInfo.processInfo.globallyUniqueString + (".jpeg")
         let filePath = tmpPath + "/" + fileName
         let fileUrl = URL(fileURLWithPath: filePath)
-        
         do {
             try imageData.write(to: fileUrl)
-            self.uploadfile(fileUrl: fileUrl, fileName: fileName, contenType: "image/jpeg", completion: completion)
+            completion(fileName,fileUrl)
         } catch {
             let error = NSError(domain:"", code:402, userInfo:[NSLocalizedDescriptionKey: "invalid image"])
-            completion?(nil, error)
+            print("error: \(error.debugDescription)")
+            completion(nil, nil)
         }
     }
- 
-    
    
     func getUniqueFileName(fileUrl: URL) -> String {
         let strExt: String = "." + (URL(fileURLWithPath: fileUrl.absoluteString).pathExtension)
         return (ProcessInfo.processInfo.globallyUniqueString + (strExt))
     }
  
-    private func uploadfile(fileUrl: URL, fileName: String, contenType: String, completion: completionBlock?) {
+     func uploadfile(fileUrl: URL, fileName: String, contenType: String, completion: completionBlock?) {
         
         let expression = AWSS3TransferUtilityUploadExpression()
         

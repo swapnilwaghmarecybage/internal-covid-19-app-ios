@@ -62,5 +62,7 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Covid Care would like to access your camera, So that you can take photo and add as an attachment to Query</string>
 </dict>
 </plist>

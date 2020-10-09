@@ -40,9 +40,9 @@ class SubmitQueryViewController: UIViewController
         let titleAtributes = [NSAttributedString.Key.foregroundColor: Theme.tabselectedColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .bold), NSAttributedString.Key.paragraphStyle: style ]
         let subtitleAtributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular), NSAttributedString.Key.paragraphStyle: style ]
         
-        if UIScreen.main.bounds.width > 350 {
-            self.scrolView.isScrollEnabled = false
-        }
+//        if UIScreen.main.bounds.width > 350 {
+//            self.scrolView.isScrollEnabled = false
+//        }
 
         let title = NSMutableAttributedString(string: "Drop us a query\n", attributes: titleAtributes)
         let subtitle = NSMutableAttributedString(string: "Fill the below details and we will\nhelp you in next 24 hours", attributes: subtitleAtributes)
@@ -92,6 +92,10 @@ class SubmitQueryViewController: UIViewController
     }
 }
     @IBAction func onClickSubmit(_ sender: Any) {
+        if (checkboxAttachment.isSelected && imageViewThumbnail.image == nil){
+            self.labelErrorMessage.text = "Please add attachment"
+            return
+        }
         uploadDataToFirebase()
     }
 
@@ -144,17 +148,6 @@ class SubmitQueryViewController: UIViewController
                     }
                 }
             }
-//            AWSS3Manager.shared.uploadImage(image: querryimage) {[weak self] (uploadedFileUrl, error) in
-//                guard let _ = self else { return }
-//                if let finalPath = uploadedFileUrl as? String {
-//                    completion(.success(finalPath))
-//                } else {
-//                    if let error = error {
-//                        print("\(String(describing: error.localizedDescription))") // 4
-//                        completion(.failure(error))
-//                    }
-//                }
-//            }
         }
     }
     

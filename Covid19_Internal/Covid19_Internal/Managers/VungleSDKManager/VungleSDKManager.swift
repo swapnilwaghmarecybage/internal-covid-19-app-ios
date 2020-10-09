@@ -10,9 +10,9 @@ import Foundation
 
 class VungleSDKManager: NSObject {
     
-    private let appID = "5c003b9a3933314cf38ff7f3" //"5d013b549a86cb541f181a4d"
+    private let appID = "5d013b549a86cb541f181a4d" //"5c003b9a3933314cf38ff7f3" //"5d013b549a86cb541f181a4d"
     private let MRECADID = "MREC-1099459"
-    private let BANNERADID = "BANNER3-7718044" //"BANNER-1422635"
+    private let BANNERADID = "BANNER-1422635"//"BANNER3-7718044" //"BANNER-1422635"
     private let INTERSTITIALADID = "DEFAULT-9724429"
     private var counterForInterstitial = 0
     

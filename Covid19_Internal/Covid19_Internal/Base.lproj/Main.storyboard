@@ -17,8 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wB1-3K-rhj">
+                                <rect key="frame" x="27.5" y="54" width="320" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="OEi-3b-GU9"/>
+                                    <constraint firstAttribute="height" constant="50" id="j9z-Br-w0s"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DJS-gL-qWf" userLabel="Table View Guide">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="119" width="375" height="499"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -345,14 +353,18 @@
                         <viewLayoutGuide key="safeArea" id="XMd-Go-a5c"/>
                         <color key="backgroundColor" red="0.23529411764705882" green="0.39215686274509803" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="DJS-gL-qWf" firstAttribute="top" secondItem="XMd-Go-a5c" secondAttribute="top" id="Fj7-gZ-jjZ"/>
+                            <constraint firstItem="DJS-gL-qWf" firstAttribute="top" secondItem="wB1-3K-rhj" secondAttribute="bottom" constant="15" id="6fQ-nA-oiU"/>
+                            <constraint firstItem="wB1-3K-rhj" firstAttribute="top" secondItem="XMd-Go-a5c" secondAttribute="top" constant="10" id="Lwx-7f-XMQ"/>
                             <constraint firstItem="DJS-gL-qWf" firstAttribute="leading" secondItem="XMd-Go-a5c" secondAttribute="leading" id="iRj-AY-vpw"/>
                             <constraint firstItem="XMd-Go-a5c" firstAttribute="bottom" secondItem="DJS-gL-qWf" secondAttribute="bottom" id="ijb-YM-pK2"/>
                             <constraint firstItem="XMd-Go-a5c" firstAttribute="trailing" secondItem="DJS-gL-qWf" secondAttribute="trailing" id="keo-1b-iq3"/>
+                            <constraint firstItem="wB1-3K-rhj" firstAttribute="centerX" secondItem="0iD-T5-kfM" secondAttribute="centerX" id="maH-nK-52e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eMf-ol-abw"/>
                     <connections>
+                        <outlet property="bannerView" destination="wB1-3K-rhj" id="KMC-kl-50B"/>
+                        <outlet property="bannerViewHeightConstraint" destination="j9z-Br-w0s" id="sl8-rU-jgT"/>
                         <outlet property="tableViewGuide" destination="DJS-gL-qWf" id="DzQ-2Q-2ln"/>
                     </connections>
                 </viewController>
@@ -1237,14 +1249,14 @@ ASSIST</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HelplineTableViewCell" id="6l6-uv-jJ4" customClass="HelplineTableViewCell" customModule="Covid19_Internal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="37"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="37.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6l6-uv-jJ4" id="kSl-Yl-XO2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="37"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="37.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEC-1M-OxF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="37"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="37.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" systemColor="systemOrangeColor"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

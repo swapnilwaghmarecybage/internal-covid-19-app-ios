@@ -11,14 +11,15 @@ import UIKit
 class HomeViewController: BaseViewController {
 
     private var viewModelHomeTab:HomeTabViewModel?
-    
+    private var isMRECAdAvailable = false
+    private let sdkManager = VungleSDKManager()
     @IBOutlet weak var dataSelectionSegmentControl: UISegmentedControl!
     @IBOutlet weak var tableViewCovidData: UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        isMRECAdAvailable = sdkManager.isMRECAdAvailable()
         self.view.backgroundColor = Theme.backgroundColor
         dataSelectionSegmentControl.addBorder(borderWidth: 1.0, borderColor: Theme.labelColor, cornerRadius: 0.5)
         if #available(iOS 13.0, *) {
@@ -108,6 +109,21 @@ extension HomeViewController: UITableViewDataSource {
             }
             return UITableViewCell()
         case 1:
+           let cell = UITableViewCell(style: .default, reuseIdentifier: "MRECADCELL")
+            cell.backgroundColor = UIColor.clear
+            let mrecContainerView = UIView()
+            let mrecViewWidth: CGFloat = 300
+            let mrecViewHeight: CGFloat = 250
+            let mrecViewOriginX: CGFloat = (UIScreen.main.bounds.size.width - mrecViewWidth)/2
+            let mrecViewOriginY: CGFloat = 25 //(cell.frame.height  - mrecViewHeight)/2
+            mrecContainerView.frame = CGRect(x: mrecViewOriginX, y: mrecViewOriginY, width: mrecViewWidth, height: mrecViewHeight)
+            mrecContainerView.backgroundColor = UIColor.clear
+            cell.contentView.backgroundColor = UIColor.clear
+            cell.contentView.addSubview(mrecContainerView)
+            self.sdkManager.showMRECAd(mrecViewArea: mrecContainerView)
+
+            return cell
+        case 2:
             if let graphCell = tableView.dequeueReusableCell(withIdentifier: "GraphTableViewCell", for: indexPath) as? GraphTableViewCell{
                 
                 if let viewModel = self.viewModelHomeTab,
@@ -137,6 +153,8 @@ extension HomeViewController: UITableViewDataSource {
         case 0:
             return 1
         case 1:
+            return isMRECAdAvailable ? 1 : 0
+        case 2:
             return 1
         default:
             if let viewModel = self.viewModelHomeTab {
@@ -150,7 +168,9 @@ extension HomeViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0 :
             return 130
-        case 1:
+        case 1 :
+           return isMRECAdAvailable ? 300 : 0
+        case 2:
             return  250 //self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue ? 250 : 250
         default:
            return 120
@@ -158,7 +178,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return  4
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -168,6 +188,8 @@ extension HomeViewController: UITableViewDataSource {
         case 1:
             return 30
         case 2:
+            return 30
+        case 3:
             return 60
         default:
            return 0
@@ -181,10 +203,14 @@ extension HomeViewController: UITableViewDataSource {
             headerView.backgroundColor = self.view.backgroundColor
             return headerView
         case 1:
-            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 30))
+            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 0))
             headerView.backgroundColor = self.view.backgroundColor
             return headerView
         case 2:
+            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 30))
+            headerView.backgroundColor = self.view.backgroundColor
+            return headerView
+        case 3:
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 60))
         headerView.backgroundColor = self.view.backgroundColor
         let label = UILabel()
@@ -213,12 +239,14 @@ extension HomeViewController: UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        if(self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue && indexPath.section == 2){
+        if(self.dataSelectionSegmentControl.selectedSegmentIndex == SegmentSelectionIndex.India.rawValue && indexPath.section == 3){
             if let districtVC =  self.storyboard?.instantiateViewController(withIdentifier: "DistrictInfoViewController") as? DistrictInfoViewController {
                 
                 districtVC.stateData = self.viewModelHomeTab?.getStateAtIndex(index: indexPath) as? IndiaHistoryModel.DayWiseData.Region
                 districtVC.stateHistoryData =  self.viewModelHomeTab?.getDataForStateHistoryBarChart(_stateName: districtVC.stateData?.loc)
                 self.navigationController?.pushViewController(districtVC, animated: true)
+                self.sdkManager.incermentCounterForInterstitial()
+                self.sdkManager.showInterstitial(controller: self)
             }
         }
     }

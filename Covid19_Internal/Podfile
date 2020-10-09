@@ -12,6 +12,6 @@ target 'Covid19_Internal' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Messaging'
-pod 'AWSS3'
-
+  pod 'AWSS3'
+  pod "VungleSDK-iOS", "6.8.0"
 end

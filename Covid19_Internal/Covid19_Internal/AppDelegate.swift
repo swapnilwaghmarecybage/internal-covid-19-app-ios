@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        VungleSDKManager().initialiseVungleSDK()
         FirebaseManager.configure()
         self.initializeS3()
         if let _ = UserDefaults.standard.value(forKey: USERNAME) {
@@ -41,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AWSServiceManager.default().defaultServiceConfiguration = configuration
         
     }
+    
     
     
     
